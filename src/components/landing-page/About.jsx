@@ -6,7 +6,7 @@ import ArrowSVG from '../../assets/icons/arrow.svg'
 
 const About = () => {
   return (
-    <div className="flex flex-col p-12 space-y-2 font-sans">
+    <div className="flex flex-col px-20 py-12 space-y-2 font-sans">
       <div className="flex flex-col space-y-2">
         <h2 className="text-3xl text-primary tracking-widest">ABOUT</h2>
         <h2 className="text-3xl font-semibold tracking-wide">Who are we?</h2>
