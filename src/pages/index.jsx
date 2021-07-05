@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import Layout from '../components/layout'
-import Seo from '../components/seo'
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
 import Hero from '../components/landing-page/Hero'
 import Services from '../components/landing-page/Services'
@@ -11,7 +11,7 @@ import About from '../components/landing-page/About'
 
 const IndexPage = () => (
   <Layout>
-    <Seo title="Home" />
+    <SEO title="Home" />
 
     <Hero />
     <Services />
