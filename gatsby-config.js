@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Studio Karsa`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `We make websites, UI/UX designs and mobile friendly apps. We are a remote digital agency based in Jakarta, Indonesia.`,
+    author: `@studiokarsa`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -33,9 +33,9 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /assets/
-        }
-      }
+          include: /assets/,
+        },
+      },
     },
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
