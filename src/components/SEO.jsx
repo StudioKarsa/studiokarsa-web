@@ -10,7 +10,14 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, title }) {
+function SEO({
+  description,
+  lang = 'en',
+  meta = [],
+  keywords = [],
+  title,
+  image,
+}) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -24,6 +31,11 @@ function SEO({ description, lang, meta, title }) {
       }
     `
   )
+
+  console.log(image)
+
+  const metaImage =
+    image && image.src ? `${site.siteMetadata.siteUrl}${image.src}` : null
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
@@ -53,10 +65,6 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
           name: `twitter:creator`,
           content: site.siteMetadata?.author || ``,
         },
@@ -68,7 +76,47 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
+      ]
+        .concat(
+          metaImage
+            ? [
+                {
+                  property: `og:image`,
+                  content: metaImage,
+                },
+                {
+                  property: `og:image:alt`,
+                  content: title,
+                },
+                {
+                  property: 'og:image:width',
+                  content: image.width,
+                },
+                {
+                  property: 'og:image:height',
+                  content: image.height,
+                },
+                {
+                  name: `twitter:card`,
+                  content: `summary_large_image`,
+                },
+              ]
+            : [
+                {
+                  name: `twitter:card`,
+                  content: `summary`,
+                },
+              ]
+        )
+        .concat(
+          keywords.length > 0
+            ? {
+                name: `keywords`,
+                content: keywords.join(`, `),
+              }
+            : []
+        )
+        .concat(meta)}
     />
   )
 }
