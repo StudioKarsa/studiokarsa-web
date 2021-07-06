@@ -15,8 +15,8 @@ const About = () => {
         <div className="w-1/2 p-8">
           <TeamSVG className="w-full h-full" />
         </div>
-        <div className="flex flex-col w-1/2 p-8">
-          <div>
+        <div className="flex w-1/2 p-8">
+          <div className="my-auto">
             <p>We are a remote digital agency based in Jakarta, Indonesia.</p>
             <br />
             <p>
