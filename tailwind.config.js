@@ -12,9 +12,10 @@ module.exports = {
       colors: {
         primary: '#D81159',
         secondary: '#FFBC42',
+        white: '#f6f9fc',
       },
     },
-    fill: (theme) => ({
+    fill: theme => ({
       current: 'currentColor',
       primary: theme('colors.primary'),
     }),
