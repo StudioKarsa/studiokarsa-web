@@ -17,6 +17,7 @@ function SEO({
   keywords = [],
   title,
   image,
+  imageSRC,
 }) {
   const { site } = useStaticQuery(
     graphql`
@@ -31,11 +32,6 @@ function SEO({
       }
     `
   )
-
-  console.log(image)
-
-  const metaImage =
-    image && image.src ? `${site.siteMetadata.siteUrl}${image.src}` : null
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
@@ -78,11 +74,11 @@ function SEO({
         },
       ]
         .concat(
-          metaImage
+          image
             ? [
                 {
                   property: `og:image`,
-                  content: metaImage,
+                  content: imageSRC,
                 },
                 {
                   property: `og:image:alt`,

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { getImage, getSrc } from 'gatsby-plugin-image'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
@@ -11,7 +12,10 @@ import About from '../components/landing-page/About'
 import { graphql, useStaticQuery } from 'gatsby'
 
 const IndexPage = () => {
-  const { seoImage } = useStaticQuery(query)
+  const { file } = useStaticQuery(query)
+
+  const seoImage = getImage(file)
+  const seoImageSRC = getSrc(file)
 
   return (
     <Layout>
@@ -32,7 +36,8 @@ const IndexPage = () => {
           'ui ux',
           'ui ux indonesia',
         ]}
-        image={seoImage.childImageSharp.fixed}
+        image={seoImage}
+        imageSRC={seoImageSRC}
       />
 
       <Hero />
@@ -48,11 +53,14 @@ export default IndexPage
 
 const query = graphql`
   query HomeSEOImageQuery {
-    seoImage: file(relativePath: { eq: "brand-logo.png" }) {
+    file(relativePath: { eq: "brand-logo.png" }) {
       childImageSharp {
-        fixed(height: 1080, width: 1080) {
-          ...GatsbyImageSharpFixed
-        }
+        gatsbyImageData(
+          layout: FIXED
+          width: 200
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+        )
       }
     }
   }
