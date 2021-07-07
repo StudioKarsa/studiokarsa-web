@@ -143,7 +143,7 @@ const NavOverlay = () => (
         <IconLogo className="w-24 md:w-32 h-auto" />
       </Link>
     </div>
-    <div className="mt-10 md:mt-28 flex flex-wrap justify-between">
+    <div className="mt-10 2xl:mt-28 flex flex-wrap justify-between">
       <NavLinks />
       <NavFooter />
     </div>
