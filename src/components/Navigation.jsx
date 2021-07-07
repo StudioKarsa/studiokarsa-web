@@ -65,62 +65,34 @@ const Navbar = ({ isOverlayVisible, setIsOverlayVisible }) => (
   </nav>
 )
 
-const NavLink = ({ children, to, animationDelay = 0.1 }) => (
+const NavLink = ({ children, to }) => (
   <Link to={to}>
-    <motion.h1
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 100 }}
-      transition={{
-        duration: 2,
-        ease: [0.19, 1.0, 0.22, 1.0],
-        delay: animationDelay,
-      }}
-      className="text-3xl md:text-6xl lg:text-8xl font-semibold tracking-tighter hover:text-primary duration-150"
-    >
+    <h1 className="text-2xl sm:text-4xl lg:text-6xl 2xl:text-8xl font-semibold tracking-tighter hover:text-primary duration-150">
       {children}
-    </motion.h1>
+    </h1>
   </Link>
 )
 
 const NavLinks = () => (
-  <nav className="flex flex-col space-y-4 md:space-y-8">
+  <nav className="flex flex-col flex-wrap space-y-4 md:space-y-8">
     <NavLink to="/">Services</NavLink>
-    <NavLink to="/" animationDelay={0.2}>
-      Why Us
-    </NavLink>
-    <NavLink to="/" animationDelay={0.3}>
-      Works
-    </NavLink>
-    <NavLink to="/" animationDelay={0.4}>
-      About
-    </NavLink>
-    <NavLink to="/" animationDelay={0.5}>
-      Blog
-    </NavLink>
-    <NavLink to="/" animationDelay={0.6}>
-      Contact Us
-    </NavLink>
+    <NavLink to="/">Why Us</NavLink>
+    <NavLink to="/">Works</NavLink>
+    <NavLink to="/">About</NavLink>
+    <NavLink to="/">Blog</NavLink>
+    <NavLink to="/">Contact Us</NavLink>
   </nav>
 )
 
-const NavSocialLink = ({ children, to = '#', animationDelay = 0.1 }) => (
-  <motion.a
+const NavSocialLink = ({ children, to = '#' }) => (
+  <a
     href={to}
     target="_blank"
     rel="noopener noreferrer"
     className="hover:text-primary hover:fill-current duration-150"
-    initial={{ opacity: 0, x: 100 }}
-    animate={{ opacity: 1, x: 0 }}
-    exit={{ opacity: 0, x: 100 }}
-    transition={{
-      duration: 1,
-      ease: [0.19, 1.0, 0.22, 1.0],
-      delay: animationDelay,
-    }}
   >
     {children}
-  </motion.a>
+  </a>
 )
 
 const NavFooter = () => {
@@ -171,7 +143,7 @@ const NavOverlay = () => (
         <IconLogo className="w-24 md:w-32 h-auto" />
       </Link>
     </div>
-    <div className="mt-10 md:mt-28 flex flex-wrap justify-between">
+    <div className="mt-10 2xl:mt-28 flex flex-wrap justify-between">
       <NavLinks />
       <NavFooter />
     </div>
