@@ -14,7 +14,7 @@ import IconInstagramLogo from '../assets/icons/instagram-logo.svg'
 import IconLinkedInLogo from '../assets/icons/linkedin-logo.svg'
 
 const Navbar = ({ isOverlayVisible, setIsOverlayVisible }) => (
-  <nav className="flex flex-col px-4 md:px-20 py-8 space-y-2">
+  <nav className="flex flex-col px-6 md:px-20 py-8 space-y-2">
     <div className="relative flex justify-between items-center">
       <Link to="/">
         <IconLogo className="w-24 md:w-32 h-auto" />
@@ -164,7 +164,7 @@ const NavOverlay = () => (
       duration: 1,
       ease: [0.19, 1.0, 0.22, 1.0],
     }}
-    className="fixed top-0 left-0 w-screen z-20 px-4 md:px-20 overflow-hidden bg-white shadow-lg"
+    className="fixed top-0 left-0 w-screen z-20 px-6 md:px-20 overflow-hidden bg-white shadow-lg"
   >
     <div className="mt-8">
       <Link to="/">
