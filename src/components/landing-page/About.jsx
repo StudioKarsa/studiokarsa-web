@@ -5,16 +5,16 @@ import TeamSVG from '../../assets/images/team.svg'
 import ArrowSVG from '../../assets/icons/arrow.svg'
 
 const About = () => (
-  <div className="flex flex-col px-20 py-12 space-y-2 font-sans">
+  <div className="flex flex-col px-6 md:px-20 space-y-2">
     <div className="flex flex-col space-y-2">
-      <h2 className="text-3xl text-primary tracking-widest">ABOUT</h2>
+      <h2 className="text-3xl text-primary tracking-widest uppercase">about</h2>
       <h2 className="text-3xl font-semibold tracking-wide">Who are we?</h2>
     </div>
-    <div className="flex flex-row justify-between">
-      <div className="w-1/2 p-8">
+    <div className="flex flex-col md:flex-row justify-between">
+      <div className="w-full md:w-1/2 p-2 md:p-8">
         <TeamSVG className="w-full h-full" />
       </div>
-      <div className="flex w-1/2 p-8">
+      <div className="flex w-full md:w-1/2 p-2 md:p-8">
         <div className="my-auto">
           <p>We are a remote digital agency based in Jakarta, Indonesia.</p>
           <br />
