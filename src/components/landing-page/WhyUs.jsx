@@ -14,7 +14,7 @@ function WhyUs() {
         Creating impactful digital experience
       </div>
     </div>
-    <div className="flex flex-col lg:flex-row justify-evenly w-full space-x-0 space-y-6 md:space-x-14 lg:space-x-24 lg:space-y-0">
+    <div className="flex flex-col lg:flex-row justify-evenly w-full space-x-0 space-y-6 lg:space-x-14 2xl:space-x-24 lg:space-y-0">
       <div className="flex flex-1 flex-col text-center space-y-4">
         <div className="flex justify-center">
           <div className="bg-white shadow-md rounded-full p-2 2xl:p-4">
