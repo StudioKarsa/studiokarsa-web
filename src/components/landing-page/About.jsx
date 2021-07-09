@@ -7,8 +7,8 @@ import ArrowSVG from '../../assets/icons/arrow.svg'
 const About = () => (
   <div className="flex flex-col px-6 md:px-20 space-y-2">
     <div className="flex flex-col">
-      <h2 className="text-3xl text-primary tracking-widest uppercase">about</h2>
-      <h2 className="text-3xl font-semibold tracking-wide">Who are we?</h2>
+      <h2 className="text-2xl lg:text-3xl font-medium text-primary tracking-wide uppercase">about</h2>
+      <h2 className="text-2xl lg:text-4xl font-semibold tracking-wider">Who are we?</h2>
     </div>
     <div className="flex flex-col md:flex-row justify-between">
       <div className="w-full md:w-1/2 p-2 md:p-8">
