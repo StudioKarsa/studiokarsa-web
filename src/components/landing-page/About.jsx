@@ -6,7 +6,7 @@ import ArrowSVG from '../../assets/icons/arrow.svg'
 
 const About = () => (
   <div className="flex flex-col px-6 md:px-20 space-y-2">
-    <div className="flex flex-col space-y-2">
+    <div className="flex flex-col">
       <h2 className="text-3xl text-primary tracking-widest uppercase">about</h2>
       <h2 className="text-3xl font-semibold tracking-wide">Who are we?</h2>
     </div>
@@ -14,7 +14,7 @@ const About = () => (
       <div className="w-full md:w-1/2 p-2 md:p-8">
         <TeamSVG className="w-full h-full" />
       </div>
-      <div className="flex w-full md:w-1/2 p-2 md:p-8">
+      <div className="flex w-full md:w-1/2 p-2 md:p-8 text-lg 2xl:text-2xl">
         <div className="my-auto">
           <p>We are a remote digital agency based in Jakarta, Indonesia.</p>
           <br />
