@@ -12,68 +12,41 @@ const Services = () => (
       </div>
     </div>
     <div className="lg:grid lg:grid-cols-2 lg:gap-12">
-      <div className="p-6 md:flex group group-hover:transform duration-300 rounded-xl mb-5 lg:mb-0 custom-shadow md:gap-x-5 hover:bg-primary">
-        <div className="w-full justify-center md:w-auto md:justify-start flex mb-4 md:mb-0">
-          <div className="bg-primary w-full h-full md:w-24 md:h-24 group-hover:bg-white rounded-xl group-hover:transform duration-300 justify-center flex">
-            <FigmaSVG className="text-white w-16 h-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300" />
-          </div>
-        </div>
-        <div className="md:place-content-around md:grid md:w-full">
-          <h3 className="text-xl md:text-2xl font-semibold group-hover:text-white group-hover:transform duration-300">
-            UI/UX Design
-          </h3>
-          <p className="text-gray-500 group-hover:text-white group-hover:transform duration-300">
-            Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur{' '}
-          </p>
-        </div>
-      </div>
-      <div className="p-6 md:flex group group-hover:transform duration-300 rounded-xl mb-5 lg:mb-0 custom-shadow md:gap-x-5 hover:bg-primary">
-        <div className="w-full justify-center md:w-auto md:justify-start flex mb-4 md:mb-0">
-          <div className="bg-primary w-full h-full md:w-24 md:h-24 group-hover:bg-white rounded-xl group-hover:transform duration-300 flex justify-center">
-            <WebSVG className="text-white w-16 h-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300" />
-          </div>
-        </div>
-        <div className="md:place-content-around md:grid md:w-full">
-          <h3 className="text-xl md:text-2xl font-semibold group-hover:text-white group-hover:transform duration-300">
-            Web Development
-          </h3>
-          <p className="text-gray-500 group-hover:text-white group-hover:transform duration-300">
-            Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur{' '}
-          </p>
-        </div>
-      </div>
-      <div className="p-6 md:flex group group-hover:transform duration-300 rounded-xl mb-5 lg:mb-0 custom-shadow md:gap-x-5 hover:bg-primary">
-        <div className="w-full justify-center md:w-auto md:justify-start flex mb-4 md:mb-0">
-          <div className="bg-primary w-full h-full md:w-24 md:h-24 group-hover:bg-white rounded-xl group-hover:transform duration-300 flex justify-center">
-            <WebSVG className="text-white w-16 h-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300" />
-          </div>
-        </div>
-        <div className="md:place-content-around md:grid md:w-full">
-          <h3 className="text-xl md:text-2xl font-semibold group-hover:text-white group-hover:transform duration-300">
-            Web Development
-          </h3>
-          <p className="text-gray-500 group-hover:text-white group-hover:transform duration-300">
-            Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur{' '}
-          </p>
-        </div>
-      </div>
-      <div className="p-6 md:flex group group-hover:transform duration-300 rounded-xl mb-5 lg:mb-0 custom-shadow md:gap-x-5 hover:bg-primary">
-        <div className="w-full justify-center md:w-auto md:justify-start flex mb-4 md:mb-0">
-          <div className="bg-primary w-full h-full md:w-24 md:h-24 group-hover:bg-white rounded-xl group-hover:transform duration-300 flex justify-center">
-            <ServerSVG className="text-white w-16 h-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300" />
-          </div>
-        </div>
-        <div className="md:place-content-around md:grid md:w-full">
-          <h3 className="text-xl md:text-2xl font-semibold group-hover:text-white group-hover:transform duration-300">
-            Cloud Computing
-          </h3>
-          <p className="text-gray-500 group-hover:text-white group-hover:transform duration-300">
-            Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur{' '}
-          </p>
-        </div>
-      </div>
+      <Service svg="FigmaSVG" title="UI/UX Design" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
+      <Service svg="WebSVG" title="Web Development" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
+      <Service svg="WebSVG" title="Web Development" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
+      <Service svg="ServerSVG" title="Cloud Computing" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
     </div>
   </div>
 )
+
+const Service = (props) => {
+  let icon;
+  if (props.svg === 'FigmaSVG') {
+    icon = <FigmaSVG className="text-white w-16 h-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300" />
+  } else if (props.svg === 'WebSVG') {
+    icon = <WebSVG className="text-white w-16 h-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300" />
+  } else {
+    icon = <ServerSVG className="text-white w-16 h-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300" />
+  }
+
+  return (
+    <div className="p-6 md:flex group group-hover:transform duration-300 rounded-xl mb-5 lg:mb-0 custom-shadow md:gap-x-5 hover:bg-primary">
+      <div className="w-full justify-center md:w-auto md:justify-start flex mb-4 md:mb-0">
+        <div className="bg-primary w-full h-full md:w-24 md:h-24 group-hover:bg-white rounded-xl group-hover:transform duration-300 flex justify-center">
+          {icon}
+        </div>
+      </div>
+      <div className="md:place-content-around md:grid md:w-full">
+        <h3 className="text-xl md:text-2xl font-semibold group-hover:text-white group-hover:transform duration-300">
+          {props.title}
+        </h3>
+        <p className="text-gray-500 group-hover:text-white group-hover:transform duration-300">
+          {props.desc}
+        </p>
+      </div>
+    </div>
+  )
+}
 
 export default Services
