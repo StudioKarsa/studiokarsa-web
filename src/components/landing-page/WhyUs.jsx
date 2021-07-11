@@ -18,7 +18,7 @@ function WhyUs() {
       <div className="flex flex-1 flex-col text-center space-y-4">
         <div className="flex justify-center">
           <div className="bg-white shadow-md rounded-full p-2 2xl:p-4">
-            <div className="bg-secondary bg-opacity-40 scale-75 2xl:scale-90 rounded-full">
+            <div className="bg-secondary bg-opacity-40 scale-75 md:scale-90 rounded-full">
               <CustomDesign className="scale-50 md:scale-75 rounded-full" />
             </div>
           </div>
