@@ -7,10 +7,10 @@ import MobileFriendly from '../../assets/icons/mobile-friendly.svg'
 function WhyUs() {
   return <div className="flex flex-col items-center p-12 space-y-12">
     <div className="flex flex-col text-center">
-      <div className="uppercase tracking-wide font-medium text-primary text-2xl lg:text-3xl">
+      <div className="uppercase tracking-wider font-medium text-primary text-2xl md:text-3xl">
         why us?
       </div>
-      <div className="font-semibold tracking-wider text-2xl lg:text-4xl">
+      <div className="font-semibold text-2xl md:text-3xl md:mb-4">
         Creating impactful digital experience
       </div>
     </div>
