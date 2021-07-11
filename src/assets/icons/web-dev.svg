@@ -1,10 +1,10 @@
 <svg width="82" height="82" viewBox="0 0 82 82" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M68.333 10.25H13.6663C9.8924 10.25 6.83301 13.3094 6.83301 17.0833V51.25C6.83301 55.0239 9.8924 58.0833 13.6663 58.0833H68.333C72.107 58.0833 75.1664 55.0239 75.1664 51.25V17.0833C75.1664 13.3094 72.107 10.25 68.333 10.25Z" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M27.333 71.75H54.6663" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M41 58.083V71.7497" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="38.659" y1="42.6718" x2="44.1583" y2="24.3409" stroke="white" stroke-width="4" stroke-linecap="round"/>
-<line x1="31.7512" y1="39.6262" x2="20.9775" y2="34.6537" stroke="white" stroke-width="4" stroke-linecap="round"/>
-<line x1="31.8461" y1="28.2184" x2="21.5699" y2="34.1513" stroke="white" stroke-width="4" stroke-linecap="round"/>
-<line x1="2" y1="-2" x2="13.8659" y2="-2" transform="matrix(0.907957 -0.419062 -0.419062 -0.907957 47 38.6484)" stroke="white" stroke-width="4" stroke-linecap="round"/>
-<line x1="2" y1="-2" x2="13.8659" y2="-2" transform="matrix(0.866025 0.5 0.5 -0.866025 49.4219 25.4863)" stroke="white" stroke-width="4" stroke-linecap="round"/>
+<path d="M68.333 10.25H13.6663C9.8924 10.25 6.83301 13.3094 6.83301 17.0833V51.25C6.83301 55.0239 9.8924 58.0833 13.6663 58.0833H68.333C72.107 58.0833 75.1664 55.0239 75.1664 51.25V17.0833C75.1664 13.3094 72.107 10.25 68.333 10.25Z" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M27.333 71.75H54.6663" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M41 58.083V71.7497" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="38.659" y1="42.6718" x2="44.1583" y2="24.3409" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+<line x1="31.7512" y1="39.6262" x2="20.9775" y2="34.6537" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+<line x1="31.8461" y1="28.2184" x2="21.5699" y2="34.1513" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+<line x1="2" y1="-2" x2="13.8659" y2="-2" transform="matrix(0.907957 -0.419062 -0.419062 -0.907957 47 38.6484)" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+<line x1="2" y1="-2" x2="13.8659" y2="-2" transform="matrix(0.866025 0.5 0.5 -0.866025 49.4219 25.4863)" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
 </svg>

@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
 import Navigation from './Navigation'
+import Footer from './Footer'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(query)
@@ -17,7 +18,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navigation />
-      <main className="h-screen">{children}</main>
+      <main className="h-screen">
+        {children}
+        <Footer />
+      </main>
     </>
   )
 }
