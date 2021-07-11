@@ -15,23 +15,18 @@ const Works = () => (
       <div className="flex flex-col lg:w-1/3 md:p-4">
         <div className="my-auto">
           <div className="grid grid-cols-1 divide-y-2 divide-solid divide-opacity-25">
-            <div>
+            <div className="py-4">
               <a href="#" className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary">Skillcode</a>
                 <p className="text-gray-500 text-sm lg:text-md">Test your programming skills</p>
             </div>
-            <br />
-
-            <div className="pt-3">
+            <div className="py-4">
               <a href="#" className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary">Sikepo</a>
                 <p className="text-gray-500 text-sm lg:text-md">Vote your school's next student council leader</p>
-            </div>
-            <br />
-            
-            <div className="pt-3">
+            </div>            
+            <div className="py-4">
               <a href="#" className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary">Magenta</a>
                 <p className="text-gray-500 text-sm lg:text-md">Your next social networking platform</p>
             </div>
-            <br />
           </div>
           <div>
             <Link
