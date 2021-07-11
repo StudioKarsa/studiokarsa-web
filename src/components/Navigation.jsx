@@ -106,10 +106,8 @@ const NavFooter = () => {
   return (
     <footer className="self-end mt-12 md:mt-0 z-20">
       <div className="flex md:justify-end space-x-14">
-        {socials.map((social, index) => (
-          <NavSocialLink animationDelay={0.2 + index * 0.2} key={social.key}>
-            {social.icon}
-          </NavSocialLink>
+        {socials.map(social => (
+          <NavSocialLink key={social.key}>{social.icon}</NavSocialLink>
         ))}
       </div>
       <div className="flex justify-end space-x-4 md:space-x-12 mt-12">
