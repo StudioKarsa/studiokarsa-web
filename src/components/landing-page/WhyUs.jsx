@@ -4,9 +4,11 @@ import CustomDesign from '../../assets/icons/custom-design.svg'
 import ModernUI from '../../assets/icons/modern-ui.svg'
 import MobileFriendly from '../../assets/icons/mobile-friendly.svg'
 
+import LogoTransparent from '../../assets/images/logo-transparent.svg'
+
 function WhyUs() {
-  return <div className="flex flex-col items-center p-12 space-y-12">
-    <div className="flex flex-col text-center">
+  return <div className="flex flex-col items-center p-12 space-y-12 relative">
+    <div className="flex flex-col text-center z-10">
       <div className="text-2xl md:text-3xl text-primary tracking-widest uppercase">
         why us?
       </div>
@@ -60,6 +62,9 @@ function WhyUs() {
           Website anda akan tampil dengan baik pada semua perangkat elektronik moderen
         </div>
       </div>
+    </div>
+    <div className="z-0">
+      <LogoTransparent className="absolute transform -translate-x-2/4 -translate-y-2/4 top-1/2 left-1/2 w-full md:w-7/12 z-0 h-auto"></LogoTransparent>
     </div>
   </div>
 }
