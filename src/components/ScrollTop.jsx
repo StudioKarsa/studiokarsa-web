@@ -5,6 +5,7 @@ import { isBrowser } from '../utils/constants'
 import useScroll from '../hooks/useScroll'
 
 import IconArrowUp from '../assets/icons/arrow-up.svg'
+import useMediaQuery from '../hooks/useMediaQuery'
 
 const ScrollTop = () => {
   const ANIMATION_VARIANT_TYPE = {
@@ -28,6 +29,7 @@ const ScrollTop = () => {
   )
 
   const scroll = useScroll({})
+  const isXLBreakpoint = useMediaQuery('(min-width: 1280px)')
 
   const scrollToTop = () => {
     if (isBrowser) window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -38,9 +40,9 @@ const ScrollTop = () => {
       setIsVisible(true)
       setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.SCROLL)
 
-      // Prevent the button from overlapping footer social media icons
-      // whenever the user has scrolled to the bottom of the page
-      if (isBrowser) {
+      // Prevent the button from overlapping footer social media icons whenever
+      // the user has scrolled to the bottom of the page in desktop mode
+      if (isBrowser && isXLBreakpoint) {
         window.addEventListener('scroll', () => {
           // source: https://stackoverflow.com/questions/9439725/javascript-how-to-detect-if-browser-window-is-scrolled-to-bottom#comment116566745_9439807
           if (
@@ -56,7 +58,7 @@ const ScrollTop = () => {
     }
 
     return () => {
-      if (isBrowser)
+      if (isBrowser && isXLBreakpoint)
         window.removeEventListener('scroll', () => {
           if (
             Math.ceil(window.innerHeight + window.scrollY) >=
@@ -65,7 +67,7 @@ const ScrollTop = () => {
             setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.AT_BOTTOM)
         })
     }
-  }, [scroll.y])
+  }, [scroll.y, isXLBreakpoint])
 
   return (
     <AnimatePresence>
