@@ -47,7 +47,7 @@ const Works = () => {
       </div>
 
       <div className="flex flex-col-reverse md:flex-row justify-around">
-        <div className="flex flex-col mt-6 lg:w-1/3 h-full md:p-4 lg:mt-12">
+        <div className="flex flex-col mt-10 lg:w-1/3 h-full md:p-4 lg:mt-12">
           <div className="my-auto">
             <div className="grid grid-cols-1 divide-y-2 divide-solid divide-opacity-25">
               <div className="py-4">
