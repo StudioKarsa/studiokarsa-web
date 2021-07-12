@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 import RoundedLogo from '../assets/images/rounded-logo.svg'
 
@@ -8,8 +9,9 @@ import IconMapPin from '../assets/icons/map-pin.svg'
 import IconMediumLogo from '../assets/icons/medium-logo.svg'
 import IconTwitterLogo from '../assets/icons/twitter-logo.svg'
 import IconInstagramLogo from '../assets/icons/instagram-logo.svg'
+import IconDribbbleLogo from '../assets/icons/dribbble-logo.svg'
+import IconBehanceLogo from '../assets/icons/behance-logo.svg'
 import IconLinkedInLogo from '../assets/icons/linkedin-logo.svg'
-import { Link } from 'gatsby'
 
 const ContactSection = () => (
   <>
@@ -54,6 +56,8 @@ const Footer = () => {
     { key: '__socials_medium', href: '#', icon: <IconMediumLogo /> },
     { key: '__socials_twitter', href: '#', icon: <IconTwitterLogo /> },
     { key: '__socials_instagram', href: '#', icon: <IconInstagramLogo /> },
+    { key: '__socials_dribbble', href: '#', icon: <IconDribbbleLogo /> },
+    { key: '__socials_behance', href: '#', icon: <IconBehanceLogo /> },
     { key: '__socials_linkedin', href: '#', icon: <IconLinkedInLogo /> },
   ]
 
