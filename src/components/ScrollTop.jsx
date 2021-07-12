@@ -37,25 +37,24 @@ const ScrollTop = () => {
     if (scroll.y > 0) {
       setIsVisible(true)
       setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.SCROLL)
+
+      // Prevent the button from overlapping footer social media icons
+      // whenever the user has scrolled to the bottom of the page
+      if (isBrowser) {
+        window.addEventListener('scroll', () => {
+          // source: https://stackoverflow.com/questions/9439725/javascript-how-to-detect-if-browser-window-is-scrolled-to-bottom#comment116566745_9439807
+          if (
+            Math.ceil(window.innerHeight + window.scrollY) >=
+            document.body.scrollHeight
+          )
+            setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.AT_BOTTOM)
+        })
+      }
     } else {
       // Hide the button if the user is at the top of the page
       setIsVisible(false)
     }
-  }, [scroll.y])
 
-  // Prevent the button from overlapping footer social media icons
-  // whenever the user has scrolled to the bottom of the page
-  useEffect(() => {
-    if (isBrowser) {
-      window.addEventListener('scroll', () => {
-        // source: https://stackoverflow.com/questions/9439725/javascript-how-to-detect-if-browser-window-is-scrolled-to-bottom#comment116566745_9439807
-        if (
-          Math.ceil(window.innerHeight + window.scrollY) >=
-          document.body.scrollHeight
-        )
-          setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.AT_BOTTOM)
-      })
-    }
     return () => {
       if (isBrowser)
         window.removeEventListener('scroll', () => {
@@ -66,7 +65,7 @@ const ScrollTop = () => {
             setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.AT_BOTTOM)
         })
     }
-  }, [window.scrollY])
+  }, [scroll.y])
 
   return (
     <AnimatePresence>
