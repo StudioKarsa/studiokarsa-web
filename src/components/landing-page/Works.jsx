@@ -13,21 +13,21 @@ const Works = () => {
         <StaticImage
           src="../../assets/images/works-macbook-mockup.png"
           alt="First Image"
-          className="w-full h-auto lg:w-3/4"
+          className="w-full h-auto"
         />
       ),
       sikepo: (
         <StaticImage
           src="../../assets/images/works-2-iphones-mockup.png"
           alt="Second Image"
-          className="w-5/6 h-auto lg:w-2/3"
+          className="w-full h-auto"
         />
       ),
       magenta: (
         <StaticImage
           src="../../assets/images/works-3-iphones-mockup.png"
           alt="Third Image"
-          className="w-4/5 h-auto lg:w-2/3"
+          className="w-full h-auto"
         />
       ),
     }
@@ -47,12 +47,10 @@ const Works = () => {
       </div>
 
       <div className="flex flex-col-reverse md:flex-row justify-around">
-        <div className="flex flex-col lg:w-1/3 md:p-4">
+        <div className="flex flex-col lg:w-1/3 h-full md:p-4 mt-12">
           <div className="my-auto">
             <div className="grid grid-cols-1 divide-y-2 divide-solid divide-opacity-25">
-              <div
-                className="py-4"
-              >
+              <div className="py-4">
                 <a
                   href="#"
                   className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary"
@@ -65,9 +63,7 @@ const Works = () => {
                   Test your programming skills
                 </p>
               </div>
-              <div
-                className="py-4"
-              >
+              <div className="py-4">
                 <a
                   href="#"
                   className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary"
@@ -80,9 +76,7 @@ const Works = () => {
                   Vote your school's next student council leader
                 </p>
               </div>
-              <div
-                className="py-4"
-              >
+              <div className="py-4">
                 <a
                   href="#"
                   className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary"
@@ -107,8 +101,8 @@ const Works = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center w-full lg:w-1/2 my-auto py-auto">
-          {renderProjectImage(currentProjectImage)}
+        <div className="flex justify-center w-full lg:w-1/2 h-96 my-auto py-auto">
+          <div className="max-w-3xl">{renderProjectImage(currentProjectImage)}</div>
         </div>
       </div>
     </div>
