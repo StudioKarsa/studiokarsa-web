@@ -5,23 +5,70 @@ import IconArrowUp from '../assets/icons/arrow-up.svg'
 import useScroll from '../hooks/useScroll'
 
 const ScrollTop = () => {
+  const ANIMATION_VARIANT_TYPE = {
+    SCROLL: 'SCROLL',
+    AT_BOTTOM: 'AT_BOTTOM',
+  }
+
+  const variants = {
+    [ANIMATION_VARIANT_TYPE.SCROLL]: {
+      opacity: 1,
+    },
+    [ANIMATION_VARIANT_TYPE.AT_BOTTOM]: {
+      opacity: 1,
+      y: -100,
+    },
+  }
+
   const [isVisible, setIsVisible] = useState(false)
+  const [currentAnimationVariant, setCurrentAnimationVariant] = useState(
+    ANIMATION_VARIANT_TYPE.SCROLL
+  )
+
   const scroll = useScroll({})
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
   useEffect(() => {
-    if (scroll.y > 0) setIsVisible(true)
-    else setIsVisible(false)
+    if (scroll.y > 0) {
+      setIsVisible(true)
+      setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.SCROLL)
+    } else {
+      // Hide the button if the user is at the top of the page
+      setIsVisible(false)
+    }
   }, [scroll.y])
+
+  // Prevent the button from overlapping footer social media icons
+  // whenever the user has scrolled to the bottom of the page
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      // source: https://stackoverflow.com/questions/9439725/javascript-how-to-detect-if-browser-window-is-scrolled-to-bottom#comment116566745_9439807
+      if (
+        Math.ceil(window.innerHeight + window.scrollY) >=
+        document.body.scrollHeight
+      )
+        setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.AT_BOTTOM)
+    })
+
+    return () =>
+      window.removeEventListener('scroll', () => {
+        if (
+          Math.ceil(window.innerHeight + window.scrollY) >=
+          document.body.scrollHeight
+        )
+          setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.AT_BOTTOM)
+      })
+  }, [window.scrollY])
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 0 }}
+          animate={currentAnimationVariant}
           exit={{ opacity: 0 }}
+          variants={variants}
           transition={{
             duration: 0.25,
             ease: [0.19, 1.0, 0.22, 1.0],
