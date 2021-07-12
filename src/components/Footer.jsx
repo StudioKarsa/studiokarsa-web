@@ -75,39 +75,6 @@ const Footer = () => {
 
       <div className="w-full pb-12">
         <div className="flex flex-col justify-center xl:flex-row xl:justify-between items-baseline">
-          {/* <div className="flex flex-wrap flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8">
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                Services
-              </h1>
-            </Link>
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                Why Us
-              </h1>
-            </Link>
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                Works
-              </h1>
-            </Link>
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                About
-              </h1>
-            </Link>
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                Blog
-              </h1>
-            </Link>
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                Contact us
-              </h1>
-            </Link>
-          </div> */}
-
           <div className="w-full xl:w-1/2">
             <div className="grid grid-flow-row grid-cols-2 gap-6 place-content-between md:flex md:flex-row md:space-x-2 2xl:space-x-8">
               <Link to="/">
