@@ -75,7 +75,7 @@ const Footer = () => {
 
       <div className="w-full pb-12">
         <div className="flex flex-col justify-center xl:flex-row xl:justify-between items-baseline">
-          <div className="flex flex-wrap flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8">
+          {/* <div className="flex flex-wrap flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8">
             <Link to="/">
               <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
                 Services
@@ -106,6 +106,41 @@ const Footer = () => {
                 Contact us
               </h1>
             </Link>
+          </div> */}
+
+          <div className="w-full xl:w-1/2">
+            <div className="grid grid-flow-row grid-cols-2 gap-6 place-content-between md:flex md:flex-row md:space-x-2 2xl:space-x-8">
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  Services
+                </h1>
+              </Link>
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  Why Us
+                </h1>
+              </Link>
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  Works
+                </h1>
+              </Link>
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  About
+                </h1>
+              </Link>
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  Blog
+                </h1>
+              </Link>
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  Contact us
+                </h1>
+              </Link>
+            </div>
           </div>
 
           <div className="w-full py-12 block xl:hidden">
@@ -116,15 +151,17 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col xl:flex-row space-y-2 xl:space-y-0 xl:space-x-14 pt-4 md:pt-0">
-            <p className="font-semibold text-base md:text-xl">
-              © 2021 Studio Karsa
-            </p>
-            <div className="flex space-x-4">
-              <IconMapPin />
+          <div className="w-full xl:w-1/2">
+            <div className="flex flex-col xl:flex-row justify-center items-center xl:justify-end xl:items-end space-y-2 xl:space-y-0 xl:space-x-14 pt-4 md:pt-0">
               <p className="font-semibold text-base md:text-xl">
-                Jakarta, Indonesia
+                © 2021 Studio Karsa
               </p>
+              <div className="flex space-x-4">
+                <IconMapPin />
+                <p className="font-semibold text-base md:text-xl">
+                  Jakarta, Indonesia
+                </p>
+              </div>
             </div>
           </div>
         </div>
