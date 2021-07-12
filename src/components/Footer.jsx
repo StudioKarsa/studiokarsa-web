@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 import RoundedLogo from '../assets/images/rounded-logo.svg'
 
@@ -8,8 +9,9 @@ import IconMapPin from '../assets/icons/map-pin.svg'
 import IconMediumLogo from '../assets/icons/medium-logo.svg'
 import IconTwitterLogo from '../assets/icons/twitter-logo.svg'
 import IconInstagramLogo from '../assets/icons/instagram-logo.svg'
+import IconDribbbleLogo from '../assets/icons/dribbble-logo.svg'
+import IconBehanceLogo from '../assets/icons/behance-logo.svg'
 import IconLinkedInLogo from '../assets/icons/linkedin-logo.svg'
-import { Link } from 'gatsby'
 
 const ContactSection = () => (
   <>
@@ -54,6 +56,8 @@ const Footer = () => {
     { key: '__socials_medium', href: '#', icon: <IconMediumLogo /> },
     { key: '__socials_twitter', href: '#', icon: <IconTwitterLogo /> },
     { key: '__socials_instagram', href: '#', icon: <IconInstagramLogo /> },
+    { key: '__socials_dribbble', href: '#', icon: <IconDribbbleLogo /> },
+    { key: '__socials_behance', href: '#', icon: <IconBehanceLogo /> },
     { key: '__socials_linkedin', href: '#', icon: <IconLinkedInLogo /> },
   ]
 
@@ -75,37 +79,39 @@ const Footer = () => {
 
       <div className="w-full pb-12">
         <div className="flex flex-col justify-center xl:flex-row xl:justify-between items-baseline">
-          <div className="flex flex-wrap flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8">
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                Services
-              </h1>
-            </Link>
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                Why Us
-              </h1>
-            </Link>
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                Works
-              </h1>
-            </Link>
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                About
-              </h1>
-            </Link>
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                Blog
-              </h1>
-            </Link>
-            <Link to="/">
-              <h1 className="font-semibold text-base md:text-xl hover:text-primary duration-150">
-                Contact us
-              </h1>
-            </Link>
+          <div className="w-full xl:w-1/2">
+            <div className="grid grid-flow-row grid-cols-2 gap-6 place-content-between md:flex md:flex-row md:space-x-2 2xl:space-x-8">
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  Services
+                </h1>
+              </Link>
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  Why Us
+                </h1>
+              </Link>
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  Works
+                </h1>
+              </Link>
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  About
+                </h1>
+              </Link>
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  Blog
+                </h1>
+              </Link>
+              <Link to="/">
+                <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
+                  Contact us
+                </h1>
+              </Link>
+            </div>
           </div>
 
           <div className="w-full py-12 block xl:hidden">
@@ -116,15 +122,17 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col xl:flex-row space-y-2 xl:space-y-0 xl:space-x-14 pt-4 md:pt-0">
-            <p className="font-semibold text-base md:text-xl">
-              © 2021 Studio Karsa
-            </p>
-            <div className="flex space-x-4">
-              <IconMapPin />
+          <div className="w-full xl:w-1/2">
+            <div className="flex flex-col xl:flex-row justify-center items-center xl:justify-end xl:items-end space-y-2 xl:space-y-0 xl:space-x-14 pt-4 md:pt-0">
               <p className="font-semibold text-base md:text-xl">
-                Jakarta, Indonesia
+                © 2021 Studio Karsa
               </p>
+              <div className="flex space-x-4">
+                <IconMapPin />
+                <p className="font-semibold text-base md:text-xl">
+                  Jakarta, Indonesia
+                </p>
+              </div>
             </div>
           </div>
         </div>
