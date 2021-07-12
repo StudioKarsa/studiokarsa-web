@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 import Navigation from './Navigation'
 import Footer from './Footer'
+import ScrollTop from './ScrollTop'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(query)
@@ -18,9 +19,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navigation />
-      <main className="h-screen">
+      <main className="relative h-screen">
         {children}
         <Footer />
+        <ScrollTop />
       </main>
     </>
   )
