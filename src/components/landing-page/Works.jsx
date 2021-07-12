@@ -13,19 +13,21 @@ const Works = () => {
         <StaticImage
           src="../../assets/images/works-macbook-mockup.png"
           alt="First Image"
-          className="w-full h-auto"
+          className="w-full h-auto lg:w-3/4"
         />
       ),
       sikepo: (
         <StaticImage
           src="../../assets/images/works-2-iphones-mockup.png"
           alt="Second Image"
+          className="w-5/6 h-auto lg:w-2/3"
         />
       ),
       magenta: (
         <StaticImage
           src="../../assets/images/works-3-iphones-mockup.png"
           alt="Third Image"
+          className="w-4/5 h-auto lg:w-2/3"
         />
       ),
     }
@@ -50,11 +52,12 @@ const Works = () => {
             <div className="grid grid-cols-1 divide-y-2 divide-solid divide-opacity-25">
               <div
                 className="py-4"
-                onMouseOver={() => setCurrentProjectImage('skillcode')}
               >
                 <a
                   href="#"
                   className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary"
+                  onMouseOver={() => setCurrentProjectImage('skillcode')}
+                  onClick={e => e.preventDefault()}
                 >
                   Skillcode
                 </a>
@@ -64,11 +67,12 @@ const Works = () => {
               </div>
               <div
                 className="py-4"
-                onMouseOver={() => setCurrentProjectImage('sikepo')}
               >
                 <a
                   href="#"
                   className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary"
+                  onMouseOver={() => setCurrentProjectImage('sikepo')}
+                  onClick={e => e.preventDefault()}
                 >
                   Sikepo
                 </a>
@@ -78,11 +82,12 @@ const Works = () => {
               </div>
               <div
                 className="py-4"
-                onMouseOver={() => setCurrentProjectImage('magenta')}
               >
                 <a
                   href="#"
                   className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary"
+                  onMouseOver={() => setCurrentProjectImage('magenta')}
+                  onClick={e => e.preventDefault()}
                 >
                   Magenta
                 </a>
@@ -102,7 +107,7 @@ const Works = () => {
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 my-auto">
+        <div className="flex justify-center w-full lg:w-1/2 my-auto py-auto">
           {renderProjectImage(currentProjectImage)}
         </div>
       </div>
