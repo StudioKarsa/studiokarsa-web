@@ -8,6 +8,10 @@ import LogoTransparent from '../../assets/images/logo-transparent.svg'
 
 function WhyUs() {
   return <div className="flex flex-col items-center p-12 space-y-12 relative">
+    <div>
+      <LogoTransparent
+        className="absolute transform -translate-x-2/4 -translate-y-2/4 top-3/4 left-2/4 w-full md:w-6/12 h-auto"></LogoTransparent>
+    </div>
     <div className="flex flex-col text-center z-10">
       <div className="text-2xl md:text-3xl text-primary tracking-widest uppercase">
         why us?
@@ -16,7 +20,7 @@ function WhyUs() {
         Creating impactful digital experience
       </div>
     </div>
-    <div className="flex flex-col lg:flex-row justify-evenly w-full space-x-0 space-y-6 lg:space-x-14 2xl:space-x-24 lg:space-y-0">
+    <div className="flex flex-col lg:flex-row justify-evenly w-full space-x-0 space-y-6 lg:space-x-14 2xl:space-x-24 lg:space-y-0 z-10">
       <div className="flex flex-1 flex-col text-center space-y-4">
         <div className="flex justify-center">
           <div className="bg-white shadow-md rounded-full p-2 2xl:p-4">
@@ -62,9 +66,6 @@ function WhyUs() {
           Website anda akan tampil dengan baik pada semua perangkat elektronik moderen
         </div>
       </div>
-    </div>
-    <div className="z-0">
-      <LogoTransparent className="absolute transform -translate-x-2/4 -translate-y-2/4 top-1/2 left-1/2 w-full md:w-7/12 z-0 h-auto"></LogoTransparent>
     </div>
   </div>
 }

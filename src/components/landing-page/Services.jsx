@@ -4,7 +4,7 @@ import FigmaSVG from '../../assets/icons/figma.svg'
 import ServerSVG from '../../assets/icons/server.svg'
 
 const Services = () => (
-  <div className="flex flex-col px-6 md:px-20 py-12 gap-y-6 md:gap-y-12 font-sans">
+  <div className="flex flex-col px-6 md:px-20 py-12 gap-y-6 md:gap-y-12 font-sans relative z-20">
     <div className="flex flex-col md:gap-y-4">
       <h2 className="text-2xl md:text-3xl text-primary md:tracking-wider uppercase">Services</h2>
       <div>
@@ -36,8 +36,8 @@ const Service = (props) => {
         <div className="bg-primary w-full h-full md:w-24 md:h-24 group-hover:bg-white rounded-xl group-hover:transform duration-300 flex justify-center">
           {icon}
           <h3 className="text-base sm:text-xl font-semibold text-white group-hover:text-primary group-hover:transform duration-300 self-center flex md:hidden">
-          {props.title}
-        </h3>
+            {props.title}
+          </h3>
         </div>
       </div>
       <div className="md:place-content-around md:grid md:w-full">
