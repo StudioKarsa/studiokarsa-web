@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import IconArrowUp from '../assets/icons/arrow-up.svg'
+import { isBrowser } from '../utils/constants'
 import useScroll from '../hooks/useScroll'
+
+import IconArrowUp from '../assets/icons/arrow-up.svg'
 
 const ScrollTop = () => {
   const ANIMATION_VARIANT_TYPE = {
@@ -27,7 +29,9 @@ const ScrollTop = () => {
 
   const scroll = useScroll({})
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+  const scrollToTop = () => {
+    if (isBrowser) window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   useEffect(() => {
     if (scroll.y > 0) {
@@ -42,23 +46,26 @@ const ScrollTop = () => {
   // Prevent the button from overlapping footer social media icons
   // whenever the user has scrolled to the bottom of the page
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      // source: https://stackoverflow.com/questions/9439725/javascript-how-to-detect-if-browser-window-is-scrolled-to-bottom#comment116566745_9439807
-      if (
-        Math.ceil(window.innerHeight + window.scrollY) >=
-        document.body.scrollHeight
-      )
-        setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.AT_BOTTOM)
-    })
-
-    return () =>
-      window.removeEventListener('scroll', () => {
+    if (isBrowser) {
+      window.addEventListener('scroll', () => {
+        // source: https://stackoverflow.com/questions/9439725/javascript-how-to-detect-if-browser-window-is-scrolled-to-bottom#comment116566745_9439807
         if (
           Math.ceil(window.innerHeight + window.scrollY) >=
           document.body.scrollHeight
         )
           setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.AT_BOTTOM)
       })
+    }
+    return () => {
+      if (isBrowser)
+        window.removeEventListener('scroll', () => {
+          if (
+            Math.ceil(window.innerHeight + window.scrollY) >=
+            document.body.scrollHeight
+          )
+            setCurrentAnimationVariant(ANIMATION_VARIANT_TYPE.AT_BOTTOM)
+        })
+    }
   }, [window.scrollY])
 
   return (
