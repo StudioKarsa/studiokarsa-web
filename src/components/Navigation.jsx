@@ -11,6 +11,8 @@ import IconMapPin from '../assets/icons/map-pin.svg'
 import IconMediumLogo from '../assets/icons/medium-logo.svg'
 import IconTwitterLogo from '../assets/icons/twitter-logo.svg'
 import IconInstagramLogo from '../assets/icons/instagram-logo.svg'
+import IconDribbbleLogo from '../assets/icons/dribbble-logo.svg'
+import IconBehanceLogo from '../assets/icons/behance-logo.svg'
 import IconLinkedInLogo from '../assets/icons/linkedin-logo.svg'
 
 const Navbar = ({ isOverlayVisible, setIsOverlayVisible }) => (
@@ -55,7 +57,7 @@ const Navbar = ({ isOverlayVisible, setIsOverlayVisible }) => (
       <div className="absolute top-0 right-0">
         <button
           onClick={() => setIsOverlayVisible(!isOverlayVisible)}
-          className="fixed transform -translate-x-full z-30 p-3 md:p-4 bg-white rounded-lg shadow hover:shadow-md focus:outline-none duration-150"
+          className="fixed transform -translate-x-full z-50 p-3 md:p-4 bg-white rounded-lg shadow hover:shadow-md focus:outline-none duration-150"
         >
           {!isOverlayVisible && <IconMenu className="w-4 md:w-6 h-4 md:h-6" />}
           {isOverlayVisible && <IconX className="w-4 md:w-6 h-4 md:h-6" />}
@@ -100,11 +102,13 @@ const NavFooter = () => {
     { key: '__socials_medium', href: '#', icon: <IconMediumLogo /> },
     { key: '__socials_twitter', href: '#', icon: <IconTwitterLogo /> },
     { key: '__socials_instagram', href: '#', icon: <IconInstagramLogo /> },
+    { key: '__socials_dribbble', href: '#', icon: <IconDribbbleLogo /> },
+    { key: '__socials_behance', href: '#', icon: <IconBehanceLogo /> },
     { key: '__socials_linkedin', href: '#', icon: <IconLinkedInLogo /> },
   ]
 
   return (
-    <footer className="self-end mt-12 md:mt-0 z-20">
+    <footer className="self-end mt-12 md:mt-0 z-40">
       <div className="flex md:justify-end space-x-14">
         {socials.map(social => (
           <NavSocialLink key={social.key}>{social.icon}</NavSocialLink>
@@ -134,7 +138,7 @@ const NavOverlay = () => (
       duration: 1,
       ease: [0.19, 1.0, 0.22, 1.0],
     }}
-    className="fixed top-0 left-0 w-screen z-20 px-6 md:px-20 overflow-hidden bg-white shadow-lg"
+    className="fixed top-0 left-0 w-screen z-40 px-6 md:px-20 overflow-hidden bg-white shadow-lg"
   >
     <div className="mt-8">
       <Link to="/">
@@ -145,7 +149,7 @@ const NavOverlay = () => (
       <NavLinks />
       <NavFooter />
     </div>
-    <div className="absolute right-0 bottom-0 z-10">
+    <div className="absolute right-0 bottom-0 z-30">
       <IconLogoK />
     </div>
   </motion.div>
