@@ -31,7 +31,7 @@ const Service = (props) => {
   }
 
   return (
-    <div className="p-6 md:flex group group-hover:transform duration-300 rounded-xl mb-5 lg:mb-0 custom-shadow md:gap-x-5 hover:bg-primary">
+    <div className="p-6 md:flex group group-hover:transform duration-300 rounded-xl mb-5 lg:mb-0 custom-shadow md:gap-x-5 bg-white hover:bg-primary">
       <div className="w-full justify-center md:w-auto md:justify-start flex mb-4 md:mb-0">
         <div className="bg-primary w-full h-full md:w-24 md:h-24 group-hover:bg-white rounded-xl group-hover:transform duration-300 flex justify-center">
           {icon}
