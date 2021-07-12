@@ -47,7 +47,7 @@ const Works = () => {
       </div>
 
       <div className="flex flex-col-reverse md:flex-row justify-around">
-        <div className="flex flex-col lg:w-1/3 h-full md:p-4 mt-12">
+        <div className="flex flex-col mt-6 lg:w-1/3 h-full md:p-4 lg:mt-12">
           <div className="my-auto">
             <div className="grid grid-cols-1 divide-y-2 divide-solid divide-opacity-25">
               <div className="py-4">
@@ -101,8 +101,8 @@ const Works = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center w-full lg:w-1/2 h-96 my-auto py-auto">
-          <div className="max-w-3xl">{renderProjectImage(currentProjectImage)}</div>
+        <div className="flex justify-center w-full h-80 lg:w-1/2 md:h-96 my-auto">
+          <div className="max-w-3xl my-auto xl:-mt-20">{renderProjectImage(currentProjectImage)}</div>
         </div>
       </div>
     </div>
