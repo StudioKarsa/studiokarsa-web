@@ -13,6 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+  scroll-behavior: smooth;
 }
 
 ::selection {
@@ -26,5 +27,5 @@ body {
 }
 
 .custom-shadow {
-  box-shadow: 31px 17px 45px 0px #8989894D;
+  box-shadow: 31px 17px 45px 0px #8989894d;
 }
