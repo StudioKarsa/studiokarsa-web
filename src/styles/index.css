@@ -5,6 +5,7 @@ html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -13,7 +14,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  scroll-behavior: smooth;
 }
 
 ::selection {
