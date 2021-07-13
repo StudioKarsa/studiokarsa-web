@@ -50,7 +50,7 @@ const Works = () => {
       </div>
 
       <div className="flex flex-col-reverse md:flex-row justify-around space-y-2 relative z-50">
-        <div className="flex flex-col mt-10 lg:w-1/3 md:p-4">
+        <div className="flex flex-col mt-10 lg:w-1/3">
           <div className="my-auto space-y-2">
             <div className="flex flex-col divide-y-2 divide-solid divide-opacity-25">
               <div
