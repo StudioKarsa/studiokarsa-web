@@ -20,12 +20,10 @@ const About = () => (
       </div>
       <div className="flex w-full md:w-1/2 p-2 md:p-8 text-lg 2xl:text-2xl">
         <div className="my-auto">
-          <p>We are a remote digital agency based in Jakarta, Indonesia.</p>
-          <br />
           <p>
-            We are a very new digital agency created by some college students.
-            We are a team of 8 people who each have various experiences in IT,
-            Software Development and UI / UX Design.
+            We are a remote digital agency created by some college students
+            based in Jakarta, Indonesia. which consist of 8 people who each have
+            various experiences in IT, Software Development and UI / UX Design.
           </p>
           <br />
           <Link
