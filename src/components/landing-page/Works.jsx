@@ -57,9 +57,9 @@ const Works = () => {
                 className="flex flex-col group w-full"
                 onMouseOver={() => setCurrentProjectImage('skillcode')}
               >
-                <a href="#" className="flex-1 py-4">
-                  <h2 className="font-medium text-lg 2xl:text-2xl group-hover:text-primary tracking-wider">Skillcode</h2>
-                  <p className="text-gray-500 text-sm lg:text-md 2xl:text-lg">
+                <a href="#" className="flex-1 py-4" onClick={e => e.preventDefault()}>
+                  <h2 className="font-medium text-lg lg:text-xl 2xl:text-2xl group-hover:text-primary tracking-wider">Skillcode</h2>
+                  <p className="text-gray-500 text-sm lg:text-lg 2xl:text-xl">
                     Test your programming skills
                   </p>
                 </a>
@@ -68,9 +68,9 @@ const Works = () => {
                 className="flex flex-col group w-full"
                 onMouseOver={() => setCurrentProjectImage('sikepo')}
               >
-                <a href="#" className="flex-1 py-4">
-                  <h2 className="font-medium text-lg 2xl:text-2xl group-hover:text-primary tracking-wider">Sikepo</h2>
-                  <p className="text-gray-500 text-sm lg:text-md 2xl:text-lg">
+                <a href="#" className="flex-1 py-4" onClick={e => e.preventDefault()}>
+                  <h2 className="font-medium text-lg lg:text-xl 2xl:text-2xl group-hover:text-primary tracking-wider">Sikepo</h2>
+                  <p className="text-gray-500 text-sm lg:text-lg 2xl:text-xl">
                     Vote your school's next student council leader
                   </p>
                 </a>
@@ -79,9 +79,9 @@ const Works = () => {
                 className="flex flex-col group w-full"
                 onMouseOver={() => setCurrentProjectImage('magenta')}
               >
-                <a href="#" className="flex-1 py-4">
-                  <h2 className="font-medium text-lg 2xl:text-2xl group-hover:text-primary tracking-wider">Magenta</h2>
-                  <p className="text-gray-500 text-sm lg:text-md 2xl:text-lg">
+                <a href="#" className="flex-1 py-4" onClick={e => e.preventDefault()}>
+                  <h2 className="font-medium text-lg lg:text-xl 2xl:text-2xl group-hover:text-primary tracking-wider">Magenta</h2>
+                  <p className="text-gray-500 text-sm lg:text-lg 2xl:text-xl">
                     Your next social networking platform
                   </p>
                 </a>
