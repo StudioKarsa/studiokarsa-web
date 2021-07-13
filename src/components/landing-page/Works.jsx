@@ -13,21 +13,24 @@ const Works = () => {
         <StaticImage
           src="../../assets/images/works-macbook-mockup.png"
           alt="First Image"
-          className="w-full h-auto"
+          className=""
+          objectFit="contain"
         />
       ),
       sikepo: (
         <StaticImage
           src="../../assets/images/works-2-iphones-mockup.png"
           alt="Second Image"
-          className="w-full h-auto"
+          className=""
+          objectFit="contain"
         />
       ),
       magenta: (
         <StaticImage
           src="../../assets/images/works-3-iphones-mockup.png"
           alt="Third Image"
-          className="w-full h-auto"
+          className=""
+          objectFit="contain"
         />
       ),
     }
@@ -46,54 +49,48 @@ const Works = () => {
         </h2>
       </div>
 
-      <div className="flex flex-col-reverse md:flex-row justify-around">
-        <div className="flex flex-col mt-10 lg:w-1/3 h-full md:p-4 lg:mt-12">
-          <div className="my-auto">
-            <div className="grid grid-cols-1 divide-y-2 divide-solid divide-opacity-25">
-              <div className="py-4">
-                <a
-                  href="#"
-                  className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary"
-                  onMouseOver={() => setCurrentProjectImage('skillcode')}
-                  onClick={e => e.preventDefault()}
-                >
-                  Skillcode
+      <div className="flex flex-col-reverse md:flex-row justify-around space-y-2">
+        <div className="flex flex-col mt-10 lg:w-1/3 md:p-4">
+          <div className="my-auto space-y-2">
+            <div className="flex flex-col divide-y-2 divide-solid divide-opacity-25">
+              <div
+                className="flex flex-col group w-full"
+                onMouseOver={() => setCurrentProjectImage('skillcode')}
+              >
+                <a href="#" className="flex-1 py-4">
+                  <h2 className="font-medium text-lg 2xl:text-2xl group-hover:text-primary tracking-wider">Skillcode</h2>
+                  <p className="text-gray-500 text-sm lg:text-md 2xl:text-lg">
+                    Test your programming skills
+                  </p>
                 </a>
-                <p className="text-gray-500 text-sm lg:text-md">
-                  Test your programming skills
-                </p>
               </div>
-              <div className="py-4">
-                <a
-                  href="#"
-                  className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary"
-                  onMouseOver={() => setCurrentProjectImage('sikepo')}
-                  onClick={e => e.preventDefault()}
-                >
-                  Sikepo
+              <div
+                className="flex flex-col group w-full"
+                onMouseOver={() => setCurrentProjectImage('sikepo')}
+              >
+                <a href="#" className="flex-1 py-4">
+                  <h2 className="font-medium text-lg 2xl:text-2xl group-hover:text-primary tracking-wider">Sikepo</h2>
+                  <p className="text-gray-500 text-sm lg:text-md 2xl:text-lg">
+                    Vote your school's next student council leader
+                  </p>
                 </a>
-                <p className="text-gray-500 text-sm lg:text-md">
-                  Vote your school's next student council leader
-                </p>
               </div>
-              <div className="py-4">
-                <a
-                  href="#"
-                  className="text-lg lg:text-xl tracking-wider font-medium hover:text-primary"
-                  onMouseOver={() => setCurrentProjectImage('magenta')}
-                  onClick={e => e.preventDefault()}
-                >
-                  Magenta
+              <div
+                className="flex flex-col group w-full"
+                onMouseOver={() => setCurrentProjectImage('magenta')}
+              >
+                <a href="#" className="flex-1 py-4">
+                  <h2 className="font-medium text-lg 2xl:text-2xl group-hover:text-primary tracking-wider">Magenta</h2>
+                  <p className="text-gray-500 text-sm lg:text-md 2xl:text-lg">
+                    Your next social networking platform
+                  </p>
                 </a>
-                <p className="text-gray-500 text-sm lg:text-md">
-                  Your next social networking platform
-                </p>
               </div>
             </div>
             <div>
               <Link
                 to="/"
-                className="group font-semibold flex flex-row items-center hover:underline"
+                className="group flex flex-row items-center font-semibold text-lg lg:text-xl 2xl:text-2xl hover:underline"
               >
                 See More
                 <ArrowSVG className="w-5 h-5 ml-12 group-hover:transform group-hover:translate-x-4 duration-200" />
@@ -101,8 +98,8 @@ const Works = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center w-full h-80 lg:w-1/2 md:h-96 my-auto">
-          <div className="max-w-3xl my-auto xl:-mt-20">{renderProjectImage(currentProjectImage)}</div>
+        <div className="flex w-full lg:w-2/3 justify-center lg:max-h-96">
+          {renderProjectImage(currentProjectImage)}
         </div>
       </div>
     </div>
