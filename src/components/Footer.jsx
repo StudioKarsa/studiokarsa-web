@@ -62,7 +62,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="px-6 md:px-20">
+    <footer id="section-footer" className="px-6 md:px-20">
       <ContactSection />
 
       <div className="w-full pb-12">
@@ -81,22 +81,22 @@ const Footer = () => {
         <div className="flex flex-col justify-center xl:flex-row xl:justify-between items-baseline">
           <div className="w-full xl:w-1/2">
             <div className="grid grid-flow-row grid-cols-2 gap-6 place-content-between md:flex md:flex-row md:space-x-2 2xl:space-x-8">
-              <Link to="/">
+              <Link to="/#section-services">
                 <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
                   Services
                 </h1>
               </Link>
-              <Link to="/">
+              <Link to="/#section-whyus">
                 <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
                   Why Us
                 </h1>
               </Link>
-              <Link to="/">
+              <Link to="/#section-works">
                 <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
                   Works
                 </h1>
               </Link>
-              <Link to="/">
+              <Link to="/#section-about">
                 <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
                   About
                 </h1>
@@ -106,7 +106,7 @@ const Footer = () => {
                   Blog
                 </h1>
               </Link>
-              <Link to="/">
+              <Link to="/#section-footer">
                 <h1 className="font-semibold text-base md:text-lg 2xl:text-xl hover:text-primary duration-150">
                   Contact us
                 </h1>

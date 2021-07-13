@@ -6,11 +6,10 @@ import MobileFriendly from '../../assets/icons/mobile-friendly.svg'
 
 import LogoTransparent from '../../assets/images/logo-transparent.svg'
 
-function WhyUs() {
-  return <div className="flex flex-col items-center p-12 space-y-12 relative">
+const WhyUs = () => (
+  <div id="section-whyus" className="flex flex-col items-center p-12 space-y-12 relative">
     <div>
-      <LogoTransparent
-        className="absolute transform -translate-x-2/4 -translate-y-2/4 top-3/4 left-2/4 w-full md:w-6/12 h-auto"></LogoTransparent>
+      <LogoTransparent className="absolute transform -translate-x-2/4 -translate-y-2/4 top-3/4 left-2/4 w-full md:w-6/12 h-auto"></LogoTransparent>
     </div>
     <div className="flex flex-col text-center z-10">
       <div className="text-2xl md:text-3xl text-primary tracking-widest uppercase">
@@ -29,11 +28,10 @@ function WhyUs() {
             </div>
           </div>
         </div>
-        <div className="font-semibold text-2xl 2xl:text-3xl">
-          Custom Design
-        </div>
+        <div className="font-semibold text-2xl 2xl:text-3xl">Custom Design</div>
         <div className="text-gray-500 text-lg 2xl:text-2xl">
-          Website kami buat dengan desain khusus dengan karakteristik dan brand bisnis berdasarkan riset mendalam
+          Website kami buat dengan desain khusus dengan karakteristik dan brand
+          bisnis berdasarkan riset mendalam
         </div>
       </div>
       <div className="flex flex-1 flex-col text-center space-y-4">
@@ -44,11 +42,10 @@ function WhyUs() {
             </div>
           </div>
         </div>
-        <div className="font-semibold text-2xl 2xl:text-3xl">
-          Modern UI
-        </div>
+        <div className="font-semibold text-2xl 2xl:text-3xl">Modern UI</div>
         <div className="text-gray-500 text-lg 2xl:text-2xl">
-          Setiap goresan desain anda akan mengikuti trend desain antar muka paling baru
+          Setiap goresan desain anda akan mengikuti trend desain antar muka
+          paling baru
         </div>
       </div>
       <div className="flex flex-1 flex-col text-center space-y-4">
@@ -63,11 +60,12 @@ function WhyUs() {
           Mobile Friendly
         </div>
         <div className="text-gray-500 text-lg 2xl:text-2xl">
-          Website anda akan tampil dengan baik pada semua perangkat elektronik moderen
+          Website anda akan tampil dengan baik pada semua perangkat elektronik
+          moderen
         </div>
       </div>
     </div>
   </div>
-}
+)
 
 export default WhyUs

@@ -23,31 +23,37 @@ const Navbar = ({ isOverlayVisible, setIsOverlayVisible }) => (
       </Link>
       <div className="hidden lg:flex">
         <Link
-          to="/"
+          to="/#section-services"
           className="text-xl mx-5 font-semibold hover:text-primary duration-150"
         >
           Services
         </Link>
         <Link
-          to="/"
+          to="/#section-whyus"
           className="text-xl mx-5 font-semibold hover:text-primary duration-150"
         >
           Why Us
         </Link>
         <Link
-          to="/"
+          to="/#section-works"
           className="text-xl mx-5 font-semibold hover:text-primary duration-150"
         >
           Works
         </Link>
         <Link
-          to="/"
+          to="/#section-about"
           className="text-xl mx-5 font-semibold hover:text-primary duration-150"
         >
           About
         </Link>
         <Link
           to="/"
+          className="text-xl mx-5 font-semibold hover:text-primary duration-150"
+        >
+          Blog
+        </Link>
+        <Link
+          to="/#section-footer"
           className="text-xl mx-5 font-semibold hover:text-primary duration-150"
         >
           Contact Us
@@ -67,22 +73,34 @@ const Navbar = ({ isOverlayVisible, setIsOverlayVisible }) => (
   </nav>
 )
 
-const NavLink = ({ children, to }) => (
-  <Link to={to}>
+const NavLink = ({ children, to, hideOverlay }) => (
+  <Link to={to} onClick={hideOverlay}>
     <h1 className="text-2xl sm:text-4xl lg:text-6xl 2xl:text-8xl font-semibold tracking-tighter hover:text-primary duration-150">
       {children}
     </h1>
   </Link>
 )
 
-const NavLinks = () => (
+const NavLinks = ({ hideOverlay }) => (
   <nav className="flex flex-col flex-wrap space-y-4 md:space-y-8">
-    <NavLink to="/">Services</NavLink>
-    <NavLink to="/">Why Us</NavLink>
-    <NavLink to="/">Works</NavLink>
-    <NavLink to="/">About</NavLink>
-    <NavLink to="/">Blog</NavLink>
-    <NavLink to="/">Contact Us</NavLink>
+    <NavLink to="/#section-services" hideOverlay={hideOverlay}>
+      Services
+    </NavLink>
+    <NavLink to="/#section-whyus" hideOverlay={hideOverlay}>
+      Why Us
+    </NavLink>
+    <NavLink to="/#section-works" hideOverlay={hideOverlay}>
+      Works
+    </NavLink>
+    <NavLink to="/#section-about" hideOverlay={hideOverlay}>
+      About
+    </NavLink>
+    <NavLink to="/" hideOverlay={hideOverlay}>
+      Blog
+    </NavLink>
+    <NavLink to="/#section-footer" hideOverlay={hideOverlay}>
+      Contact Us
+    </NavLink>
   </nav>
 )
 
@@ -129,7 +147,7 @@ const NavFooter = () => {
   )
 }
 
-const NavOverlay = () => (
+const NavOverlay = ({ hideOverlay }) => (
   <motion.div
     initial={{ height: 0 }}
     animate={{ height: '100vh' }}
@@ -141,12 +159,12 @@ const NavOverlay = () => (
     className="fixed top-0 left-0 w-screen z-40 px-6 md:px-20 overflow-hidden bg-white shadow-lg"
   >
     <div className="mt-8">
-      <Link to="/">
+      <Link to="/" onClick={hideOverlay}>
         <IconLogo className="w-24 md:w-32 h-auto" />
       </Link>
     </div>
     <div className="mt-10 2xl:mt-28 flex flex-wrap justify-between">
-      <NavLinks />
+      <NavLinks hideOverlay={hideOverlay} />
       <NavFooter />
     </div>
     <div className="absolute right-0 bottom-0 z-30">
@@ -158,6 +176,8 @@ const NavOverlay = () => (
 const Navigation = () => {
   const [isOverlayVisible, setIsOverlayVisible] = useState(false)
 
+  const hideOverlay = () => setIsOverlayVisible(false)
+
   return (
     <>
       <Navbar
@@ -165,7 +185,9 @@ const Navigation = () => {
         setIsOverlayVisible={setIsOverlayVisible}
       />
 
-      <AnimatePresence>{isOverlayVisible && <NavOverlay />}</AnimatePresence>
+      <AnimatePresence>
+        {isOverlayVisible && <NavOverlay hideOverlay={hideOverlay} />}
+      </AnimatePresence>
     </>
   )
 }

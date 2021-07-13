@@ -1,10 +1,10 @@
 import React from 'react'
-import { StaticImage } from "gatsby-plugin-image"
+import { StaticImage } from 'gatsby-plugin-image'
 
 import TeamworkSVG from '../../assets/images/teamwork.svg'
 
-function Hero() {
-  return <div className="flex flex-col-reverse items-center lg:flex-row px-6 md:px-20">
+const Hero = () => (
+  <div id="section-hero" className="flex flex-col-reverse items-center lg:flex-row px-6 md:px-20">
     <div className="flex-1 flex-col space-y-2">
       <div className="flex items-center space-x-2">
         <div className="uppercase font-semibold md:text-lg 2xl:text-xl">
@@ -32,6 +32,6 @@ function Hero() {
       <TeamworkSVG className="w-full h-auto"></TeamworkSVG>
     </div>
   </div>
-}
+)
 
 export default Hero

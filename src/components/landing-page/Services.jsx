@@ -4,7 +4,7 @@ import FigmaSVG from '../../assets/icons/figma.svg'
 import ServerSVG from '../../assets/icons/server.svg'
 
 const Services = () => (
-  <div className="flex flex-col px-6 md:px-20 py-12 gap-y-6 md:gap-y-12 font-sans relative z-20">
+  <div id="section-services" className="flex flex-col px-6 md:px-20 py-12 gap-y-6 md:gap-y-12 font-sans relative z-20">
     <div className="flex flex-col md:gap-y-4">
       <h2 className="text-2xl md:text-3xl text-primary md:tracking-wider uppercase">Services</h2>
       <div>
