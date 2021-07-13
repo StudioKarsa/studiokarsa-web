@@ -82,7 +82,7 @@ const NavLink = ({ children, to, hideOverlay }) => (
 )
 
 const NavLinks = ({ hideOverlay }) => (
-  <nav className="flex flex-col flex-wrap space-y-4 md:space-y-8">
+  <nav className="z-40 flex flex-col flex-wrap space-y-4 md:space-y-8">
     <NavLink to="/#section-services" hideOverlay={hideOverlay}>
       Services
     </NavLink>
@@ -166,9 +166,9 @@ const NavOverlay = ({ hideOverlay }) => (
     <div className="mt-10 2xl:mt-28 flex flex-wrap justify-between">
       <NavLinks hideOverlay={hideOverlay} />
       <NavFooter />
-    </div>
-    <div className="absolute right-0 bottom-0 z-30">
-      <IconLogoK />
+      <div className="absolute right-0 bottom-0">
+        <IconLogoK />
+      </div>
     </div>
   </motion.div>
 )
