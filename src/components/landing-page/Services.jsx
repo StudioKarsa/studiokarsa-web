@@ -2,6 +2,7 @@ import React from 'react'
 import WebSVG from '../../assets/icons/web-dev.svg'
 import FigmaSVG from '../../assets/icons/figma.svg'
 import ServerSVG from '../../assets/icons/server.svg'
+import Mobile from '../../assets/icons/mobile.svg'
 
 const Services = () => (
   <div id="section-services" className="flex flex-col px-6 md:px-20 py-12 gap-y-6 md:gap-y-12 font-sans relative z-20">
@@ -14,7 +15,7 @@ const Services = () => (
     <div className="lg:grid lg:grid-cols-2 lg:gap-12">
       <Service svg="FigmaSVG" title="UI/UX Design" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
       <Service svg="WebSVG" title="Web Development" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
-      <Service svg="WebSVG" title="Web Development" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
+      <Service svg="Mobile" title="Mobile Development" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
       <Service svg="ServerSVG" title="Cloud Computing" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
     </div>
   </div>
@@ -26,6 +27,8 @@ const Service = (props) => {
     icon = <FigmaSVG className="text-white w-14 h-16 sm:w-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300" />
   } else if (props.svg === 'WebSVG') {
     icon = <WebSVG className="text-white w-14 h-16 sm:w-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300" />
+  } else if (props.svg === 'Mobile') {
+    icon = <Mobile className="text-white w-14 h-16 sm:w-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300" />
   } else {
     icon = <ServerSVG className="text-white w-14 h-16 sm:w-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300" />
   }
