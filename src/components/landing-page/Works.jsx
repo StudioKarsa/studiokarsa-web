@@ -39,7 +39,7 @@ const Works = () => {
   }
 
   return (
-    <div id="section-works" className="flex flex-col px-6 md:px-20 py-12">
+    <div id="section-works" className="flex flex-col px-6 md:px-20 py-12 relative z-20">
       <div className="flex flex-col md:space-y-2">
         <h2 className="text-2xl md:text-3xl text-primary tracking-widest uppercase">
           Works

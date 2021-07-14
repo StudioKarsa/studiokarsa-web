@@ -16,7 +16,7 @@ import IconBehanceLogo from '../assets/icons/behance-logo.svg'
 import IconLinkedInLogo from '../assets/icons/linkedin-logo.svg'
 
 const Navbar = ({ isOverlayVisible, setIsOverlayVisible }) => (
-  <nav className="flex flex-col px-6 md:px-20 py-8 space-y-2">
+  <nav className="flex flex-col px-6 md:px-20 py-8 space-y-2 z-30">
     <div className="relative flex justify-between items-center">
       <Link to="/">
         <IconLogo className="w-24 md:w-32 h-auto" />
