@@ -75,7 +75,7 @@ const Navbar = ({ isOverlayVisible, setIsOverlayVisible }) => (
 
 const NavLink = ({ children, to, hideOverlay }) => (
   <Link to={to} onClick={hideOverlay}>
-    <h1 className="text-2xl sm:text-4xl lg:text-6xl 2xl:text-8xl font-semibold tracking-tighter hover:text-primary duration-150">
+    <h1 className="text-2xl sm:text-4xl lg:text-6xl font-semibold tracking-tighter hover:text-primary duration-150">
       {children}
     </h1>
   </Link>

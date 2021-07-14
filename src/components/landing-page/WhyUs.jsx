@@ -31,8 +31,8 @@ const WhyUs = () => (
             </div>
           </div>
         </div>
-        <div className="font-semibold text-2xl 2xl:text-3xl">Custom Design</div>
-        <div className="text-gray-500 text-lg 2xl:text-2xl">
+        <div className="font-semibold text-2xl">Custom Design</div>
+        <div className="text-gray-500 text-lg">
           We design your websites and mobile apps based on your brand identity and brand values
         </div>
       </div>
@@ -44,8 +44,8 @@ const WhyUs = () => (
             </div>
           </div>
         </div>
-        <div className="font-semibold text-2xl 2xl:text-3xl">Modern UI</div>
-        <div className="text-gray-500 text-lg 2xl:text-2xl">
+        <div className="font-semibold text-2xl">Modern UI</div>
+        <div className="text-gray-500 text-lg">
           We provide a modern, user-friendly interface that’s easy to use and
           understand
         </div>
@@ -58,10 +58,10 @@ const WhyUs = () => (
             </div>
           </div>
         </div>
-        <div className="font-semibold text-2xl 2xl:text-3xl">
+        <div className="font-semibold text-2xl">
           Mobile Friendly
         </div>
-        <div className="text-gray-500 text-lg 2xl:text-2xl">
+        <div className="text-gray-500 text-lg">
           We build up your website in a way that's optimized for mobile devices
         </div>
       </div>

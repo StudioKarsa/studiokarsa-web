@@ -18,7 +18,7 @@ const About = () => (
       <div className="w-full md:w-1/2 p-2 md:p-8">
         <TeamSVG className="w-full h-full" />
       </div>
-      <div className="flex w-full md:w-1/2 p-2 md:p-8 text-lg 2xl:text-2xl">
+      <div className="flex w-full md:w-1/2 p-2 md:p-8 text-lg">
         <div className="my-auto">
           <p>
             We are a remote digital agency created by some college students

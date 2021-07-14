@@ -19,7 +19,7 @@ const Hero = () => (
           />
         </div>
       </div>
-      <div className="capitalize font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary md:leading-tight 2xl:leading-tight text-5xl md:text-6xl 2xl:text-7xl">
+      <div className="capitalize font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary md:leading-tight 2xl:leading-tight text-5xl md:text-6xl">
         we design &amp; build unique things
       </div>
       <div>

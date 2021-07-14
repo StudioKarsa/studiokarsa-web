@@ -58,8 +58,8 @@ const Works = () => {
                 onMouseOver={() => setCurrentProjectImage('skillcode')}
               >
                 <a href="#" className="flex-1 py-4" onClick={e => e.preventDefault()}>
-                  <h2 className="font-medium text-lg lg:text-xl 2xl:text-2xl group-hover:text-primary tracking-wider">Skillcode</h2>
-                  <p className="text-gray-500 text-sm lg:text-lg 2xl:text-xl">
+                  <h2 className="font-medium text-lg lg:text-xl group-hover:text-primary tracking-wider">Skillcode</h2>
+                  <p className="text-gray-500 text-sm lg:text-lg">
                     Test your programming skills
                   </p>
                 </a>
@@ -69,8 +69,8 @@ const Works = () => {
                 onMouseOver={() => setCurrentProjectImage('sikepo')}
               >
                 <a href="#" className="flex-1 py-4" onClick={e => e.preventDefault()}>
-                  <h2 className="font-medium text-lg lg:text-xl 2xl:text-2xl group-hover:text-primary tracking-wider">Sikepo</h2>
-                  <p className="text-gray-500 text-sm lg:text-lg 2xl:text-xl">
+                  <h2 className="font-medium text-lg lg:text-xl group-hover:text-primary tracking-wider">Sikepo</h2>
+                  <p className="text-gray-500 text-sm lg:text-lg">
                     Vote your school's next student council leader
                   </p>
                 </a>
@@ -80,8 +80,8 @@ const Works = () => {
                 onMouseOver={() => setCurrentProjectImage('magenta')}
               >
                 <a href="#" className="flex-1 py-4" onClick={e => e.preventDefault()}>
-                  <h2 className="font-medium text-lg lg:text-xl 2xl:text-2xl group-hover:text-primary tracking-wider">Magenta</h2>
-                  <p className="text-gray-500 text-sm lg:text-lg 2xl:text-xl">
+                  <h2 className="font-medium text-lg lg:text-xl group-hover:text-primary tracking-wider">Magenta</h2>
+                  <p className="text-gray-500 text-sm lg:text-lg">
                     Your next social networking platform
                   </p>
                 </a>
@@ -90,7 +90,7 @@ const Works = () => {
             <div>
               <Link
                 to="/"
-                className="group flex flex-row items-center font-semibold text-lg lg:text-xl 2xl:text-2xl hover:underline"
+                className="group flex flex-row items-center font-semibold text-lg lg:text-xl hover:underline"
               >
                 See More
                 <ArrowSVG className="w-5 h-5 ml-12 group-hover:transform group-hover:translate-x-4 duration-200" />
