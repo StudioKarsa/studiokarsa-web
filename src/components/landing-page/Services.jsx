@@ -13,10 +13,10 @@ const Services = () => (
       </div>
     </div>
     <div className="lg:grid lg:grid-cols-2 lg:gap-12">
-      <Service svg="FigmaSVG" title="UI/UX Design" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
-      <Service svg="WebSVG" title="Web Development" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
-      <Service svg="Mobile" title="Mobile Development" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
-      <Service svg="ServerSVG" title="Cloud Computing" desc="Lorem ipsum dolor sit amet consectetur, adipisicing it amet consectetur" />
+      <Service svg="FigmaSVG" title="UI/UX Design" desc="We create beautiful, functional and easy to use interfaces for your projects" />
+      <Service svg="WebSVG" title="Web Development" desc="We build the best web applications using the best tools and techniques" />
+      <Service svg="Mobile" title="Mobile Development" desc="We make your mobile apps look great and run smooth" />
+      <Service svg="ServerSVG" title="Cloud Computing" desc="We help you find your content and increase your SEO score" />
     </div>
   </div>
 )
@@ -43,14 +43,14 @@ const Service = (props) => {
           </h3>
         </div>
       </div>
-      <div className="md:place-content-around md:grid md:w-full">
-        <h3 className="text-xl md:text-2xl font-semibold group-hover:text-white group-hover:transform duration-300 hidden md:block">
-          {props.title}
-        </h3>
-        <p className="text-gray-500 group-hover:text-white group-hover:transform duration-300">
-          {props.desc}
-        </p>
-      </div>
+        <div className="md:flex md:flex-wrap md:content-start md:my-1 md:w-full ">
+          <h3 className="text-xl md:text-2xl font-semibold group-hover:text-white group-hover:transform duration-300 hidden md:block ">
+            {props.title}
+          </h3>
+          <p className="text-gray-500 w-full group-hover:text-white group-hover:transform duration-300 md:mt-2">
+            {props.desc}
+          </p>
+        </div>
     </div>
   )
 }
