@@ -7,7 +7,10 @@ import MobileFriendly from '../../assets/icons/mobile-friendly.svg'
 import LogoTransparent from '../../assets/images/logo-transparent.svg'
 
 const WhyUs = () => (
-  <div id="section-whyus" className="flex flex-col items-center p-12 space-y-12 relative">
+  <div
+    id="section-whyus"
+    className="flex flex-col items-center px-6 md:px-20 py-12 space-y-12 relative"
+  >
     <div>
       <LogoTransparent className="absolute transform -translate-x-2/4 -translate-y-2/4 top-3/4 left-2/4 w-full md:w-6/12 h-auto"></LogoTransparent>
     </div>
@@ -30,8 +33,7 @@ const WhyUs = () => (
         </div>
         <div className="font-semibold text-2xl 2xl:text-3xl">Custom Design</div>
         <div className="text-gray-500 text-lg 2xl:text-2xl">
-          Website kami buat dengan desain khusus dengan karakteristik dan brand
-          bisnis berdasarkan riset mendalam
+          We design your websites and mobile apps based on your brand identity and brand values
         </div>
       </div>
       <div className="flex flex-1 flex-col text-center space-y-4">
@@ -44,8 +46,8 @@ const WhyUs = () => (
         </div>
         <div className="font-semibold text-2xl 2xl:text-3xl">Modern UI</div>
         <div className="text-gray-500 text-lg 2xl:text-2xl">
-          Setiap goresan desain anda akan mengikuti trend desain antar muka
-          paling baru
+          We provide a modern, user-friendly interface that’s easy to use and
+          understand
         </div>
       </div>
       <div className="flex flex-1 flex-col text-center space-y-4">
@@ -60,8 +62,7 @@ const WhyUs = () => (
           Mobile Friendly
         </div>
         <div className="text-gray-500 text-lg 2xl:text-2xl">
-          Website anda akan tampil dengan baik pada semua perangkat elektronik
-          moderen
+          We build up your website in a way that's optimized for mobile devices
         </div>
       </div>
     </div>
