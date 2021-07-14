@@ -23,7 +23,7 @@ const Hero = () => (
         we design &amp; build unique things
       </div>
       <div>
-        <button className="capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base 2xl:text-xl md:px-14 md:py-3 2xl:px-16 2xl:py-4">
+        <button className="capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base 2xl:text-xl md:px-14 md:py-3 2xl:px-16 2xl:py-4 hover:transform hover:-translate-y-1 duration-300">
           contact us
         </button>
       </div>

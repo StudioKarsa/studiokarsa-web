@@ -30,10 +30,10 @@ const ContactSection = () => (
     </section>
 
     <section className="flex flex-col md:flex-row justify-center md:space-x-12 mb-32">
-      <button className="z-10 capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base xl:py-3 xl:px-12 2xl:py-4 2xl:px-16 xl:text-xl">
+      <button className="z-10 capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base xl:py-3 xl:px-12 2xl:py-4 2xl:px-16 xl:text-xl hover:transform hover:-translate-y-1 duration-300">
         E-Mail
       </button>
-      <button className="z-10 capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base xl:py-3 xl:px-12 2xl:py-4 2xl:px-16 xl:text-xl">
+      <button className="z-10 capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base xl:py-3 xl:px-12 2xl:py-4 2xl:px-16 xl:text-xl hover:transform hover:-translate-y-1 duration-300">
         WhatsApp
       </button>
     </section>
