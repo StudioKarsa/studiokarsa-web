@@ -3,12 +3,12 @@
     "contactUs": "Kontak kami"
   },
   "navigation" : {
-    "about": "Tentang",
+    "about": "Tentang kami",
     "blog": "Blog",
     "contactUs": "Kontak kami",
-    "services": "layanan",
-    "whyUs": "Kenapa kami",
-    "works": "Pekerjaan"
+    "services": "Layanan kami",
+    "whyUs": "Mengapa kami",
+    "works": "Hasil karya"
   },
   "footer": {
     "main": "Mari kita bicara",
@@ -54,14 +54,14 @@
           "description": "Kami menyediakan antarmuka modern dan ramah pengguna yang mudah digunakan dan dipahami"
         },
         "mobileFriendly": {
-          "title": "Ramah Seluler",
+          "title": "Optimasi mobile",
           "description": "Kami membangun situs web Anda dengan cara yang dioptimalkan untuk perangkat seluler"
         }
       }
     },
-    "Hasil kerja": {
-      "title": "Pekerjaan",
-      "subtitle": "Proyek unggulan",
+    "works": {
+      "title": "Hasil karya",
+      "subtitle": "Karya unggulan",
       "projects": {
         "skillcode": {
           "description": "Uji keterampilan pemrograman Anda"
