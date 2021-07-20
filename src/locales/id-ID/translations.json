@@ -1,6 +1,6 @@
 {
   "common": {
-    "contactUs": ""
+    "contactUs": "Kontak kami"
   },
   "landingPage": {
     "hero": {
@@ -8,8 +8,64 @@
       "headline": "kami merancang & membangun hal-hal unik"
     },
     "services": {
-      "subTitle": "",
-      "title": ""
+      "title": "Jasa",
+      "subtitle": "Kami mewujudkan ide Anda menjadi kenyataan",
+      "contents": {
+        "uiux": {
+          "title": "Desain UI/UX",
+          "description": "Kami membuat antarmuka yang indah, fungsional, dan mudah digunakan untuk proyek Anda"
+        },
+        "webDevelopment": {
+          "title": "Pengembangan web",
+          "description": "Kami membangun aplikasi web terbaik menggunakan alat dan teknik terbaik"
+        },
+        "mobileDevelopment": {
+          "title": "Pengembangan Seluler",
+          "description": "Kami membuat aplikasi seluler Anda tampak hebat dan berjalan mulus"
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "Kami membantu Anda menemukan konten Anda dan meningkatkan angka SEO Anda"
+        }
+      }
+    },
+    "whyUs": {
+      "title": "Mengapa memilih kami?",
+      "subtitle": "Menciptakan pengalaman digital yang berdampak",
+      "contents": {
+        "customDesign": {
+          "title": "Desain khusus",
+          "description": "Kami merancang situs web dan aplikasi seluler Anda berdasarkan identitas merek dan nilai merek Anda"
+        },
+        "modernUi": {
+          "title": "UI Modern",
+          "description": "Kami menyediakan antarmuka modern dan ramah pengguna yang mudah digunakan dan dipahami"
+        },
+        "mobileFriendly": {
+          "title": "Ramah Seluler",
+          "description": "Kami membangun situs web Anda dengan cara yang dioptimalkan untuk perangkat seluler"
+        }
+      }
+    },
+    "works": {
+      "title": "Pekerjaan",
+      "subtitle": "Proyek unggulan",
+      "projects": {
+        "skillcode": {
+          "description": "Uji keterampilan pemrograman Anda"
+        },
+        "sikepo": {
+          "description": "Pilih pemimpin OSIS sekolah Anda berikutnya"
+        },
+        "magenta": {
+          "description": "Platform jejaring sosial Anda berikutnya"
+        }
+      }
+    },
+    "about": {
+      "title": "Tentang",
+      "subtitle": "Siapa kami?",
+      "content": "Kami adalah agen digital jarak jauh yang dibuat oleh beberapa mahasiswa yang berbasis di Jakarta, Indonesia. yang terdiri dari 8 orang yang masing-masing memiliki berbagai pengalaman di bidang IT, Software Development dan UI/UX Design."
     }
   }
 }
