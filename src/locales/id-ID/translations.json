@@ -8,7 +8,7 @@
     "contactUs": "Kontak kami",
     "services": "layanan",
     "whyUs": "Kenapa kami",
-    "works": "Hasil kerja"
+    "works": "Pekerjaan"
   },
   "footer": {
     "main": "Mari kita bicara",
@@ -60,7 +60,7 @@
       }
     },
     "Hasil kerja": {
-      "title": "c",
+      "title": "Pekerjaan",
       "subtitle": "Proyek unggulan",
       "projects": {
         "skillcode": {
