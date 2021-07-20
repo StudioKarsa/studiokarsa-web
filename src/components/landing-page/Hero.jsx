@@ -33,7 +33,7 @@ const Hero = () => {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
           className="flex items-center space-x-2"
         >
           <div className="uppercase font-semibold md:text-lg 2xl:text-xl">
@@ -52,7 +52,7 @@ const Hero = () => {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          transition={{ duration: 1, delay: 1 }}
+          transition={{ duration: 0.7, delay: 0.6 }}
           className="capitalize font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary md:leading-tight 2xl:leading-tight text-5xl md:text-6xl"
         >
           {t('landingPage.hero.headline')}
@@ -61,7 +61,7 @@ const Hero = () => {
           variants={fadeLeft}
           initial="hidden"
           animate="visible"
-          transition={{ duration: 1, delay: 1.5 }}
+          transition={{ duration: 0.7, delay: 0.9 }}
         >
           <button className="capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base 2xl:text-xl md:px-14 md:py-3 2xl:px-16 2xl:py-4 hover:transform hover:-translate-y-1 duration-300">
             contact us
@@ -72,7 +72,7 @@ const Hero = () => {
         variants={fadeRight}
         initial="hidden"
         animate="visible"
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.7 }}
         className="flex-1 flex-col"
       >
         <TeamworkSVG className="w-full h-auto"></TeamworkSVG>
