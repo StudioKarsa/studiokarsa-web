@@ -2,6 +2,18 @@
   "common": {
     "contactUs": "Contact us"
   },
+  "navigation" : {
+    "about": "About",
+    "blog": "Blog",
+    "contactUs": "Contact us",
+    "services": "services",
+    "whyUs": "Why us",
+    "works": "Works"
+  },
+  "footer": {
+    "main": "Let's talk",
+    "sub": "Need help with a project?"
+  },
   "landingPage": {
     "hero": {
       "basedIn": "Based in jakarta, indonesia",
