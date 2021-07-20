@@ -1,0 +1,15 @@
+{
+  "common": {
+    "contactUs": ""
+  },
+  "landingPage": {
+    "hero": {
+      "basedIn": "based in jakarta, indonesia",
+      "headline": "we design & build unique things"
+    },
+    "services": {
+      "subTitle": "",
+      "title": ""
+    }
+  }
+}

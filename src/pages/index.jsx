@@ -18,7 +18,7 @@ const IndexPage = () => {
   const seoImageSRC = getSrc(file)
 
   return (
-    <Layout>
+    <>
       <SEO
         title="Home"
         keywords={[
@@ -45,7 +45,7 @@ const IndexPage = () => {
       <WhyUs />
       <Works />
       <About />
-    </Layout>
+    </>
   )
 }
 

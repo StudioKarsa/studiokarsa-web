@@ -1,0 +1,15 @@
+{
+  "common": {
+    "contactUs": ""
+  },
+  "landingPage": {
+    "hero": {
+      "basedIn": "berlokasi di jakarta, indonesia",
+      "headline": "kami merancang & membangun hal-hal unik"
+    },
+    "services": {
+      "subTitle": "",
+      "title": ""
+    }
+  }
+}

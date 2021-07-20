@@ -11,6 +11,7 @@ import PropTypes from 'prop-types'
 import Navigation from './Navigation'
 import Footer from './Footer'
 import ScrollTop from './ScrollTop'
+import { withTrans } from '../i18n/withTrans'
 
 const Layout = ({ children }) => (
   <>
@@ -27,4 +28,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default withTrans(Layout)
