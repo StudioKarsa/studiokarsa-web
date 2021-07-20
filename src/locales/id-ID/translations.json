@@ -2,13 +2,25 @@
   "common": {
     "contactUs": "Kontak kami"
   },
+  "navigation" : {
+    "about": "Tentang",
+    "blog": "Blog",
+    "contactUs": "Kontak kami",
+    "services": "layanan",
+    "whyUs": "Kenapa kami",
+    "works": "Hasil kerja"
+  },
+  "footer": {
+    "main": "Mari kita bicara",
+    "sub": "Butuh bantuan dengan proyek?"
+  },
   "landingPage": {
     "hero": {
       "basedIn": "berlokasi di jakarta, indonesia",
       "headline": "kami merancang & membangun hal-hal unik"
     },
     "services": {
-      "title": "Jasa",
+      "title": "Layanan",
       "subtitle": "Kami mewujudkan ide Anda menjadi kenyataan",
       "contents": {
         "uiux": {
@@ -47,8 +59,8 @@
         }
       }
     },
-    "works": {
-      "title": "Pekerjaan",
+    "Hasil kerja": {
+      "title": "c",
       "subtitle": "Proyek unggulan",
       "projects": {
         "skillcode": {
