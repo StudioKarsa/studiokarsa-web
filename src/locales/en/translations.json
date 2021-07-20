@@ -1,15 +1,83 @@
 {
   "common": {
-    "contactUs": ""
+    "contactUs": "Contact us"
+  },
+  "navigation" : {
+    "about": "About",
+    "blog": "Blog",
+    "contactUs": "Contact us",
+    "services": "services",
+    "whyUs": "Why us",
+    "works": "Works"
+  },
+  "footer": {
+    "main": "Let's talk",
+    "sub": "Need help with a project?"
   },
   "landingPage": {
     "hero": {
-      "basedIn": "based in jakarta, indonesia",
-      "headline": "we design & build unique things"
+      "basedIn": "Based in jakarta, indonesia",
+      "headline": "We design & build unique things"
     },
     "services": {
-      "subTitle": "",
-      "title": ""
+      "title": "Services",
+      "subtitle": "We bring your ideas into reality",
+      "contents": {
+        "uiux": {
+          "title": "UI/UX Design",
+          "description": "We create beautiful, functional and easy to use interfaces for your projects"
+        },
+        "webDevelopment": {
+          "title": "Web Development",
+          "description": "We build the best web applications using the best tools and techniques"
+        },
+        "mobileDevelopment": {
+          "title": "Mobile Development",
+          "description": "We make your mobile apps look great and run smooth"
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "We help you find your content and increase your SEO score"
+        }
+      }
+    },
+    "whyUs": {
+      "title": "Why us?",
+      "subtitle": "Creating impactful digital experience",
+      "contents": {
+        "customDesign": {
+          "title": "Custom design",
+          "description": "We design your websites and mobile apps based on your brand identity and brand values"
+        },
+        "modernUi": {
+          "title": "Modern UI",
+          "description": "We provide a modern, user-friendly interface that’s easy to use and understand"
+        },
+        "mobileFriendly": {
+          "title": "Mobile Friendly",
+          "description": "We build up your website in a way that's optimized for mobile devices"
+        }
+      }
+    },
+    "works": {
+      "title": "Works",
+      "subtitle": "Featured project",
+      "projects": {
+        "skillcode": {
+          "description": "Test your programming skills"
+        },
+        "sikepo": {
+          "description": "Vote your school's next student council leader"
+        },
+        "magenta": {
+          "description": "Your next social networking platform"
+        }
+      }
+    }, 
+    "about": {
+      "title": "About",
+      "subtitle": "Who are we?",
+      "content": "We are a remote digital agency created by some college students based in Jakarta, Indonesia. which consist of 8 people who each have various experiences in IT, Software Development and UI / UX Design."
     }
   }
 }

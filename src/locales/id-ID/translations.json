@@ -1,6 +1,18 @@
 {
   "common": {
-    "contactUs": ""
+    "contactUs": "Kontak kami"
+  },
+  "navigation" : {
+    "about": "Tentang kami",
+    "blog": "Blog",
+    "contactUs": "Kontak kami",
+    "services": "Layanan kami",
+    "whyUs": "Mengapa kami",
+    "works": "Hasil karya"
+  },
+  "footer": {
+    "main": "Mari kita bicara",
+    "sub": "Butuh bantuan dengan proyek?"
   },
   "landingPage": {
     "hero": {
@@ -8,8 +20,64 @@
       "headline": "kami merancang & membangun hal-hal unik"
     },
     "services": {
-      "subTitle": "",
-      "title": ""
+      "title": "Layanan",
+      "subtitle": "Kami mewujudkan ide Anda menjadi kenyataan",
+      "contents": {
+        "uiux": {
+          "title": "Desain UI/UX",
+          "description": "Kami membuat antarmuka yang indah, fungsional, dan mudah digunakan untuk proyek Anda"
+        },
+        "webDevelopment": {
+          "title": "Pengembangan web",
+          "description": "Kami membangun aplikasi web terbaik menggunakan alat dan teknik terbaik"
+        },
+        "mobileDevelopment": {
+          "title": "Pengembangan Seluler",
+          "description": "Kami membuat aplikasi seluler Anda tampak hebat dan berjalan mulus"
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "Kami membantu Anda menemukan konten Anda dan meningkatkan angka SEO Anda"
+        }
+      }
+    },
+    "whyUs": {
+      "title": "Mengapa memilih kami?",
+      "subtitle": "Menciptakan pengalaman digital yang berdampak",
+      "contents": {
+        "customDesign": {
+          "title": "Desain khusus",
+          "description": "Kami merancang situs web dan aplikasi seluler Anda berdasarkan identitas merek dan nilai merek Anda"
+        },
+        "modernUi": {
+          "title": "UI Modern",
+          "description": "Kami menyediakan antarmuka modern dan ramah pengguna yang mudah digunakan dan dipahami"
+        },
+        "mobileFriendly": {
+          "title": "Optimasi mobile",
+          "description": "Kami membangun situs web Anda dengan cara yang dioptimalkan untuk perangkat seluler"
+        }
+      }
+    },
+    "works": {
+      "title": "Hasil karya",
+      "subtitle": "Karya unggulan",
+      "projects": {
+        "skillcode": {
+          "description": "Uji keterampilan pemrograman Anda"
+        },
+        "sikepo": {
+          "description": "Pilih pemimpin OSIS sekolah Anda berikutnya"
+        },
+        "magenta": {
+          "description": "Platform jejaring sosial Anda berikutnya"
+        }
+      }
+    },
+    "about": {
+      "title": "Tentang",
+      "subtitle": "Siapa kami?",
+      "content": "Kami adalah agen digital jarak jauh yang dibuat oleh beberapa mahasiswa yang berbasis di Jakarta, Indonesia. yang terdiri dari 8 orang yang masing-masing memiliki berbagai pengalaman di bidang IT, Software Development dan UI/UX Design."
     }
   }
 }
