@@ -9,17 +9,12 @@ const Hero = () => {
   const { t } = useTranslation()
 
   const fadeUp = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 150 },
     visible: { opacity: 1, y: 0 },
   }
 
-  const fadeRight = {
-    hidden: { opacity: 0, x: 20 },
-    visible: { opacity: 1, x: 0 },
-  }
-
   const fadeLeft = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, x: 150 },
     visible: { opacity: 1, x: 0 },
   }
 
@@ -69,7 +64,7 @@ const Hero = () => {
         </motion.div>
       </div>
       <motion.div
-        variants={fadeRight}
+        variants={fadeLeft}
         initial="hidden"
         animate="visible"
         transition={{ duration: 3.2, ease: [0.19, 1.0, 0.22, 1.0] }}
