@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'gatsby'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 import RoundedLogo from '../assets/images/rounded-logo.svg'
 
@@ -13,32 +15,69 @@ import IconDribbbleLogo from '../assets/icons/dribbble-logo.svg'
 import IconBehanceLogo from '../assets/icons/behance-logo.svg'
 import IconLinkedInLogo from '../assets/icons/linkedin-logo.svg'
 
-const ContactSection = () => (
-  <>
-    <section className="relative w-full mt-64 mb-32">
-      <div className="flex flex-col justify-center items-center ">
-        <RoundedLogo className="absolute w-60 md:w-72 lg:w-96 z-0" />
-        <div className="text-center z-10">
-          <h3 className="font-medium text-2xl md:text-4xl">
-            Need help with a project?
-          </h3>
-          <h1 className="font-semibold text-5xl md:text-6xl lg:text-8xl bg-white">
-            Let's Talk!
-          </h1>
-        </div>
-      </div>
-    </section>
+const ContactSection = () => {
+  const controls = useAnimation()
+  const { ref, inView } = useInView({ triggerOnce: true })
 
-    <section className="flex flex-col md:flex-row justify-center md:space-x-12 mb-32">
-      <button className="z-10 capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base xl:py-3 xl:px-12 xl:text-xl hover:transform hover:-translate-y-1 duration-300">
-        E-Mail
-      </button>
-      <button className="z-10 capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base xl:py-3 xl:px-12 xl:text-xl hover:transform hover:-translate-y-1 duration-300">
-        WhatsApp
-      </button>
-    </section>
-  </>
-)
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible')
+    } else {
+      controls.start('hidden')
+    }
+  }, [controls, inView])
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 150 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  }
+
+  // <>
+  return (
+    <div>
+      <motion.section
+        ref={ref}
+        variants={fadeUp}
+        initial="hidden"
+        animate={controls}
+        transition={{ duration: 3.2, ease: [0.19, 1.0, 0.22, 1.0] }}
+        className="relative w-full mt-64 mb-32"
+      >
+        <div className="flex flex-col justify-center items-center ">
+          <RoundedLogo className="absolute w-60 md:w-72 lg:w-96 z-0" />
+          <div className="text-center z-10">
+            <h3 className="font-medium text-2xl md:text-4xl">
+              Need help with a project?
+            </h3>
+            <h1 className="font-semibold text-5xl md:text-6xl lg:text-8xl bg-white">
+              Let's Talk!
+            </h1>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        ref={ref}
+        variants={fadeUp}
+        initial="hidden"
+        animate={controls}
+        transition={{ duration: 3.2, ease: [0.19, 1.0, 0.22, 1.0], delay: 0.4 }}
+        className="flex flex-col md:flex-row justify-center md:space-x-12 mb-32"
+      >
+        <button className="z-10 capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base xl:py-3 xl:px-12 xl:text-xl hover:transform hover:-translate-y-1 duration-300">
+          E-Mail
+        </button>
+        <button className="z-10 capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base xl:py-3 xl:px-12 xl:text-xl hover:transform hover:-translate-y-1 duration-300">
+          WhatsApp
+        </button>
+      </motion.section>
+    </div>
+  )
+  // </>
+}
 
 const SocialLink = ({ children, to = '#' }) => (
   <a
