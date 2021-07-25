@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { getImage, getSrc } from 'gatsby-plugin-image'
 
-import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 
 import Hero from '../components/landing-page/Hero'
