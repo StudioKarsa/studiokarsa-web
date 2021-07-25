@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'gatsby'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -15,7 +16,7 @@ import IconDribbbleLogo from '../assets/icons/dribbble-logo.svg'
 import IconBehanceLogo from '../assets/icons/behance-logo.svg'
 import IconLinkedInLogo from '../assets/icons/linkedin-logo.svg'
 
-const Navbar = ({ isOverlayVisible, setIsOverlayVisible }) => (
+const Navbar = ({ isOverlayVisible, setIsOverlayVisible, translate }) => (
   <nav className="flex flex-col px-6 md:px-20 py-8 space-y-2 z-30">
     <div className="relative flex justify-between items-center">
       <Link to="/">
@@ -26,37 +27,37 @@ const Navbar = ({ isOverlayVisible, setIsOverlayVisible }) => (
           to="/#section-services"
           className="text-xl mx-5 font-semibold hover:text-primary duration-150"
         >
-          Services
+          {translate('navigation.services')}
         </Link>
         <Link
           to="/#section-whyus"
           className="text-xl mx-5 font-semibold hover:text-primary duration-150"
         >
-          Why Us
+          {translate('navigation.whyUs')}
         </Link>
         <Link
           to="/#section-works"
           className="text-xl mx-5 font-semibold hover:text-primary duration-150"
         >
-          Works
+          {translate('navigation.works')}
         </Link>
         <Link
           to="/#section-about"
           className="text-xl mx-5 font-semibold hover:text-primary duration-150"
         >
-          About
+          {translate('navigation.about')}
         </Link>
         <Link
           to="/"
           className="text-xl mx-5 font-semibold hover:text-primary duration-150"
         >
-          Blog
+          {translate('navigation.blog')}
         </Link>
         <Link
           to="/#section-footer"
           className="text-xl mx-5 font-semibold hover:text-primary duration-150"
         >
-          Contact Us
+          {translate('navigation.contactUs')}
         </Link>
       </div>
       <div className="p-4"></div>
@@ -81,25 +82,25 @@ const NavLink = ({ children, to, hideOverlay }) => (
   </Link>
 )
 
-const NavLinks = ({ hideOverlay }) => (
+const NavLinks = ({ hideOverlay, translate }) => (
   <nav className="z-40 flex flex-col flex-wrap space-y-4 md:space-y-8">
     <NavLink to="/#section-services" hideOverlay={hideOverlay}>
-      Services
+      {translate('navigation.services')}
     </NavLink>
     <NavLink to="/#section-whyus" hideOverlay={hideOverlay}>
-      Why Us
+      {translate('navigation.whyUs')}
     </NavLink>
     <NavLink to="/#section-works" hideOverlay={hideOverlay}>
-      Works
+      {translate('navigation.works')}
     </NavLink>
     <NavLink to="/#section-about" hideOverlay={hideOverlay}>
-      About
+      {translate('navigation.about')}
     </NavLink>
     <NavLink to="/" hideOverlay={hideOverlay}>
-      Blog
+      {translate('navigation.blog')}
     </NavLink>
     <NavLink to="/#section-footer" hideOverlay={hideOverlay}>
-      Contact Us
+      {translate('navigation.contactUs')}
     </NavLink>
   </nav>
 )
@@ -147,7 +148,7 @@ const NavFooter = () => {
   )
 }
 
-const NavOverlay = ({ hideOverlay }) => (
+const NavOverlay = ({ hideOverlay, t }) => (
   <motion.div
     initial={{ height: 0 }}
     animate={{ height: '100vh' }}
@@ -164,7 +165,7 @@ const NavOverlay = ({ hideOverlay }) => (
       </Link>
     </div>
     <div className="mt-10 2xl:mt-28 flex flex-wrap justify-between">
-      <NavLinks hideOverlay={hideOverlay} />
+      <NavLinks hideOverlay={hideOverlay} t={t} />
       <NavFooter />
       <div className="absolute right-0 bottom-0">
         <IconLogoK />
@@ -174,6 +175,7 @@ const NavOverlay = ({ hideOverlay }) => (
 )
 
 const Navigation = () => {
+  const { t } = useTranslation()
   const [isOverlayVisible, setIsOverlayVisible] = useState(false)
 
   const hideOverlay = () => setIsOverlayVisible(false)
@@ -183,10 +185,11 @@ const Navigation = () => {
       <Navbar
         isOverlayVisible={isOverlayVisible}
         setIsOverlayVisible={setIsOverlayVisible}
+        translate={t}
       />
 
       <AnimatePresence>
-        {isOverlayVisible && <NavOverlay hideOverlay={hideOverlay} />}
+        {isOverlayVisible && <NavOverlay hideOverlay={hideOverlay} translate={t} />}
       </AnimatePresence>
     </>
   )

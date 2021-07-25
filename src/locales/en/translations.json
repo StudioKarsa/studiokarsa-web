@@ -1,6 +1,8 @@
 {
   "common": {
-    "contactUs": "Contact us"
+    "contactUs": "Contact us",
+    "seeMore": "See More",
+    "learnMore": "Learn More"
   },
   "navigation" : {
     "about": "About",

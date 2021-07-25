@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'gatsby'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
@@ -18,6 +19,7 @@ import IconLinkedInLogo from '../assets/icons/linkedin-logo.svg'
 const ContactSection = () => {
   const controls = useAnimation()
   const { ref, inView } = useInView({ triggerOnce: true })
+  const { t } = useTranslation()
 
   useEffect(() => {
     if (inView) {
@@ -50,10 +52,10 @@ const ContactSection = () => {
           <RoundedLogo className="absolute w-60 md:w-72 lg:w-96 z-0" />
           <div className="text-center z-10">
             <h3 className="font-medium text-2xl md:text-4xl">
-              Need help with a project?
+              {t('footer.sub')}
             </h3>
             <h1 className="font-semibold text-5xl md:text-6xl lg:text-8xl bg-white">
-              Let's Talk!
+              {t('footer.main')}
             </h1>
           </div>
         </div>

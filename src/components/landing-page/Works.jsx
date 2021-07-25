@@ -100,7 +100,7 @@ const Works = () => {
                 to="/"
                 className="group flex flex-row items-center font-semibold text-lg lg:text-xl hover:underline"
               >
-                See More
+                {t('common.seeMore')}
                 <ArrowSVG className="w-5 h-5 ml-12 group-hover:transform group-hover:translate-x-4 duration-200" />
               </Link>
             </div>

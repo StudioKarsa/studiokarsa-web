@@ -30,7 +30,7 @@ const About = () => {
               to="/"
               className="group font-semibold flex flex-row items-center hover:underline"
             >
-              Learn More
+              {t('common.learnMore')}
               <ArrowSVG className="w-5 h-5 ml-12 group-hover:transform group-hover:translate-x-4 duration-200" />
             </Link>
           </div>

@@ -1,18 +1,20 @@
 {
   "common": {
-    "contactUs": "Kontak kami"
+    "contactUs": "Hubungi Kami",
+    "seeMore": "Lihat Selengkapnya",
+    "learnMore": "Lebih Lanjut"
   },
   "navigation" : {
-    "about": "Tentang kami",
+    "about": "Tentang",
     "blog": "Blog",
-    "contactUs": "Kontak kami",
-    "services": "Layanan kami",
+    "contactUs": "Hubungi Kami",
+    "services": "Layanan",
     "whyUs": "Mengapa kami",
     "works": "Hasil karya"
   },
   "footer": {
-    "main": "Mari kita bicara",
-    "sub": "Butuh bantuan dengan proyek?"
+    "main": "Mari bicara",
+    "sub": "Butuh bantuan dengan proyek anda?"
   },
   "landingPage": {
     "hero": {
@@ -46,7 +48,7 @@
       "subtitle": "Menciptakan pengalaman digital yang memuaskan",
       "contents": {
         "customDesign": {
-          "title": "Desain khusus",
+          "title": "Desain custom",
           "description": "Kami merancang situs web dan aplikasi mobile Anda berdasarkan identitas merek dan nilai merek Anda"
         },
         "modernUi": {

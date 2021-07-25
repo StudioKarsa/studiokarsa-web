@@ -59,7 +59,7 @@ const Hero = () => {
           transition={{ duration: 3.2, delay: 1, ease: [0.19, 1.0, 0.22, 1.0] }}
         >
           <button className="capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base 2xl:text-xl md:px-14 md:py-3 2xl:px-16 2xl:py-4 hover:transform hover:-translate-y-1 duration-300">
-            contact us
+          {t('common.contactUs')}
           </button>
         </motion.div>
       </div>
