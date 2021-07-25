@@ -32,8 +32,8 @@
           "description": "Kami membangun aplikasi web terbaik menggunakan alat dan teknik terbaik"
         },
         "mobileDevelopment": {
-          "title": "Pengembangan Seluler",
-          "description": "Kami membuat aplikasi seluler Anda tampak hebat dan berjalan mulus"
+          "title": "Pengembangan Mobile",
+          "description": "Kami membuat aplikasi mobile Anda tampak hebat dan berjalan mulus"
         },
         "seo": {
           "title": "SEO",
@@ -43,25 +43,25 @@
     },
     "whyUs": {
       "title": "Mengapa memilih kami?",
-      "subtitle": "Menciptakan pengalaman digital yang berdampak",
+      "subtitle": "Menciptakan pengalaman digital yang memuaskan",
       "contents": {
         "customDesign": {
           "title": "Desain khusus",
-          "description": "Kami merancang situs web dan aplikasi seluler Anda berdasarkan identitas merek dan nilai merek Anda"
+          "description": "Kami merancang situs web dan aplikasi mobile Anda berdasarkan identitas merek dan nilai merek Anda"
         },
         "modernUi": {
-          "title": "UI Modern",
+          "title": "Tampilan Modern",
           "description": "Kami menyediakan antarmuka modern dan ramah pengguna yang mudah digunakan dan dipahami"
         },
         "mobileFriendly": {
           "title": "Optimasi mobile",
-          "description": "Kami membangun situs web Anda dengan cara yang dioptimalkan untuk perangkat seluler"
+          "description": "Kami membangun situs web Anda dengan cara yang dioptimalkan untuk perangkat mobile"
         }
       }
     },
     "works": {
       "title": "Hasil karya",
-      "subtitle": "Karya unggulan",
+      "subtitle": "Karya unggulan kami",
       "projects": {
         "skillcode": {
           "description": "Uji keterampilan pemrograman Anda"
@@ -76,7 +76,7 @@
     },
     "about": {
       "title": "Tentang",
-      "subtitle": "Siapa kami?",
+      "subtitle": "Seputar studio karsa",
       "content": "Kami adalah agen digital jarak jauh yang dibuat oleh beberapa mahasiswa yang berbasis di Jakarta, Indonesia. yang terdiri dari 8 orang yang masing-masing memiliki berbagai pengalaman di bidang IT, Software Development dan UI/UX Design."
     }
   }
