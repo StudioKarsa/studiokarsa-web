@@ -8,7 +8,7 @@
     "about": "About",
     "blog": "Blog",
     "contactUs": "Contact us",
-    "services": "services",
+    "services": "Services",
     "whyUs": "Why us",
     "works": "Works"
   },
@@ -75,7 +75,7 @@
           "description": "Your next social networking platform"
         }
       }
-    }, 
+    },
     "about": {
       "title": "About",
       "subtitle": "Who are we?",
