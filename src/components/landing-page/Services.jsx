@@ -25,14 +25,14 @@ const Services = () => {
       ),
     },
     {
-      image: <SEOSVG className={serviceImageClassName} />,
+      image: <MobileSVG className={serviceImageClassName} />,
       title: t('landingPage.services.contents.mobileDevelopment.title'),
       description: t(
         'landingPage.services.contents.mobileDevelopment.description'
       ),
     },
     {
-      image: <MobileSVG className={serviceImageClassName} />,
+      image: <SEOSVG className={serviceImageClassName} />,
       title: t('landingPage.services.contents.seo.title'),
       description: t('landingPage.services.contents.seo.description'),
     },
