@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@deckdeckgo/highlight-code": "^3.3.1",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "framer-motion": "^4.1.17",
@@ -17,8 +18,10 @@
     "gatsby-plugin-offline": "^4.6.0",
     "gatsby-plugin-react-helmet": "^4.6.0",
     "gatsby-plugin-sharp": "^3.6.0",
+    "gatsby-remark-highlight-code": "^3.0.0",
     "gatsby-remark-images": "^5.7.0",
     "gatsby-source-filesystem": "^3.6.0",
+    "gatsby-transformer-remark": "^4.7.0",
     "gatsby-transformer-sharp": "^3.6.0",
     "i18next": "^20.3.3",
     "i18next-browser-languagedetector": "^6.1.2",

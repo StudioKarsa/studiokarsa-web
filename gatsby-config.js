@@ -9,9 +9,19 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-remark-images`,
     {
+      resolve: `gatsby-remark-highlight-code`,
+      options: {
+        terminal: 'carbon',
+        theme: 'blackboard',
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        gatsbyRemarkPlugins: [`gatsby-remark-images`],
+        gatsbyRemarkPlugins: [
+          `gatsby-remark-images`,
+          `gatsby-remark-highlight-code`,
+        ],
         plugins: [`gatsby-remark-images`],
       },
     },
