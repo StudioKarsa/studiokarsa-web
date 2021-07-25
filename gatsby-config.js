@@ -7,7 +7,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-mdx`,
+    `gatsby-remark-images`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [`gatsby-remark-images`],
+        plugins: [`gatsby-remark-images`],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -18,8 +25,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `mdx-blog`,
-        path: `${__dirname}/src/mdx/blog`,
+        name: `blog-posts`,
+        path: `${__dirname}/src/modules/blog/posts`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -40,8 +47,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: `${__dirname}/src/modules/layout/BaseLayout.jsx`
-      }
+        component: `${__dirname}/src/modules/layout/BaseLayout.jsx`,
+      },
     },
     {
       resolve: 'gatsby-plugin-react-svg',

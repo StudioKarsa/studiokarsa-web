@@ -1,0 +1,104 @@
+---
+title: An Example Post
+desc: Far far away, behind the word mountains, far from the countries Vokalia and...
+category: Productivity
+cover: ./covers/an-example-post.jpg
+coverAlt: an example post cover image
+slug: /an-example-post
+date: 2021-07-25
+keywords:
+    - example post
+    - an example post
+    - blog post
+    - mdx
+---
+
+Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+
+Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then
+
+# Header level 1
+## Header level 2
+### Header level 3
+#### Header level 4
+##### Header level 5
+###### Header level 6
+
+A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+
+**bold**
+
+*italic*
+
+***Bold & Italic***
+
+I should be incapable of drawing a single stroke at the present moment
+
+- Cool
+- nice
+
+# List Of
+
+1. Pack used
+2. Two
+3. Three
+4. Four
+
+1. First item
+2. Second item
+3. Third item
+    1. Indented item
+    2. Indented item
+4. Fourth item
+
+- First item
+- Second item
+- Third item
+    - Indented item
+    - Indented item
+- Fourth item
+
+My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+
+I love supporting the **[EFF](https://eff.org)**.
+This is the *[Markdown Guide](https://www.markdownguide.org)*.
+See the section on [`code`](#code).
+
+Some image
+
+![yo](../../../assets/images/brand-logo.png)
+
+> This is a block quote. I should be incapable of drawing a single stroke at the present moment
+
+
+> This is a multi paragraph block quote
+>
+> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+
+> #### The quarterly results look great!
+>
+> - Revenue was off the chart.
+> - Profits were higher than ever.
+>
+>  *Everything* is going according to **plan**.
+
+A block of code
+
+```c
+float Q_rsqrt( float number )
+{
+	long i;
+	float x2, y;
+	const float threehalfs = 1.5F;
+
+	x2 = number * 0.5F;
+	y  = number;
+	i  = * ( long * ) &y;                       // evil floating point bit level hacking
+	i  = 0x5f3759df - ( i >> 1 );               // what the fuck?
+	y  = * ( float * ) &i;
+	y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
+//	y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+
+	return y;
+}
+```
