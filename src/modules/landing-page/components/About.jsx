@@ -2,8 +2,8 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'gatsby'
 
-import TeamSVG from '../../assets/images/team.svg'
-import ArrowSVG from '../../assets/icons/arrow.svg'
+import TeamSVG from '../../../assets/images/team.svg'
+import ArrowSVG from '../../../assets/icons/arrow.svg'
 
 const About = () => {
   const { t } = useTranslation()

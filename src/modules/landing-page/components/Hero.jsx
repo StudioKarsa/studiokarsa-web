@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { StaticImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion'
 
-import TeamworkSVG from '../../assets/images/teamwork.svg'
+import TeamworkSVG from '../../../assets/images/teamwork.svg'
 
 const Hero = () => {
   const { t } = useTranslation()
@@ -36,7 +36,7 @@ const Hero = () => {
           </div>
           <div>
             <StaticImage
-              src="../../assets/images/indonesia-flag.png"
+              src="../../../assets/images/indonesia-flag.png"
               alt="indonesia flag"
               width={20}
               height={20}

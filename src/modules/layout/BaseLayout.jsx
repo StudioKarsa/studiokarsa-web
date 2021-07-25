@@ -8,10 +8,10 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 
-import Navigation from './Navigation'
-import Footer from './Footer'
-import ScrollTop from './ScrollTop'
-import { withTrans } from '../i18n/withTrans'
+import Navigation from '../../shared-components/Navigation'
+import Footer from '../../shared-components/Footer'
+import ScrollTop from '../../shared-components/ScrollTop'
+import { withTrans } from '../../i18n/withTrans'
 
 const Layout = ({ children }) => (
   <>

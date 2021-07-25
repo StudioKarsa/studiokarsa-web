@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 
-import ArrowSVG from '../../assets/icons/arrow.svg'
+import ArrowSVG from '../../../assets/icons/arrow.svg'
 
 function renderProjectImage(project) {
   const projectImage = {
     skillcode: (
       <StaticImage
-        src="../../assets/images/works-macbook-mockup.png"
+        src="../../../assets/images/works-macbook-mockup.png"
         alt="First Image"
         className=""
         objectFit="contain"
@@ -17,7 +17,7 @@ function renderProjectImage(project) {
     ),
     sikepo: (
       <StaticImage
-        src="../../assets/images/works-2-iphones-mockup.png"
+        src="../../../assets/images/works-2-iphones-mockup.png"
         alt="Second Image"
         className=""
         objectFit="contain"
@@ -25,7 +25,7 @@ function renderProjectImage(project) {
     ),
     magenta: (
       <StaticImage
-        src="../../assets/images/works-3-iphones-mockup.png"
+        src="../../../assets/images/works-3-iphones-mockup.png"
         alt="Third Image"
         className=""
         objectFit="contain"

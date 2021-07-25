@@ -1,11 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import CustomDesign from '../../assets/icons/custom-design.svg'
-import ModernUI from '../../assets/icons/modern-ui.svg'
-import MobileFriendly from '../../assets/icons/mobile-friendly.svg'
+import CustomDesign from '../../../assets/icons/custom-design.svg'
+import ModernUI from '../../../assets/icons/modern-ui.svg'
+import MobileFriendly from '../../../assets/icons/mobile-friendly.svg'
 
-import LogoTransparent from '../../assets/images/logo-transparent.svg'
+import LogoTransparent from '../../../assets/images/logo-transparent.svg'
 
 const WhyUs = () => {
   const { t } = useTranslation()

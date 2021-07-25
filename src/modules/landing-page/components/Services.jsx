@@ -1,10 +1,10 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import WebSVG from '../../assets/icons/web-dev.svg'
-import FigmaSVG from '../../assets/icons/figma.svg'
-import SEOSVG from '../../assets/icons/seo.svg'
-import MobileSVG from '../../assets/icons/mobile.svg'
+import WebSVG from '../../../assets/icons/web-dev.svg'
+import FigmaSVG from '../../../assets/icons/figma.svg'
+import SEOSVG from '../../../assets/icons/seo.svg'
+import MobileSVG from '../../../assets/icons/mobile.svg'
 
 const Services = () => {
   const { t } = useTranslation()
