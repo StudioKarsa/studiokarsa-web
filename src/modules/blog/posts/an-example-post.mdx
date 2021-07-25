@@ -1,6 +1,6 @@
 ---
-title: An Example Post
-desc: Far far away, behind the word mountains, far from the countries Vokalia and...
+title: "Styled Components 101 💅 Lecture 2: Creating a theme + Light/Dark theme toggler example ☀️🌙"
+desc: "Creating a theme + Light/Dark theme toggler"
 category: Productivity
 cover: ./covers/an-example-post.jpg
 coverAlt: an example post cover image
@@ -13,92 +13,411 @@ keywords:
     - mdx
 ---
 
-Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+Hello, everybody! 👋
 
-Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then
+And welcome to the 2nd lecture of the **Styled Components 101 series** 🙌
 
-# Header level 1
-## Header level 2
-### Header level 3
-#### Header level 4
-##### Header level 5
-###### Header level 6
+In this lecture, we'll be covering the **creation of a custom theme** with Styled Components.
 
-A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.
+If you're new to Styled Components and this lecture is the first one you run into, I suggest taking a look at the previous lecture first, where we covered some basic concepts and examples of Styled Components.
 
-**bold**
+With all this said, let's move on to today's topic 👇
 
-*italic*
+## Creating the theme file 🔮
 
-***Bold & Italic***
+First things first. Before start generating components and other component-related stuff, what we need to do is **create the file** that will host our **app's theme**.
 
-I should be incapable of drawing a single stroke at the present moment
+This theme file will be just a regular JavaScript file with js extension that will contain an object called *theme* with properties and values that we'll be using to style our components.
 
-- Cool
-- nice
+As easy as that 💁‍♂️
 
-# List Of
+Let's have a look at how this file looks like:
 
-1. Pack used
-2. Two
-3. Three
-4. Four
-
-1. First item
-2. Second item
-3. Third item
-    1. Indented item
-    2. Indented item
-4. Fourth item
-
-- First item
-- Second item
-- Third item
-    - Indented item
-    - Indented item
-- Fourth item
-
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
-
-I love supporting the **[EFF](https://eff.org)**.
-This is the *[Markdown Guide](https://www.markdownguide.org)*.
-See the section on [`code`](#code).
-
-Some image
-
-![yo](../../../assets/images/brand-logo.png)
-
-> This is a block quote. I should be incapable of drawing a single stroke at the present moment
-
-
-> This is a multi paragraph block quote
->
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
-
-> #### The quarterly results look great!
->
-> - Revenue was off the chart.
-> - Profits were higher than ever.
->
->  *Everything* is going according to **plan**.
-
-A block of code
+`theme.js`
 
 ```c
-float Q_rsqrt( float number )
-{
-	long i;
-	float x2, y;
-	const float threehalfs = 1.5F;
+const theme = {
+   colors: {
+      plum: "#52314b",
+      rose: "#c3537d",
+      dryrose: "#dd7f9a",
+      primrose: "#e8babf",
+      white: "#fff"
+   }
+}
 
-	x2 = number * 0.5F;
-	y  = number;
-	i  = * ( long * ) &y;                       // evil floating point bit level hacking
-	i  = 0x5f3759df - ( i >> 1 );               // what the fuck?
-	y  = * ( float * ) &i;
-	y  = y * ( threehalfs - ( x2 * y * y ) );   // 1st iteration
-//	y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+export default theme;
+```
 
-	return y;
+For now, we'll be working only with colors, but every property/value you can imagine that is used for styling will also be set in this file: values regarding fonts, padding, margin, etc. In short, every value that you'd set up in a CSS file.
+
+Don't forget to export your theme object. Otherwise, there's no way for it to be found by the app 👍
+
+And that's all for the theme file. We're now set to head on to the next step
+
+## Making the theme file reachable by the app 🕵️
+
+In order for the theme file to be able to be accessed, we need to provide it to the app. To do this, we'll import the component *ThemeProvider* from *styled-components* and will wrap our app with it.
+
+`app.js`
+
+```c
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
+
+const App = () => {
+   return(
+      <ThemeProvider theme={theme}>
+         //your code here
+      </ThemeProvider>
+   )
+}
+export default App;
+```
+
+Now, our theme is recognized by the app and can be accessed and used from anywhere throughout it.
+
+## Using the theme inside a styled component 💅
+
+Retrieving theme values from within a *styled* component is a really easy process, since the theme is **implicit** to the component props.
+
+Let's see how to style a *styled* component making use of a couple values from our custom theme:
+
+`BasicThemedButton.js`
+
+```c
+import styled from "styled-components";
+
+export default styled.button`
+   background-color: ${props => props.theme.colors.primrose};
+   color: ${props => props.theme.colors.white};
+   font-size: 1.25rem;
+   border: none;
+   border-radius: 5px;
+   padding: 10px;
+
+```
+
+Our custom theme is implicitly passed-in as a prop and it's easily accessed because the component is also wrapped by the provider:
+
+`App.js`
+
+```c
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
+import BasicThemedButton from "./components/BasicThemedButton";
+
+const App = () => {
+   return(
+      <ThemeProvider theme={theme}>
+         <BasicThemedButton>I am a basic themed button! 🤗</BasicThemedButton>
+      </ThemeProvider>
+   )
+}
+export default App;
+```
+
+![theme button](https://res.cloudinary.com/practicaldev/image/fetch/s--nSesRRBD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/1ptnhmydwx9fp1qsyqr5.png)
+
+## Using the theme inside a custom React component ⚛️
+
+To use our theme inside a custom React component, we need to write a little bit more code, but not a big deal at all.
+
+`ThemedButton.js` ≡ React component
+
+```c
+import React, { useContext } from "react";
+import StyledButton from "./StyledButton";
+import { ThemeContext } from "styled-components";
+
+const ThemedButton = () => {
+   const theme = useContext(ThemeContext);
+   return(
+      <StyledButton bgColor={theme.colors.plum} color={theme.colors.white}>I am a themed button 😜</StyledButton>
+   )
+}
+
+export default ThemedButton;
+```
+
+`StyledButton.js` ≡ Styled component
+
+```c
+import styled from "styled-components";
+
+export default styled.button`
+   background-color: ${props => props.bgColor};
+   color: ${props => props.color};
+   padding: 10px;
+   border: none;
+   border-radius: 5px;
+   font-size: 1.25rem;
+`
+```
+
+This time, the values from the theme are passed to the styled component via **props**, which have been previously retrieved in the React component by making use of the **useContext** hook and the **ThemeContext** component from styled-components.
+
+Note that we'll be calling our React component as we regularly do:
+
+```c
+<ThemedButton />
+```
+
+![theme button 2](https://res.cloudinary.com/practicaldev/image/fetch/s--XukloYG0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2blqu53pmdr6gzzslo2o.png)
+
+## The *theme* prop 🤖
+
+The *theme prop* is used to pass in an inline object that contains the specification for the theme to a styled component.
+
+```c
+<StyledButton theme={{bg: theme.colors.primrose, color: theme.colors.white}}>
+	I am a button with a theme prop! 😎
+</StyledButton>
+```
+
+`StyledButton.js`
+
+```c
+import styled from "styled-components";
+
+export default styled.button`
+   background-color: ${props => props.theme.bg};
+   color: ${props => props.theme.color};
+   padding: 10px;
+   border: none;
+   border-radius: 5px;
+`
+```
+
+![theme button 3](https://res.cloudinary.com/practicaldev/image/fetch/s--N2mZThjB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mmtme1uroaum58rgmdj9.png)
+
+This method can be useful if we don't have many properties, but, when we have a robust application with several properties and values for styling, this method becomes difficult to maintain and tricky to deal with ❌
+
+## Using JavaScript objects to write our styles rather than CSS 🤹‍♀️
+
+Did you know that is also possible to write custom styles using **JS instead of CSS** in Styled Components? And it's easier than you may think.
+
+Let's have a look at the following snippet:
+
+`JSStyledButton.js`
+
+```c
+import styled from "styled-components";
+
+export default styled.button(props => ({
+   backgroundColor: props.bgColor,
+   fontSize: "1.5rem",
+   color: props.color
+}));
+```
+
+```c
+<JSStyledButton bgColor={theme.colors.plum} color={theme.colors.white}>
+	I am a JS Styled Button 🤠
+</JSStyledButton>
+```
+
+![theme button 4](https://res.cloudinary.com/practicaldev/image/fetch/s--k_wWRmn1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xa3cp7u3luuyoue7x2m3.png)
+
+Notice that property names are written in **camelcase** notation, as we're using a JavaScript object, but it's also accepted to write them within **double quotes**, like this:
+
+```c
+import styled from "styled-components";
+
+export default styled.button(props => ({
+   "background-color": props.bgColor,
+   "font-size": "1.5rem",
+   color: props.color
+}));
+```
+
+Also note that the used method to specify the styles is similar to the one we use when **extending styles from a supercomponent** (*Lecture 1 - Inheriting styles from another component*):
+
+```c
+...
+export default styled.button(...);
+...
+```
+
+## And now... 👑 The jewel in the crown: Let's create a Light/Dark theme toggler with Styled Components
+
+Theory is cool but, but let's get our hands dirty and let's create something interesting using themes 👏
+### Excuse me, but... what exactly is a theme toggler? 🤔
+
+We can say that a theme toggler is a system that allows to **switch between a light and a dark theme** with just one click by using a button or an emoji. Cool, right?
+
+In this tutorial, we'll implement a styled button that will perform this task really fast and efficiently.
+
+And now, let's get it started 👉
+
+### The components and files 🎬
+
+These are the components and files that will make up our app:
+
+`Button.js`: the button that will switch between themes.
+
+`GlobalStyles.js`: a component that will inject global styles into the app.
+
+`ThemeToggler.js`: the component that will receive the theme as a prop, which, in turn, will be passed in to the *Button* component.
+
+`useDarkTheme`: a custom hook that will contain the business logic.
+
+`App.js`: the main app. It will wrap everything up with the theme provider and will include the global styles.
+
+`themes.js`: the file that will host our themes (we already know how to do this at this point 😺).
+
+## Let's first create our themes file 📝
+
+`themes.js`
+
+```c
+export const lightTheme = {
+    background: '#fff',
+    color: '#1d1f28',
+    buttonBg: '#c5718d'
+}
+
+export const darkTheme = {
+    background: '#1d1f28',
+    color: '#fafafa',
+    buttonBg: '#515d90'
 }
 ```
+
+Not a lot to remark here: we have defined both themes with their respective style properties. Don't forget to export them both 👍
+
+## Now let's go with the switch button 🔵
+
+`Button.js`
+
+```c
+import styled from "styled-components";
+
+export default styled.button`
+   font-family: "Monaco", monospace;
+   cursor: pointer;
+   border: none;
+   background-color: ${({ theme }) => theme.buttonBg};
+   color: #fff;
+   padding: 10px;
+   border-radius: 5px;
+   font-size: 1.5rem;
+`
+```
+
+A regular *styled* button. You can style it as you like best.
+
+Note that the value for `background-color` will be set depending on the selected theme. The rest is up to you 😇
+
+## Time for global styles 😼
+
+`GlobalStyles.js`
+
+```c
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyles = createGlobalStyle`
+   body {
+     font-family: "Monaco", monospace;
+     background: ${({ theme }) => theme.background};
+     color: ${({ theme }) => theme.color};
+     transition: all 0.50s linear;
+  }
+`
+```
+
+***GlobalStyles*** defines the global styles for our app. They will be injected into our app by in `App.js`.
+
+Note that for this purpose, we'll import the ***createGlobalStyle*** helper from *styled-components*, which will create a new styled component that will handle global styles.
+
+Regarding the properties, background and text colors will be retrieved from the theme. We'll also add a *transition* property to make the switch effect smoother.
+
+## Creating the theme toggler 💁
+
+`ThemeToggler.js`
+
+```c
+import React from 'react';
+import Button from "./Button";
+
+const ThemeToggler = (props) => {
+   const { themeToggler } = props;
+   return (
+      <Button onClick={themeToggler}>Switch Theme ☀️ 🌙</Button>
+   );
+};
+
+export default ThemeToggler;
+```
+
+***ThemeToggler*** renders the Button component and provides it with the style properties that correspond to the passed-in theme.
+
+`useDarkTheme.js`
+
+```c
+import { useState } from 'react';
+
+const THEMES = {
+   LIGHT: "light",
+   DARK: "dark"
+}
+
+const useDarkTheme = () => {
+    const [theme, setTheme] = useState(THEMES.LIGHT);
+    const themeToggler = () => {
+        theme === THEMES.LIGHT ? setTheme(THEMES.DARK) : setTheme(THEMES.LIGHT);
+    };
+    return [theme, themeToggler];
+};
+
+export default useDarkTheme;
+```
+
+***useDarkTheme*** is a custom hook that contains the logic for our toggler. We're using a hook to abstract our app as much as possible.
+
+The switching procedure is as easy as follows: if the passed-in theme is *light*, the *dark* theme will be set up, and vice versa.
+
+## Building the main app 😈
+
+`App.js`
+
+```c
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./components/GlobalStyles";
+import { lightTheme, darkTheme } from "./themes";
+import ThemeToggler from "./components/ThemeToggler";
+import useDarkTheme from "./hooks/useDarkTheme";
+
+const App = () => {
+   const [theme, themeToggler] = useDarkTheme();
+   const selectedTheme = theme === 'light' ? lightTheme : darkTheme;
+
+   return (
+      <ThemeProvider theme={selectedTheme}>
+         <>
+            <GlobalStyles />
+            <ThemeToggler themeToggler={themeToggler} />
+            <p>Trying out light and dark themes! 😍</p>
+         </>
+      </ThemeProvider>
+   )
+}
+export default App;
+```
+
+First, we're calling the *useDarkTheme* hook, that will handle the switch logic.
+
+Then, we also need to have a function *selectedTheme*, that decides which theme is going to be used.
+
+And now, what's only left is to wrap up *ThemeToggler* with ***ThemeProvider*** and include ***GlobalStyles***.
+
+## The result ☀️ ➡️ 🌙
+
+![finally the result](https://res.cloudinary.com/practicaldev/image/fetch/s--07AXiOvb--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/h5zwv6yfcb4c5q9pgbqh.gif)
+
+And this is all for the second Styled Components 101 lecture!
+
+Stay tuned to know more about Styled Component in future episodes of the series.
+
+I hope you found this article useful and I see you all in the next 👋
