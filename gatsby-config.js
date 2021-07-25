@@ -7,11 +7,19 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `mdx-blog`,
+        path: `${__dirname}/src/mdx/blog`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -32,7 +40,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: `${__dirname}/src/components/Layout.jsx`
+        component: `${__dirname}/src/modules/layout/BaseLayout.jsx`
       }
     },
     {
