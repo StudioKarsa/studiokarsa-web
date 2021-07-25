@@ -148,7 +148,7 @@ const NavFooter = () => {
   )
 }
 
-const NavOverlay = ({ hideOverlay, t }) => (
+const NavOverlay = ({ hideOverlay, translate }) => (
   <motion.div
     initial={{ height: 0 }}
     animate={{ height: '100vh' }}
@@ -165,7 +165,7 @@ const NavOverlay = ({ hideOverlay, t }) => (
       </Link>
     </div>
     <div className="mt-10 2xl:mt-28 flex flex-wrap justify-between">
-      <NavLinks hideOverlay={hideOverlay} t={t} />
+      <NavLinks hideOverlay={hideOverlay} translate={translate} />
       <NavFooter />
       <div className="absolute right-0 bottom-0">
         <IconLogoK />
