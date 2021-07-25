@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import { getImage, getSrc } from 'gatsby-plugin-image'
 
 import SEO from '../components/SEO'
@@ -8,7 +9,6 @@ import Services from '../components/landing-page/Services'
 import WhyUs from '../components/landing-page/WhyUs'
 import Works from '../components/landing-page/Works'
 import About from '../components/landing-page/About'
-import { graphql, useStaticQuery } from 'gatsby'
 
 const IndexPage = () => {
   const { file } = useStaticQuery(query)
