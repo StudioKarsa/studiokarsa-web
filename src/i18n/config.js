@@ -4,10 +4,10 @@ i18n.init({
   fallbackLng: 'en',
   resources: {
     en: {
-      translations: require('../locales/en/translations.json'),
+      translations: require('./locales/en/translations.json'),
     },
     'id-ID': {
-      translations: require('../locales/id-ID/translations.json'),
+      translations: require('./locales/id-ID/translations.json'),
     },
   },
   ns: ['translations'],
