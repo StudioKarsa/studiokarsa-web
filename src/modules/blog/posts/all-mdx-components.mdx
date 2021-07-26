@@ -1,0 +1,134 @@
+---
+title: 'MDX Components 🔨'
+desc: 'exmaple of mdx components'
+category: Productivity
+cover: ./covers/an-example-post.jpg
+coverAlt: an example post cover image
+slug: /all-mdx-components
+date: 2021-07-25
+keywords:
+  - mdx components
+  - blog post
+  - mdx
+---
+
+## Markdown for the component era 😎
+
+MDX is an authorable format that lets you seamlessly write JSX in your Markdown documents. You can import components, such as interactive charts or alerts, and embed them within your content. This makes writing long-form content with components a blast 🚀.
+
+## Gatsby
+
+To use MDX with Gatsby, use gatsby-plugin-mdx.
+
+First, scaffold a new Gatsby 2.0 or greater site and install the `gatsby-plugin-mdx` plugin.
+
+> `gatsby new gatsby-site`
+
+> `cd gatsby-site`
+
+> `yarn add gatsby-plugin-mdx @mdx-js/mdx@latest @mdx-js/react@latest`
+
+Then add `gatsby-plugin-mdx` to your `gatsby-config.js` in the plugins section.
+
+```c
+module.exports = {
+  siteMetadata: {
+    title: `My Ambitious Project`
+  },
+  plugins: [`gatsby-plugin-mdx`]
+}
+```
+
+Finally, add an `.mdx` file in the `src/pages` directory. It "Just Works".
+
+```c
+# My first MDX Page
+
+some awesome content
+```
+
+For more documentation on programmatically creating pages with Gatsby, see the [Gatsby MDX docs](https://www.gatsbyjs.com/docs/how-to/routing/mdx/).
+
+## Table of components ✅
+
+[`MDXProvider`](https://mdxjs.com/getting-started#mdxprovider) uses React Context to provide the component mapping internally to MDX when it renders. The following components are rendered from Markdown, so these can be keys in the component object you pass to `MDXProvider`.
+
+| HTML Tag     |      Name       |                                            Syntax |
+| :----------- | :-------------: | ------------------------------------------------: |
+| `p`          |    Paragraph    |                                                   |
+| `a`          |      Link       | `<https://mdxjs.com> or [MDX](https://mdxjs.com)` |
+| `i`          |     Italic      |                              \*italic\* or \_aa\_ |
+| `h1`         |    Heading 1    |                                                 # |
+| `h2`         |    Heading 2    |                                                ## |
+| `h3`         |    Heading 3    |                                               ### |
+| `h4`         |    Heading 4    |                                              #### |
+| `h5`         |    Heading 5    |                                             ##### |
+| `h6`         |    Heading 6    |                                            ###### |
+| `ul`         | Undordered list |                                                 - |
+| `ol`         |  Ordered list   |                                                1. |
+| `li`         |    List item    |                                                   |
+| `tr`         |    Table row    |                                                   |
+| `td`         |   Table cell    |                                                   |
+| `th`         |   Table cell    |                                                   |
+| `em`         |    Emphasis     |                                      \_emphasis\_ |
+| `hr`         | Thematic break  |                                    \--- or \*\*\* |
+| `pre`        |      Code       |                                           \`code` |
+| `img`        |      Image      |                \!\[alt]\(https://mdx-logo.now.sh) |
+| `del`        |     Delete      |                                \~~strikethrough~~ |
+| `code`       |      Code       |                                           \`code` |
+| `table`      |      Table      |                                                   |
+| `thead`      |   Table head    |                                                   |
+| `tbody`      |   Table body    |                                                   |
+| `strong`     |     Strong      |                                    \*\*strong\*\* |
+| `blockquote` |   Blockquote    |                                                 > |
+| `inlinecode` |   InlineCode    |                                     \`inlineCode` |
+
+## Paragraph
+
+You can use the paragraph syntax by typing inside .mdx file without using any symbol
+
+```c
+...
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae explicabo nulla beatae. Dolor id totam incidunt natus et atque rem consequatur dolorum quaerat, numquam tempora, minima quos tempore aut. Nam?
+...
+```
+
+**And it will create something like this**:
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae explicabo nulla beatae. Dolor id totam incidunt natus et atque rem consequatur dolorum quaerat, numquam tempora, minima quos tempore aut. Nam?
+
+## Italic
+
+```c
+*Lorem ipsum dolor sit amet consectetur adipisicing elit.*
+
+or
+
+_Lorem ipsum dolor sit amet consectetur adipisicing elit._
+```
+
+**And it will create something like this**:
+
+> **using the \*\* symbol** : _Lorem ipsum dolor sit amet consectetur adipisicing elit._
+
+> **using the \_ symbol** : _Lorem ipsum dolor sit amet consectetur adipisicing elit._
+
+## Creating Table in MDX
+
+```c
+| ID    |      Name      |      username      |                email |
+| :---- | :------------: | :----------------: | -------------------: |
+| **1** |  Lucius Sloan  | _Edgardo Chandler_ |   sloan255@gmail.com |
+| **2** |  Nita Barnett  |  _Alyce Jimenez_   |    nita900@gmail.com |
+| **3** | Raleigh Becker |    _Fabian Roy_    | rayback235@gmail.com |
+| **4** |  Rupert Wolf   |   _Melvin Horn_    |  rupwolf11@gmail.com |
+```
+
+**The result will looks something like this**:
+
+| ID    |      Name      |      username      |                email |
+| :---- | :------------: | :----------------: | -------------------: |
+| **1** |  Lucius Sloan  | _Edgardo Chandler_ |   sloan255@gmail.com |
+| **2** |  Nita Barnett  |  _Alyce Jimenez_   |    nita900@gmail.com |
+| **3** | Raleigh Becker |    _Fabian Roy_    | rayback235@gmail.com |
+| **4** |  Rupert Wolf   |   _Melvin Horn_    |  rupwolf11@gmail.com |
