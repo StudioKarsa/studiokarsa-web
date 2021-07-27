@@ -35,10 +35,12 @@ const h6 = props => (
 )
 const tbody = props => <tbody className="border" {...props} />
 const table = props => (
-  <table
-    className="table-auto border-collapse border overflow-x-scroll text-xl mb-4"
-    {...props}
-  />
+  <div className="overflow-x-auto">
+    <table
+      className="table-fixed max-width-96 2xl:max-w-full border-collapse border text-xl mb-4"
+      {...props}
+    />
+  </div>
 )
 const blockquote = props => (
   <blockquote
@@ -47,10 +49,12 @@ const blockquote = props => (
   />
 )
 const deckgo_highlight_code = props => (
-  <deckgo-highlight-code
-    class="deckgo-highlight-code-carbon deckgo-highlight-code-theme-dracula hydrated text-lg 2xl:text-2xl"
-    {...props}
-  />
+  <div className="overflow-x-auto">
+    <deckgo-highlight-code
+      class="deckgo-highlight-code-carbon deckgo-highlight-code-theme-dracula hydrated max-width-96 2xl:max-w-full text-lg 2xl:text-2xl"
+      {...props}
+    />
+  </div>
 )
 
 const components = {
@@ -139,7 +143,7 @@ const PostLayout = ({ data: { mdx } }) => {
         />
 
         {/* Blog post content */}
-        <div className="overflow-x-auto md:mx-12">
+        <div className="overflow-x-auto md:px-12">
           <MDXProvider components={components}>
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
