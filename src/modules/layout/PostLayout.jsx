@@ -81,7 +81,7 @@ const Footer = ({ mdx }) => (
   <div className="my-24 px-6 md:px-32 xl:px-40">
     <div className="grid grid-cols-2 gap-8 sm:shadow-lg rounded-lg">
       <div className="col-span-2 xl:col-span-1 grid grid-cols-6 rounded-lg shadow-lg sm:shadow-none cursor-pointer gap-4 p-6">
-        <div className="grid place-items-center col-span-2 hidden sm:flex">
+        <div className="sm:grid place-items-center col-span-2 hidden">
           <div className="bg-red-100 rounded-lg overflow-hidden">
             <GatsbyImage
               className="w-full h-auto rounded-lg"
@@ -104,7 +104,7 @@ const Footer = ({ mdx }) => (
             To not work alone, but rather, together with others in order to achieve a certain goal.
           </div>
         </div>
-        <div className="grid place-items-center col-span-2 hidden sm:flex">
+        <div className="sm:grid place-items-center col-span-2 hidden">
           <div className="bg-red-100 rounded-lg overflow-hidden">
             <GatsbyImage
               className="w-full h-auto rounded-lg"
