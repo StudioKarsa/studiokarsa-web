@@ -75,9 +75,9 @@ const blockquote = props => (
   />
 )
 const deckgo_highlight_code = props => (
-  <div className="overflow-x-auto">
+  <div className="overflow-x-hidden">
     <deckgo-highlight-code
-      class="deckgo-highlight-code-carbon deckgo-highlight-code-theme-dracula hydrated max-width-96 2xl:max-w-full text-lg 2xl:text-2xl"
+      class="deckgo-highlight-code-carbon deckgo-highlight-code-theme-dracula hydrated text-lg 2xl:text-2xl"
       {...props}
     />
   </div>
@@ -141,7 +141,7 @@ const Footer = ({ mdx }) => (
   </div>
 )
 
-const PostLayout = ({ data: { mdx } }) => {
+const PostLayout = ({ data: { mdx, allMdx } }) => {
   deckDeckGoHighlightElement()
 
   return (
@@ -167,6 +167,7 @@ const PostLayout = ({ data: { mdx } }) => {
       </div>
 
       <div className="overflow-x-hidden space-y-8 my-12 md:my-24 px-6 md:px-32 xl:px-56">
+        <div>{articles}</div>
         <div className="space-y-4 md:mx-12">
           <h1 className="font-black leading-tight text-4xl md:leading-tight 2xl:leading-snug md:text-5xl 2xl:text-6xl">
             {mdx.frontmatter.title}
