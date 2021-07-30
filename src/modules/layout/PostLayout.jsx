@@ -105,8 +105,6 @@ const components = {
 }
 
 const Footer = ({ mdx, prev, next }) => {
-
-
   return (
     <div className="my-24 px-6 md:px-28">
       <div
@@ -126,7 +124,7 @@ const Footer = ({ mdx, prev, next }) => {
             <div className="col-span-5 lg:col-span-4 flex flex-col justify-center space-y-2">
               <div className="font-medium text-sm text-gray-500 text-left">Previous Post</div>
               <div className="font-semibold text-left text-lg text-gray-800 overflow-hidden overflow-ellipsis line-clamp-2">
-                When something is about to begin, get serious, or put to the test.
+                {prev.title}
               </div>
             </div>
           </Link>
@@ -135,20 +133,20 @@ const Footer = ({ mdx, prev, next }) => {
         }
         {next && (
           <Link to={next.url}
-            className={`col-span-2 md:col-span-1 flex space-x-4 rounded-3xl cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 ${(prev && next) ? "shadow-lg md:shadow-none" : "shadow-lg"}`}
+            className={`col-span-2 md:col-span-1 flex flex-row-reverse rounded-3xl cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 ${(prev && next) ? "shadow-lg md:shadow-none" : "shadow-lg"}`}
           >
-            <div className="col-span-5 lg:col-span-4 flex flex-col justify-center space-y-2">
-              <div className="font-medium text-sm text-gray-500 text-right">Next Post</div>
-              <div className="font-semibold text-right text-lg text-gray-800 overflow-hidden overflow-ellipsis line-clamp-2">
-                When something is about to begin, get serious, or put to the test.
-              </div>
-            </div>
-            <div className="col-span-2 lg:grid place-items-center hidden">
+            <div className="lg:grid place-items-center hidden ml-4">
               <GatsbyImage
                 className="w-28 h-28 rounded-3xl"
                 alt={mdx.frontmatter.coverAlt}
                 image={getImage(mdx.frontmatter.cover)}
               />
+            </div>
+            <div className="flex flex-col justify-center space-y-2">
+              <div className="font-medium text-sm text-gray-500 text-right">Next Post</div>
+              <div className="font-semibold text-right text-lg text-gray-800 overflow-hidden overflow-ellipsis line-clamp-2">
+                {next.title}
+              </div>
             </div>
           </Link>
         )}
