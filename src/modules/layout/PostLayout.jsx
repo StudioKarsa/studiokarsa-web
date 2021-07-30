@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
@@ -104,45 +104,75 @@ const components = {
   "deckgo-highlight-code": deckgo_highlight_code,
 }
 
-const Footer = ({ mdx }) => (
-  <div className="my-24 px-6 md:px-28">
-    <div className="grid grid-cols-2 gap-8 rounded-2xl shadow-none md:shadow-lg">
-      <div className="col-span-2 md:col-span-1 grid grid-cols-5 gap-4 rounded-2xl shadow-lg md:shadow-none cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4">
-        <div className="col-span-2 lg:grid place-items-center hidden">
-          <GatsbyImage
-            className="w-full h-auto rounded-2xl"
-            alt={mdx.frontmatter.coverAlt}
-            image={getImage(mdx.frontmatter.cover)}
-          />
-        </div>
-        <div className="col-span-5 lg:col-span-3 flex flex-col justify-center space-y-2">
-          <div className="font-medium text-sm text-gray-500 text-left">Previous Post</div>
-          <div className="font-semibold text-left text-lg text-gray-800 overflow-hidden overflow-ellipsis line-clamp-2">
-            When something is about to begin, get serious, or put to the test.
-          </div>
-        </div>
-      </div>
-      <div className="col-span-2 md:col-span-1 grid grid-cols-5 gap-4 rounded-2xl shadow-lg md:shadow-none cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4">
-        <div className="col-span-5 lg:col-span-3 flex flex-col justify-center space-y-2">
-          <div className="font-medium text-sm text-gray-500 text-right">Next Post</div>
-          <div className="font-semibold text-right text-lg text-gray-800 overflow-hidden overflow-ellipsis line-clamp-2">
-            When something is about to begin, get serious, or put to the test.
-          </div>
-        </div>
-        <div className="col-span-2 lg:grid place-items-center hidden">
-          <GatsbyImage
-            className="w-full h-auto rounded-2xl"
-            alt={mdx.frontmatter.coverAlt}
-            image={getImage(mdx.frontmatter.cover)}
-          />
-        </div>
+const Footer = ({ mdx, prev, next }) => {
+
+
+  return (
+    <div className="my-24 px-6 md:px-28">
+      <div
+        className={`grid grid-cols-2 gap-8 rounded-3xl shadow-none ${(prev && next) ? "md:shadow-lg" : ""}`}
+      >
+        {prev
+          ? <Link to={prev.url}
+            className={`col-span-2 md:col-span-1 flex space-x-4 rounded-3xl cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 ${(prev && next) ? "shadow-lg md:shadow-none" : "shadow-lg"}`}
+          >
+            <div className="col-span-2 lg:grid place-items-center hidden">
+              <GatsbyImage
+                className="w-28 h-28 rounded-3xl"
+                alt={mdx.frontmatter.coverAlt}
+                image={getImage(mdx.frontmatter.cover)}
+              />
+            </div>
+            <div className="col-span-5 lg:col-span-4 flex flex-col justify-center space-y-2">
+              <div className="font-medium text-sm text-gray-500 text-left">Previous Post</div>
+              <div className="font-semibold text-left text-lg text-gray-800 overflow-hidden overflow-ellipsis line-clamp-2">
+                When something is about to begin, get serious, or put to the test.
+              </div>
+            </div>
+          </Link>
+          : <div></div>
+
+        }
+        {next && (
+          <Link to={next.url}
+            className={`col-span-2 md:col-span-1 flex space-x-4 rounded-3xl cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 ${(prev && next) ? "shadow-lg md:shadow-none" : "shadow-lg"}`}
+          >
+            <div className="col-span-5 lg:col-span-4 flex flex-col justify-center space-y-2">
+              <div className="font-medium text-sm text-gray-500 text-right">Next Post</div>
+              <div className="font-semibold text-right text-lg text-gray-800 overflow-hidden overflow-ellipsis line-clamp-2">
+                When something is about to begin, get serious, or put to the test.
+              </div>
+            </div>
+            <div className="col-span-2 lg:grid place-items-center hidden">
+              <GatsbyImage
+                className="w-28 h-28 rounded-3xl"
+                alt={mdx.frontmatter.coverAlt}
+                image={getImage(mdx.frontmatter.cover)}
+              />
+            </div>
+          </Link>
+        )}
       </div>
     </div>
-  </div>
-)
+  )
+}
 
-const PostLayout = ({ data: { mdx, allMdx } }) => {
+const PostLayout = ({ data: { mdx }, pageContext }) => {
   deckDeckGoHighlightElement()
+
+  const next = pageContext.next
+    ? {
+      url: `${pageContext.next.frontmatter.slug}`,
+      title: pageContext.next.frontmatter.title
+    }
+    : null
+
+  const prev = pageContext.prev
+    ? {
+      url: `${pageContext.prev.frontmatter.slug}`,
+      title: pageContext.prev.frontmatter.title
+    }
+    : null
 
   return (
     <>
@@ -167,7 +197,6 @@ const PostLayout = ({ data: { mdx, allMdx } }) => {
       </div>
 
       <div className="overflow-x-hidden space-y-8 my-12 md:my-24 px-6 md:px-32 xl:px-56">
-        <div>{articles}</div>
         <div className="space-y-4 md:mx-12">
           <h1 className="font-black leading-tight text-4xl md:leading-tight 2xl:leading-snug md:text-5xl 2xl:text-6xl">
             {mdx.frontmatter.title}
@@ -199,7 +228,7 @@ const PostLayout = ({ data: { mdx, allMdx } }) => {
         </div>
       </div>
 
-      <Footer mdx={mdx} />
+      <Footer mdx={mdx} prev={prev} next={next} />
     </>
   )
 }
