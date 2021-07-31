@@ -36,6 +36,25 @@ function renderProjectImage(project) {
   return projectImage[project]
 }
 
+const ProjectLink = ({
+  projectKey,
+  title,
+  description,
+  setCurrentProjectImage,
+}) => (
+  <div
+    className="flex flex-col group w-full"
+    onMouseOver={() => setCurrentProjectImage(projectKey)}
+  >
+    <a href="#" className="flex-1 py-4" onClick={e => e.preventDefault()}>
+      <h2 className="font-medium text-lg lg:text-xl group-hover:text-primary tracking-wider">
+        {title}
+      </h2>
+      <p className="text-gray-500 text-sm lg:text-lg">{description}</p>
+    </a>
+  </div>
+)
+
 const Works = () => {
   const { t } = useTranslation()
   const [currentProjectImage, setCurrentProjectImage] = useState('skillcode')
@@ -76,23 +95,12 @@ const Works = () => {
           <div className="my-auto space-y-2">
             <div className="flex flex-col divide-y-2 divide-solid divide-opacity-25">
               {projects.map(project => (
-                <div
-                  className="flex flex-col group w-full"
-                  onMouseOver={() => setCurrentProjectImage(project.key)}
-                >
-                  <a
-                    href="#"
-                    className="flex-1 py-4"
-                    onClick={e => e.preventDefault()}
-                  >
-                    <h2 className="font-medium text-lg lg:text-xl group-hover:text-primary tracking-wider">
-                      {project.title}
-                    </h2>
-                    <p className="text-gray-500 text-sm lg:text-lg">
-                      {project.description}
-                    </p>
-                  </a>
-                </div>
+                <ProjectLink
+                  projectKey={project.key}
+                  title={project.title}
+                  description={project.description}
+                  setCurrentProjectImage={setCurrentProjectImage}
+                />
               ))}
             </div>
             <div>
