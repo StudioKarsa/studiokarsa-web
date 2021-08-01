@@ -29,3 +29,26 @@ body {
 .custom-shadow {
   box-shadow: 31px 17px 45px 0px #8989894d;
 }
+
+deckgo-highlight-code {
+  --deckgo-highlight-code-scroll: auto;
+  --deckgo-highlight-code-carbon-overflow: auto;
+  --deckgo-highlight-code-container-width: max-content;
+  scrollbar-width: thin;
+}
+
+deckgo-highlight-code::-webkit-scrollbar {
+  height: 7px;
+}
+
+deckgo-highlight-code::-webkit-scrollbar-track {
+  background: #222; 
+}
+ 
+deckgo-highlight-code::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+deckgo-highlight-code::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

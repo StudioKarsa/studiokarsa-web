@@ -133,7 +133,9 @@ import { ThemeContext } from "styled-components";
 const ThemedButton = () => {
    const theme = useContext(ThemeContext);
    return(
-      <StyledButton bgColor={theme.colors.plum} color={theme.colors.white}>I am a themed button 😜</StyledButton>
+      <StyledButton bgColor={theme.colors.plum} color={theme.colors.white}>
+         I am a themed button 😜
+      </StyledButton>
    )
 }
 
@@ -212,9 +214,7 @@ export default styled.button(props => ({
 ```
 
 ```c
-<JSStyledButton bgColor={theme.colors.plum} color={theme.colors.white}>
-	I am a JS Styled Button 🤠
-</JSStyledButton>
+<JSStyledButton bgColor={theme.colors.plum} color={theme.colors.white}>I am a JS Styled Button 🤠</JSStyledButton>
 ```
 
 ![theme button 4](https://res.cloudinary.com/practicaldev/image/fetch/s--k_wWRmn1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xa3cp7u3luuyoue7x2m3.png)
