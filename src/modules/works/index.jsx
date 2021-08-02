@@ -101,7 +101,7 @@ const ProjectFilter = ({ setProjectType, setProjectCategory }) => {
     const clickedParent = clicked.parentNode
 
     clickedParent.childNodes.forEach(element => {
-      // Change text from black to grey (deactivate) for buttons inside parent
+      // Change text from black to grey (deactivate) for siblings button
       if (element.onclick) {
         element.classList.replace('text-black', 'text-gray-500')
       }
@@ -120,7 +120,7 @@ const ProjectFilter = ({ setProjectType, setProjectCategory }) => {
   return (
     <div className="flex flex-col space-y-2">
       <div
-        className="flex flex-row items-center text-base lg:text-lg xl:text-xl 2xl:text-2xl font-semibold space-x-4 cursor-default"
+        className="flex flex-row items-center font-semibold text-base lg:text-lg xl:text-xl 2xl:text-2xl space-x-4"
         id="project-type"
       >
         <button
@@ -191,8 +191,8 @@ const ProjectCard = ({ index, image, title }) => {
   }
 
   return (
-    <div className="w-1/2 lg:w-1/3 p-2">
-      <a href="#" className="flex flex-col p-2 space-y-4 group">
+    <div className="w-1/2 lg:w-1/3 p-1 md:p-2">
+      <a href="#" className="flex flex-col p-1 md:p-2 space-y-4 group">
         <div className="group-hover:shadow-xl transition ease-in-out transform group-hover:scale-105">{image}</div>
         <div className="flex flex-row">
           <p className="text-lg">
@@ -210,7 +210,7 @@ const Page = () => {
   const [projectCategory, setProjectCategory] = useState('all')
 
   return (
-    <div className="flex flex-col p-8 lg:p-12 xl:p-16 space-y-10">
+    <div className="flex flex-col p-6 lg:p-12 xl:p-16 space-y-10">
       <h2 className="font-bold text-4xl md:text-5xl xl:text-6xl 2xl:text-8xl">Karsa Works</h2>
       <ProjectFilter
         setProjectType={setProjectType}
