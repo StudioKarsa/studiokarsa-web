@@ -3,7 +3,8 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion'
 
 function getProjectList(projectType, projectCategory) {
-  const projectImgClassName = 'max-h-32 md:max-h-48 lg:max-h-64 2xl:max-h-72 rounded-xl'
+  const projectImgClassName =
+    'max-h-32 md:max-h-48 lg:max-h-64 2xl:max-h-72 rounded-xl'
 
   const professionalProject = [
     {
@@ -80,14 +81,12 @@ const ProjectFilter = ({ setProjectType, setProjectCategory }) => {
   function handleTypeChange(clickedId, typeClicked) {
     const projectCategory = document.getElementById('project-category')
     if (typeState[0] === typeClicked[0] && typeState[1] === typeClicked[1]) {
-      // Deactivate Category Filter
-      projectCategory.classList.replace('flex', 'hidden')
-      // projectCategory.classList.add('-translate-y-8', 'hidden')
+      // Deactivate/Collapse Category Filter
+      projectCategory.classList.replace('max-h-96', 'max-h-0')
       setTypeState([0, 0])
     } else {
-      // Activate Category Filter
-      projectCategory.classList.replace('hidden', 'flex')
-      // projectCategory.classList.remove('-translate-y-8', 'hidden')
+      // Activate/Expand Category Filter
+      projectCategory.classList.replace('max-h-0', 'max-h-96')
       setTypeState(typeClicked)
     }
 
@@ -142,7 +141,7 @@ const ProjectFilter = ({ setProjectType, setProjectCategory }) => {
         </button>
       </div>
       <div
-        className="hidden flex-row items-center font-semibold text-sm lg:text-base xl:text-xl text-2xl:text-xl text-gray-500 space-x-2"
+        className="flex flex-row items-center max-h-0 font-semibold text-sm lg:text-base xl:text-xl text-2xl:text-xl text-gray-500 space-x-2 transition-all ease-in-out overflow-hidden duration-700"
         id="project-category"
       >
         <button
@@ -193,7 +192,9 @@ const ProjectCard = ({ index, image, title }) => {
   return (
     <div className="w-1/2 lg:w-1/3 p-1 md:p-2">
       <a href="#" className="flex flex-col p-1 md:p-2 space-y-4 group">
-        <div className="group-hover:shadow-xl transition ease-in-out transform group-hover:scale-105">{image}</div>
+        <div className="group-hover:shadow-xl transition ease-in-out transform group-hover:scale-105">
+          {image}
+        </div>
         <div className="flex flex-row">
           <p className="text-lg">
             <span className="text-gray-500">{getIndex(index)} / </span>
@@ -211,7 +212,9 @@ const Page = () => {
 
   return (
     <div className="flex flex-col p-6 lg:p-12 xl:p-16 space-y-10">
-      <h2 className="font-bold text-4xl md:text-5xl xl:text-6xl 2xl:text-8xl">Karsa Works</h2>
+      <h2 className="font-bold text-4xl md:text-5xl xl:text-6xl 2xl:text-8xl">
+        Karsa Works
+      </h2>
       <ProjectFilter
         setProjectType={setProjectType}
         setProjectCategory={setProjectCategory}
