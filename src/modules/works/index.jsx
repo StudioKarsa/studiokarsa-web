@@ -1,6 +1,17 @@
 import React, { useState } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { motion } from 'framer-motion'
+
+const PROJECT_FILTER_TYPE = {
+  PROFESSIONAL: 'PROFESSIONAL',
+  PERSONAL: 'PERSONAL',
+}
+
+const PROJECT_FILTER_CATEGORY_TYPE = {
+  ALL: 'All',
+  UIUX: 'UI/UX',
+  WEBSITE: 'WEBSITE',
+  MOBILE: 'MOBILE',
+}
 
 function getProjectList(projectType, projectCategory) {
   const projectImgClassName =
@@ -17,7 +28,7 @@ function getProjectList(projectType, projectCategory) {
         />
       ),
       title: 'Pro - Website',
-      category: 'website',
+      category: PROJECT_FILTER_CATEGORY_TYPE.WEBSITE,
     },
     {
       image: (
@@ -29,7 +40,7 @@ function getProjectList(projectType, projectCategory) {
         />
       ),
       title: 'Pro - Mobile',
-      category: 'mobile',
+      category: PROJECT_FILTER_CATEGORY_TYPE.MOBILE,
     },
   ]
 
@@ -44,7 +55,7 @@ function getProjectList(projectType, projectCategory) {
         />
       ),
       title: 'Personal - UI/UX',
-      category: 'uiux',
+      category: PROJECT_FILTER_CATEGORY_TYPE.UIUX,
     },
     {
       image: (
@@ -56,44 +67,59 @@ function getProjectList(projectType, projectCategory) {
         />
       ),
       title: 'Personal - Mobile',
-      category: 'mobile',
+      category: PROJECT_FILTER_CATEGORY_TYPE.MOBILE,
     },
   ]
 
   // Assign project type for consistency
-  professionalProject.forEach(project => (project.type = 'professional'))
-  personalProject.forEach(project => (project.type = 'personal'))
+  professionalProject.forEach(
+    project => (project.type = PROJECT_FILTER_TYPE.PROFESSIONAL)
+  )
+
+  personalProject.forEach(
+    project => (project.type = PROJECT_FILTER_TYPE.PERSONAL)
+  )
 
   const combinedProject = personalProject.concat(professionalProject)
 
   // Filter by parameter
   let filtered = combinedProject.filter(project => project.type === projectType)
-  if (projectCategory !== 'all') {
+  if (projectCategory !== PROJECT_FILTER_CATEGORY_TYPE.ALL) {
     filtered = filtered.filter(project => project.category === projectCategory)
   }
 
   return filtered
 }
 
-const ProjectFilter = ({ setProjectType, setProjectCategory }) => {
-  const [typeState, setTypeState] = useState([0, 0])
-
-  function handleTypeChange(clickedId, typeClicked) {
-    const projectCategory = document.getElementById('project-category')
-    if (typeState[0] === typeClicked[0] && typeState[1] === typeClicked[1]) {
-      // Deactivate/Collapse Category Filter
-      projectCategory.classList.replace('max-h-96', 'max-h-0')
-      setTypeState([0, 0])
-    } else {
-      // Activate/Expand Category Filter
-      projectCategory.classList.replace('max-h-0', 'max-h-96')
-      setTypeState(typeClicked)
+const ProjectFilter = ({
+  projectType,
+  setProjectType,
+  setProjectCategory,
+  isCategoryCollapsed,
+  setIsCategoryCollapsed,
+}) => {
+  const handleProjectTypeChange = (event, selectedProjectType) => {
+    // Compare the former value of projectType with the new one
+    if (selectedProjectType === projectType) {
+      // Open / Close the category dropdown
+      setIsCategoryCollapsed(!isCategoryCollapsed)
+      return
     }
 
-    handleClick(clickedId)
+    setProjectType(selectedProjectType)
+    if (!isCategoryCollapsed) {
+      setIsCategoryCollapsed(true)
+    }
+
+    changeTextColorByID(event.target.id)
   }
 
-  function handleClick(clickedId) {
+  const handleProjectCategoryChange = (event, selectedCategory) => {
+    setProjectCategory(selectedCategory)
+    changeTextColorByID(event.target.id)
+  }
+
+  function changeTextColorByID(clickedId) {
     // Get clicked element
     const clicked = document.getElementById(clickedId)
     // Get parent of clicked
@@ -107,13 +133,6 @@ const ProjectFilter = ({ setProjectType, setProjectCategory }) => {
     })
     // Change text from gray to black (activate) for clicked button
     clicked.classList.replace('text-gray-500', 'text-black')
-
-    // Determine which setState to execute by id of clickedParent
-    if (clickedParent.id === 'project-type') {
-      setProjectType(clicked.value)
-    } else {
-      setProjectCategory(clicked.value)
-    }
   }
 
   return (
@@ -124,58 +143,75 @@ const ProjectFilter = ({ setProjectType, setProjectCategory }) => {
       >
         <button
           className="text-black focus:outline-none cursor-default"
-          id="type-professional"
-          value="professional"
-          onClick={() => handleTypeChange('type-professional', [1, 0])}
+          id="professional"
+          onClick={event =>
+            handleProjectTypeChange(event, PROJECT_FILTER_TYPE.PROFESSIONAL)
+          }
         >
-          Project {/* <span className="text-xs">&#9660;</span> */}
+          Project
         </button>
         <p>/</p>
         <button
           className="text-gray-500 focus:outline-none cursor-default"
-          id="type-personal"
-          value="personal"
-          onClick={() => handleTypeChange('type-personal', [0, 1])}
+          id="personal"
+          onClick={event =>
+            handleProjectTypeChange(event, PROJECT_FILTER_TYPE.PERSONAL)
+          }
         >
           Karsa Shoots
         </button>
       </div>
       <div
-        className="flex flex-row items-center max-h-0 font-semibold text-sm lg:text-base xl:text-xl text-2xl:text-xl text-gray-500 space-x-2 transition-all ease-in-out overflow-hidden duration-700"
+        className={`flex flex-row items-center font-semibold text-sm lg:text-base xl:text-xl text-2xl:text-xl text-gray-500 space-x-2 transition-all ease-in-out overflow-hidden duration-700 ${
+          isCategoryCollapsed ? 'max-h-96' : 'max-h-0'
+        }`}
         id="project-category"
       >
         <button
           className="text-black focus:outline-none cursor-default"
-          id="category-all"
-          value="all"
-          onClick={() => handleClick('category-all')}
+          id="all"
+          onClick={event =>
+            handleProjectCategoryChange(event, PROJECT_FILTER_CATEGORY_TYPE.ALL)
+          }
         >
           All
         </button>
         <p>/</p>
         <button
           className="text-gray-500 focus:outline-none cursor-default"
-          id="category-website"
-          value="website"
-          onClick={() => handleClick('category-website')}
+          id="website"
+          onClick={event =>
+            handleProjectCategoryChange(
+              event,
+              PROJECT_FILTER_CATEGORY_TYPE.WEBSITE
+            )
+          }
         >
           Website
         </button>
         <p>/</p>
         <button
           className="text-gray-500 focus:outline-none cursor-default"
-          id="category-mobile"
-          value="mobile"
-          onClick={() => handleClick('category-mobile')}
+          id="mobile"
+          onClick={event =>
+            handleProjectCategoryChange(
+              event,
+              PROJECT_FILTER_CATEGORY_TYPE.MOBILE
+            )
+          }
         >
           Mobile App
         </button>
         <p>/</p>
         <button
           className="text-gray-500 focus:outline-none cursor-default"
-          id="category-uiux"
-          value="uiux"
-          onClick={() => handleClick('category-uiux')}
+          id="uiux"
+          onClick={event =>
+            handleProjectCategoryChange(
+              event,
+              PROJECT_FILTER_CATEGORY_TYPE.UIUX
+            )
+          }
         >
           UI/UX Design
         </button>
@@ -207,8 +243,15 @@ const ProjectCard = ({ index, image, title }) => {
 }
 
 const Page = () => {
-  const [projectType, setProjectType] = useState('professional')
-  const [projectCategory, setProjectCategory] = useState('all')
+  const [isCategoryCollapsed, setIsCategoryCollapsed] = useState(false)
+
+  const [projectType, setProjectType] = useState(
+    PROJECT_FILTER_TYPE.PROFESSIONAL
+  )
+
+  const [projectCategory, setProjectCategory] = useState(
+    PROJECT_FILTER_CATEGORY_TYPE.ALL
+  )
 
   return (
     <div className="flex flex-col p-6 lg:p-12 xl:p-16 space-y-10">
@@ -216,8 +259,11 @@ const Page = () => {
         Karsa Works
       </h2>
       <ProjectFilter
+        projectType={projectType}
         setProjectType={setProjectType}
         setProjectCategory={setProjectCategory}
+        isCategoryCollapsed={isCategoryCollapsed}
+        setIsCategoryCollapsed={setIsCategoryCollapsed}
       />
       <div className="flex flex-wrap">
         {getProjectList(projectType, projectCategory).map((project, index) => (
