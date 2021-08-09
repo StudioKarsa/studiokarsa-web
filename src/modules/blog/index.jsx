@@ -4,6 +4,7 @@ import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
 
 import SEO from '../../shared-components/SEO'
 import SearchSVG from '../../assets/icons/search.svg'
+import CloseSVG from '../../assets/icons/x.svg'
 
 const Page = () => {
   const {
@@ -67,7 +68,9 @@ const Page = () => {
           <form action="" method="POST"
                           className="flex flex-row bg-gray-200
                                      justify-center items-center
-                                     px-4 my-4 rounded-full w-5/6 lg:w-2/5">
+                                     px-4 my-4 rounded-full
+                                     text-lg md:text-xl
+                                     w-5/6 lg:w-2/5">
             <SearchSVG className="bg-gray-200"/>
             <input type="text"
                    className="bg-gray-200 border-opacity-0
@@ -76,19 +79,29 @@ const Page = () => {
                    placeholder="Search..."
             />
           </form>
-          <div className="flex flex-row justify-center items-center w-full">
+          <div className="flex flex-row justify-center items-center w-full text-lg lg:text-xl">
             <div className="flex justify-start mx-2 md:hidden">
               Recently
             </div>
             <div className="overflow-x-scroll md:overflow-hidden">
-              <div className="flex flex-row md:grid md:grid-cols-4 gap-3">
+              <div className="flex flex-row md:grid md:grid-cols-4 gap-3 p-4">
                 {categories.map((item) => (
-                    <button className="hover:shadow-inner hover:bg-gray-200
-                                      focus:outline-none focus:bg-gray-200
-                                      text-gray-400 border-2 rounded-full
-                                      outline-none py-1 px-2">
-                      {item}
-                    </button>
+                  <div className="relative flex items-center justify-center">
+                    <div className="static w-full">
+                      <button className="group group-hover:shadow-inner
+                                        group-hover:bg-gray-200 focus:outline-none
+                                        focus:bg-gray-200 text-gray-400 border-2
+                                        rounded-full outline-none md:py-1 px-2
+                                        whitespace-nowrap w-full">
+                        <div className="absolute flex justify-center -top-3 -right-3
+                                        opacity-0 group-focus:opacity-100
+                                        bg-white border-2 rounded-full">
+                          <CloseSVG className="w-1/3"/>
+                        </div>
+                        {item}
+                      </button>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -111,11 +124,11 @@ const Page = () => {
             </div>
             <div className="flex flex-col mx-3 my-2">
               <div className="flex flex-row">
-                <p className="mr-1 text-primary font-bold">{firstPost.category}</p> •
-                <p className="ml-1 text-gray-500">{firstPost.date}</p>
+                <p className="mr-1 text-primary font-bold text-lg">{firstPost.category}</p> •
+                <p className="ml-1 text-gray-500 text-lg">{firstPost.date}</p>
               </div>
-              <h1 className="font-extrabold text-2xl w-3/5">{firstPost.title}</h1>
-              <p className="text-gray-400 text-xl">{firstPost.desc}</p>
+              <h1 className="font-extrabold text-3xl w-3/5">{firstPost.title}</h1>
+              <p className="text-gray-400 text-2xl">{firstPost.desc}</p>
             </div>
           </div>
         </div>
@@ -138,11 +151,11 @@ const Page = () => {
                 </div>
                 <div className="flex flex-col justify-center mx-3 my-2">
                   <div className="flex flex-row">
-                    <p className="mr-1 text-primary font-bold">{frontmatter.category}</p> •
-                    <p className="ml-1 text-gray-500">{frontmatter.date}</p>
+                    <p className="mr-1 text-primary font-bold text-md xl:text-lg">{frontmatter.category}</p> •
+                    <p className="ml-1 text-gray-500 text-md xl:text-lg">{frontmatter.date}</p>
                   </div>
-                  <h1 className="font-extrabold text-xl my-2">{frontmatter.title.substr(0, 45) + "..."}</h1>
-                  <p className="text-gray-400 text-lg">{frontmatter.desc}</p>
+                  <h1 className="font-extrabold text-2xl my-2">{frontmatter.title.substr(0, 45) + "..."}</h1>
+                  <p className="text-gray-400 text-xl">{frontmatter.desc}</p>
                 </div>
               </div>
             </Link>
