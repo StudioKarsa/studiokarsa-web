@@ -17,17 +17,7 @@ import IconBehanceLogo from '../assets/icons/behance-logo.svg'
 import IconLinkedInLogo from '../assets/icons/linkedin-logo.svg'
 
 const ContactSection = () => {
-  const controls = useAnimation()
-  const { ref, inView } = useInView({ triggerOnce: true })
   const { t } = useTranslation()
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible')
-    } else {
-      controls.start('hidden')
-    }
-  }, [controls, inView])
 
   const fadeUp = {
     hidden: { opacity: 0, y: 150 },
@@ -37,9 +27,17 @@ const ContactSection = () => {
     },
   }
 
-  // <>
-  return (
-    <div>
+  const ImgContact = () => {
+    const controls = useAnimation()
+    const { ref, inView } = useInView()
+
+    useEffect(() => {
+      if (inView) {
+        controls.start('visible')
+      }
+    }, [controls, inView])
+
+    return (
       <motion.section
         ref={ref}
         variants={fadeUp}
@@ -60,13 +58,26 @@ const ContactSection = () => {
           </div>
         </div>
       </motion.section>
+    )
+  }
 
+  const BtnContact = () => {
+    const controls = useAnimation()
+    const { ref, inView } = useInView()
+
+    useEffect(() => {
+      if (inView) {
+        controls.start('visible')
+      }
+    }, [controls, inView])
+
+    return (
       <motion.section
         ref={ref}
         variants={fadeUp}
         initial="hidden"
         animate={controls}
-        transition={{ duration: 3.2, ease: [0.19, 1.0, 0.22, 1.0], delay: 0.4 }}
+        transition={{ duration: 3.2, ease: [0.19, 1.0, 0.22, 1.0] }}
         className="flex flex-col md:flex-row justify-center md:space-x-12 mb-32"
       >
         <button className="z-10 capitalize inline-block font-semibold text-white bg-primary shadow-xl rounded-md mt-4 py-2 px-10 text-base xl:py-3 xl:px-12 xl:text-xl hover:transform hover:-translate-y-1 duration-300">
@@ -76,9 +87,15 @@ const ContactSection = () => {
           WhatsApp
         </button>
       </motion.section>
+    )
+  }
+
+  return (
+    <div>
+      <ImgContact />
+      <BtnContact />
     </div>
   )
-  // </>
 }
 
 const SocialLink = ({ children, to = '#' }) => (

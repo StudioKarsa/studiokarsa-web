@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 import WebSVG from '../../../assets/icons/web-dev.svg'
 import FigmaSVG from '../../../assets/icons/figma.svg'
@@ -8,6 +10,22 @@ import MobileSVG from '../../../assets/icons/mobile.svg'
 
 const Services = () => {
   const { t } = useTranslation()
+  const controls = useAnimation()
+  const { ref, inView } = useInView()
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible')
+    }
+  }, [controls, inView])
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 150 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  }
 
   const serviceImageClassName =
     'text-white w-14 h-16 sm:w-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300'
@@ -16,6 +34,7 @@ const Services = () => {
       image: <WebSVG className={serviceImageClassName} />,
       title: t('landingPage.services.contents.uiux.title'),
       description: t('landingPage.services.contents.uiux.description'),
+      delay: 0.4
     },
     {
       image: <FigmaSVG className={serviceImageClassName} />,
@@ -23,6 +42,7 @@ const Services = () => {
       description: t(
         'landingPage.services.contents.webDevelopment.description'
       ),
+      delay: 0.6
     },
     {
       image: <MobileSVG className={serviceImageClassName} />,
@@ -30,11 +50,13 @@ const Services = () => {
       description: t(
         'landingPage.services.contents.mobileDevelopment.description'
       ),
+      delay: 0.8
     },
     {
       image: <SEOSVG className={serviceImageClassName} />,
       title: t('landingPage.services.contents.seo.title'),
       description: t('landingPage.services.contents.seo.description'),
+      delay: 1
     },
   ]
 
@@ -44,22 +66,44 @@ const Services = () => {
       className="flex flex-col px-6 md:px-20 py-12 gap-y-6 md:gap-y-12 font-sans relative z-20"
     >
       <div className="flex flex-col md:gap-y-4">
-        <h2 className="text-2xl md:text-3xl text-primary md:tracking-wider uppercase">
+        <motion.h2
+          ref={ref}
+          variants={fadeUp}
+          initial="hidden"
+          animate={controls}
+          transition={{ duration: 3.2, ease: [0.19, 1.0, 0.22, 1.0] }}
+          className="text-2xl md:text-3xl text-primary md:tracking-wider uppercase"
+        >
           {t('landingPage.services.title')}
-        </h2>
+        </motion.h2>
         <div>
-          <h2 className="text-2xl md:text-3xl font-semibold md:mb-4">
+          <motion.h2
+            ref={ref}
+            variants={fadeUp}
+            initial="hidden"
+            animate={controls}
+            transition={{ duration: 3.2, ease: [0.19, 1.0, 0.22, 1.0] }}
+            className="text-2xl md:text-3xl font-semibold md:mb-4"
+          >
             {t('landingPage.services.subtitle')}
-          </h2>
+          </motion.h2>
         </div>
       </div>
       <div className="lg:grid lg:grid-cols-2 lg:gap-12">
         {services.map(service => (
-          <Service
-            image={service.image}
-            title={service.title}
-            description={service.description}
-          />
+          <motion.div
+            ref={ref}
+            variants={fadeUp}
+            initial="hidden"
+            animate={controls}
+            transition={{ duration: 3.2, ease: [0.19, 1.0, 0.22, 1.0], delay: service.delay }}
+          >
+            <Service
+              image={service.image}
+              title={service.title}
+              description={service.description}
+            />
+          </motion.div>
         ))}
       </div>
     </div>
