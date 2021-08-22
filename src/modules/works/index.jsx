@@ -13,11 +13,11 @@ const PROJECT_FILTER_CATEGORY_TYPE = {
   MOBILE: 'MOBILE',
 }
 
-function getProjectList(projectType, projectCategory) {
-  const projectImgClassName =
-    'max-h-32 md:max-h-48 lg:max-h-64 2xl:max-h-72 rounded-xl'
+const projectImgClassName =
+  'max-h-32 md:max-h-48 lg:max-h-64 2xl:max-h-72 rounded-xl'
 
-  const professionalProject = [
+function getProfessionalProjects() {
+  const professionalProjects = [
     {
       image: (
         <StaticImage
@@ -44,7 +44,16 @@ function getProjectList(projectType, projectCategory) {
     },
   ]
 
-  const personalProject = [
+  // Assign project type for consistency
+  professionalProjects.forEach(
+    project => (project.type = PROJECT_FILTER_TYPE.PROFESSIONAL)
+  )
+
+  return professionalProjects
+}
+
+function getPersonalProjects() {
+  const personalProjects = [
     {
       image: (
         <StaticImage
@@ -72,18 +81,23 @@ function getProjectList(projectType, projectCategory) {
   ]
 
   // Assign project type for consistency
-  professionalProject.forEach(
-    project => (project.type = PROJECT_FILTER_TYPE.PROFESSIONAL)
-  )
-
-  personalProject.forEach(
+  personalProjects.forEach(
     project => (project.type = PROJECT_FILTER_TYPE.PERSONAL)
   )
 
-  const combinedProject = personalProject.concat(professionalProject)
+  return personalProjects
+}
+
+function getProjectList(projectType, projectCategory) {
+  const professionalProjects = getProfessionalProjects()
+  const personalProjects = getPersonalProjects()
+
+  const combinedProjects = personalProjects.concat(professionalProjects)
 
   // Filter by parameter
-  let filtered = combinedProject.filter(project => project.type === projectType)
+  let filtered = combinedProjects.filter(
+    project => project.type === projectType
+  )
   if (projectCategory !== PROJECT_FILTER_CATEGORY_TYPE.ALL) {
     filtered = filtered.filter(project => project.category === projectCategory)
   }
@@ -226,9 +240,9 @@ const ProjectCard = ({ index, image, title }) => {
   }
 
   return (
-    <div className="w-1/2 lg:w-1/3 p-1 md:p-2">
-      <a href="#" className="flex flex-col p-1 md:p-2 space-y-4 group">
-        <div className="group-hover:shadow-xl transition ease-in-out transform group-hover:scale-105">
+    <div className="w-1/2 lg:w-1/3 hover:shadow-2xl rounded-xl">
+      <a href="#" className="flex flex-col p-2 md:p-4 space-y-4">
+        <div className="transition ease-in-out transform group-hover:scale-105">
           {image}
         </div>
         <div className="flex flex-row">
