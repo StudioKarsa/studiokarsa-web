@@ -75,15 +75,17 @@ module.exports = {
         engine: 'flexsearch',
         engineOptions: 'speed',
         query: `
-        allMdx {
-          edges {
-            node {
-              id
-              frontmatter {
-                slug
-                title
-                category
-                date(formatString: "MMMM DD, YYYY")
+        {
+          allMdx {
+            edges {
+              node {
+                id
+                frontmatter {
+                  slug
+                  title
+                  category
+                  date(formatString: "MMMM DD, YYYY")
+                }
               }
             }
           }
