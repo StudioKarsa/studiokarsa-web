@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useFlexSearch } from 'react-use-flexsearch'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
-import SearchBar from '../../components/Search'
+import SearchBar from '../../shared-components/Search'
 
 import SEO from '../../shared-components/SEO'
 import CloseSVG from '../../assets/icons/x.svg'
