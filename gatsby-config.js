@@ -75,7 +75,7 @@ module.exports = {
         engine: 'flexsearch',
         engineOptions: 'speed',
         query: `
-        allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+        allMdx {
           edges {
             node {
               id
