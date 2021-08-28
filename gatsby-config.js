@@ -93,7 +93,7 @@ module.exports = {
         `,
         ref: 'slug',
         index: ['title', 'slug'],
-        store: ['id, title', 'category', 'date', 'slug'],
+        store: ['id', 'title', 'category', 'date', 'slug'],
 
         // Function used to map the result from the GraphQL query. This should
         // return an array of items to index in the form of flat objects
