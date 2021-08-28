@@ -190,7 +190,7 @@ const query = graphql`
       store
     }
     # Blog posts query
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx {
       edges {
         node {
           id
@@ -205,8 +205,8 @@ const query = graphql`
               childImageSharp {
                 gatsbyImageData(
                   layout: FIXED
-                  width: 300
-                  height: 300
+                  width: 350
+                  height: 350
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
                 )
