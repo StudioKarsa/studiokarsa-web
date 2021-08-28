@@ -184,11 +184,6 @@ const query = graphql`
         )
       }
     }
-    # Local search query
-    localSearchPages {
-      index
-      store
-    }
     # Blog posts query
     allMdx {
       edges {
