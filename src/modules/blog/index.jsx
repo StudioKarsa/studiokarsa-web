@@ -1,16 +1,26 @@
-import * as React from 'react'
+import React, { useState } from 'react'
+import { useFlexSearch } from 'react-use-flexsearch'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
+import SearchBar from '../../components/Search'
 
 import SEO from '../../shared-components/SEO'
-import SearchSVG from '../../assets/icons/search.svg'
 import CloseSVG from '../../assets/icons/x.svg'
 
 const Page = () => {
   const {
     file,
     allMdx: { edges },
+    // localSearchPages: { index, store },
   } = useStaticQuery(query)
+
+  // const index = ['title', 'slug']
+  // const store = ['id, title', 'category', 'date', 'slug']
+  const { search } = window.location;
+  const queries = new URLSearchParams(search).get('s')
+  const [searchQuery, setSearchQuery] = useState(queries || '');
+
+  // const results = useFlexSearch(searchQuery, index, store);
 
   const seoImage = getImage(file)
   const seoImageSRC = getSrc(file)
@@ -65,21 +75,14 @@ const Page = () => {
           </p>
         </div>
         <div className="flex flex-col items-center">
-          <form action="" method="POST"
-                          className="flex flex-row bg-gray-200
-                                     justify-center items-center
-                                     px-4 my-4 rounded-full
-                                     text-lg md:text-xl
-                                     w-5/6 lg:w-2/5">
-            <SearchSVG className="bg-gray-200"/>
-            <input type="text"
-                   className="bg-gray-200 border-opacity-0
-                              outline-none py-3 px-2
-                              w-full"
-                   placeholder="Search..."
+            <SearchBar
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
             />
-          </form>
-          <div className="flex flex-row justify-center items-center w-full text-lg lg:text-xl">
+            {/* {results.map((result) => (
+                console.log(result)
+            ))} */}
+            <div className="flex flex-row justify-center items-center w-full text-lg lg:text-xl">
             <div className="flex justify-start mx-2 md:hidden">
               Recently
             </div>
@@ -93,11 +96,11 @@ const Page = () => {
                                         focus:bg-gray-200 text-gray-400 border-2
                                         rounded-full outline-none md:py-1 px-2
                                         whitespace-nowrap w-full">
-                        <div className="absolute flex justify-center -top-3 -right-3
+                        <button className="absolute flex justify-center -top-3 -right-3
                                         opacity-0 group-focus:opacity-100
                                         bg-white border-2 rounded-full">
                           <CloseSVG className="w-1/3"/>
-                        </div>
+                        </button>
                         {item}
                       </button>
                     </div>
@@ -181,9 +184,13 @@ const query = graphql`
         )
       }
     }
-
+    # Local search query
+    localSearchPages {
+      index
+      store
+    }
     # Blog posts query
-    allMdx {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
@@ -198,8 +205,8 @@ const query = graphql`
               childImageSharp {
                 gatsbyImageData(
                   layout: FIXED
-                  width: 400
-                  height: 400
+                  width: 300
+                  height: 300
                   placeholder: BLURRED
                   formats: [AUTO, WEBP, AVIF]
                 )
