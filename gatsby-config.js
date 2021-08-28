@@ -68,6 +68,45 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: 'gatsby-plugin-local-search',
+      options: {
+        name: 'pages',
+        engine: 'flexsearch',
+        engineOptions: 'speed',
+        query: `
+        allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+          edges {
+            node {
+              id
+              frontmatter {
+                slug
+                title
+                category
+                date(formatString: "MMMM DD, YYYY")
+              }
+            }
+          }
+        }
+        `,
+        ref: 'slug',
+        index: ['title', 'slug'],
+        store: ['id, title', 'category', 'date', 'slug'],
+
+        // Function used to map the result from the GraphQL query. This should
+        // return an array of items to index in the form of flat objects
+        // containing properties to index. The objects must contain the `ref`
+        // field above (default: 'id'). This is required.
+        normalizer: ({ data }) =>
+          data.allMdx.edges.map((node) => ({
+            id: node.id,
+            title: node.frontmatter.title,
+            category: node.frontmatter.category,
+            date: node.frontmatter.date,
+            slug: node.frontmatter.slug,
+          })),
+      },
+    },
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
