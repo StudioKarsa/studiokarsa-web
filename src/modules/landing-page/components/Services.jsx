@@ -31,12 +31,14 @@ const Services = () => {
     'text-white w-14 h-16 sm:w-16 md:w-24 md:h-24 p-2 md:p-5 flex justify-center group-hover:text-primary group-hover:transform duration-300'
   const services = [
     {
+      key: 'web',
       image: <WebSVG className={serviceImageClassName} />,
       title: t('landingPage.services.contents.uiux.title'),
       description: t('landingPage.services.contents.uiux.description'),
       delay: 0.4
     },
     {
+      key: 'figma',
       image: <FigmaSVG className={serviceImageClassName} />,
       title: t('landingPage.services.contents.webDevelopment.title'),
       description: t(
@@ -45,6 +47,7 @@ const Services = () => {
       delay: 0.6
     },
     {
+      key: 'mobile',
       image: <MobileSVG className={serviceImageClassName} />,
       title: t('landingPage.services.contents.mobileDevelopment.title'),
       description: t(
@@ -53,6 +56,7 @@ const Services = () => {
       delay: 0.8
     },
     {
+      key: 'seo',
       image: <SEOSVG className={serviceImageClassName} />,
       title: t('landingPage.services.contents.seo.title'),
       description: t('landingPage.services.contents.seo.description'),
@@ -92,6 +96,7 @@ const Services = () => {
       <div className="lg:grid lg:grid-cols-2 lg:gap-12">
         {services.map(service => (
           <motion.div
+            key={service.key}
             ref={ref}
             variants={fadeUp}
             initial="hidden"
