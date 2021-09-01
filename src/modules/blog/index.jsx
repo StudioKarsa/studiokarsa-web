@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useFlexSearch } from 'react-use-flexsearch'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
-import SearchBar from '../../shared-components/Search'
+// import SearchBar from '../../shared-components/Search'
 
 import SEO from '../../shared-components/SEO'
 import CloseSVG from '../../assets/icons/x.svg'
@@ -16,9 +16,9 @@ const Page = () => {
 
   // const index = ['title', 'slug']
   // const store = ['id, title', 'category', 'date', 'slug']
-  const { search } = window.location;
-  const queries = new URLSearchParams(search).get('s')
-  const [searchQuery, setSearchQuery] = useState(queries || '');
+  // const { search } = window.location;
+  // const queries = new URLSearchParams(search).get('s')
+  // const [searchQuery, setSearchQuery] = useState(queries || '');
 
   // const results = useFlexSearch(searchQuery, index, store);
 
@@ -75,10 +75,10 @@ const Page = () => {
           </p>
         </div>
         <div className="flex flex-col items-center">
-            <SearchBar
+            {/* <SearchBar
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
-            />
+            /> */}
             {/* {results.map((result) => (
                 console.log(result)
             ))} */}
