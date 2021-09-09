@@ -7,7 +7,6 @@ import SearchBar from '../../shared-components/Search'
 import SEO from '../../shared-components/SEO'
 import CloseSVG from '../../assets/icons/x.svg'
 
-
 const Page = () => {
   const {
     file,
@@ -15,7 +14,9 @@ const Page = () => {
     localSearchPages: { index, store },
   } = useStaticQuery(query)
 
-  const { search } = window.location
+  const { search } =
+    typeof window !== undefined ? window.location : null
+
   const queries = new URLSearchParams(search).get('s')
   const [searchQuery, setSearchQuery] = useState(queries || '')
 
