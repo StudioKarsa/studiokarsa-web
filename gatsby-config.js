@@ -68,6 +68,45 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: 'gatsby-plugin-local-search',
+      options: {
+        name: 'pages',
+        engine: 'flexsearch',
+        engineOptions: {
+          encode: "icase",
+          tokenize: "forward",
+          async: false,
+        },
+        query: `
+        {
+          allMdx {
+            nodes {
+              id
+              frontmatter {
+                slug
+                title
+                category
+                date
+              }
+            }
+          }
+        }
+        `,
+        ref: 'slug',
+        index: ['title', 'slug'],
+        store: ['id', 'title', 'category', 'date', 'slug'],
+
+        normalizer: ({ data }) =>
+          data.allMdx.nodes.map((node) => ({
+            id: node.id,
+            slug: node.frontmatter.slug,
+            title: node.frontmatter.title,
+            category: node.frontmatter.category,
+            date: node.frontmatter.date,
+          })),
+      },
+    },
     `gatsby-plugin-gatsby-cloud`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
