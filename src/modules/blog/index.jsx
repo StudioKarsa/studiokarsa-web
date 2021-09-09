@@ -4,6 +4,8 @@ import { graphql, Link, useStaticQuery } from 'gatsby'
 import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
 import SearchBar from '../../shared-components/Search'
 
+import isBrowser from '../../utils/constants'
+
 import SEO from '../../shared-components/SEO'
 import CloseSVG from '../../assets/icons/x.svg'
 
@@ -14,8 +16,11 @@ const Page = () => {
     localSearchPages: { index, store },
   } = useStaticQuery(query)
 
-  const { search } =
-    typeof window !== undefined ? window.location : null
+  let { search } = '';
+
+  if (isBrowser) {
+    search = window.location
+  }
 
   const queries = new URLSearchParams(search).get('s')
   const [searchQuery, setSearchQuery] = useState(queries || '')
