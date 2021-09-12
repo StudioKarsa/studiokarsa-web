@@ -13,8 +13,8 @@ import IconTwitterLogo from '../../assets/icons/twitter-logo.svg'
 import IconSendLogo from '../../assets/icons/send-logo.svg'
 import IconShareLogo from '../../assets/icons/share-logo.svg'
 
-const a = props => <a className="text-xl 2xl:text-3xl py-4 text-blue-700" {...props} />
-const p = props => <p className="text-xl 2xl:text-3xl my-4" {...props} />
+const a = props => <a className="text-lg 2xl:text-2xl py-4 text-blue-700" {...props} />
+const p = props => <p className="text-lg 2xl:text-2xl my-4" {...props} />
 const ul = props => <ul className="mx-4 md:mx-12 list-disc" {...props} />
 const th = props => <th className="border-2 text-left font-bold p-4" {...props} />
 const td = props => <td className="border-2 text-left font-light p-4" {...props} />
@@ -22,37 +22,37 @@ const ol = props => <ol className="mx-4 md:mx-12 list-decimal" {...props} />
 const hr = props => <hr className="py-4" {...props} />
 const h1 = props => (
   <h1
-    className="font-bold leading-tight 2xl:leading-snug text-5xl 2xl:text-6xl pt-6"
+    className="font-bold leading-tight 2xl:leading-snug text-4xl 2xl:text-5xl pt-6"
     {...props}
   />
 )
 const h2 = props => (
   <h2
-    className="font-bold leading-tight 2xl:leading-snug text-4xl 2xl:text-5xl pt-6"
+    className="font-bold leading-tight 2xl:leading-snug text-3xl 2xl:text-4xl pt-6"
     {...props}
   />
 )
 const h3 = props => (
   <h3
-    className="font-bold leading-tight 2xl:leading-snug text-3xl 2xl:text-4xl pt-6"
+    className="font-bold leading-tight 2xl:leading-snug text-2xl 2xl:text-3xl pt-6"
     {...props}
   />
 )
 const h4 = props => (
   <h4
-    className="font-bold leading-tight 2xl:leading-snug text-2xl 2xl:text-3xl pt-6"
+    className="font-bold leading-tight 2xl:leading-snug text-xl 2xl:text-2xl pt-6"
     {...props}
   />
 )
 const h5 = props => (
   <h5
-    className="font-bold leading-tight 2xl:leading-snug text-xl 2xl:text-2xl pt-6"
+    className="font-bold leading-tight 2xl:leading-snug text-lg 2xl:text-xl pt-6"
     {...props}
   />
 )
 const h6 = props => (
   <h6
-    className="font-bold leading-tight 2xl:leading-snug text-lg 2xl:text-xl pt-6"
+    className="font-bold leading-tight 2xl:leading-snug text-base 2xl:text-lg pt-6"
     {...props}
   />
 )
@@ -196,7 +196,7 @@ const PostLayout = ({ data: { mdx }, pageContext }) => {
 
       <div className="overflow-x-hidden space-y-8 my-12 md:my-24 px-6 md:px-32 xl:px-56">
         <div className="space-y-4 md:mx-12">
-          <h1 className="font-black leading-tight text-4xl md:leading-tight 2xl:leading-snug md:text-5xl 2xl:text-6xl">
+          <h1 className="font-black leading-tight md:leading-tight 2xl:leading-snug text-4xl 2xl:text-5xl">
             {mdx.frontmatter.title}
           </h1>
           <div className="flex md:items-center flex-col space-y-2 md:flex-row md:space-y-0 justify-between">
