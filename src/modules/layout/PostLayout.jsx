@@ -194,7 +194,7 @@ const PostLayout = ({ data: { mdx }, pageContext }) => {
         </div>
       </div>
 
-      <div className="overflow-x-hidden space-y-8 my-12 md:my-24 px-6 md:px-32 xl:px-56">
+      <div className="overflow-x-hidden space-y-8 my-12 md:my-24 px-6 md:px-56 xl:px-56">
         <div className="space-y-4 md:mx-12">
           <h1 className="font-black leading-tight md:leading-tight 2xl:leading-snug text-4xl 2xl:text-5xl">
             {mdx.frontmatter.title}
@@ -219,7 +219,7 @@ const PostLayout = ({ data: { mdx }, pageContext }) => {
           image={getImage(mdx.frontmatter.cover)}
         />
 
-        <div className="overflow-x-auto md:mx-12">
+        <div className="overflow-x-auto md:mx-32">
           <MDXProvider components={components}>
             <MDXRenderer>{mdx.body}</MDXRenderer>
           </MDXProvider>
