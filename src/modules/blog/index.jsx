@@ -83,8 +83,8 @@ const Page = () => {
               <div className="flex flex-col hover:bg-primary hover:text-white shadow-lg my-3 p-4 rounded-xl w-full md:w-1/2">
                 <Link to={result.slug} key={result.id}>
                   <div className="flex-1 text-left w-full">
-                    <h2 className="text-lg xl:text-xl my-3 font-bold">{result.title.substr(0, 25) + "..."}</h2>
-                    <p className="text-md xl:text-lg my-3">{result.desc.substr(0, 25) + "..."}</p>
+                    <h2 className="text-lg xl:text-xl my-3 font-bold">{result.title}</h2>
+                    <p className="text-md xl:text-lg my-3">{result.desc}</p>
                   </div>
                 </Link>
               </div>
