@@ -29,16 +29,6 @@ const Page = () => {
 
   const seoImage = getImage(file)
   const seoImageSRC = getSrc(file)
-  const categories = [
-    'Books',
-    'Design',
-    'Development',
-    'Event',
-    'Job and Career',
-    'Mobile',
-    'Productivity',
-    'Website',
-  ]
   const firstPostId = edges[0].node.id
   const firstPost = edges[0].node.frontmatter
 
@@ -90,26 +80,29 @@ const Page = () => {
               setSearchQuery={setSearchQuery}
             />
             {results.map(result => (
-              <div className="py-4 border-b">
-                <p>{result.slug}</p>
-                <p>{result.title}</p>
+              <div className="flex flex-col hover:bg-primary hover:text-white shadow-lg my-3 p-4 rounded-xl w-full md:w-1/2">
+                <Link to={result.slug} key={result.id}>
+                  <div className="flex-1 text-left w-full">
+                    <h2 className="text-lg xl:text-xl my-3 font-bold">{result.title.substr(0, 25) + "..."}</h2>
+                    <p className="text-md xl:text-lg my-3">{result.desc.substr(0, 25) + "..."}</p>
+                  </div>
+                </Link>
               </div>
             ))}
             <div className="flex flex-row justify-center items-center w-full text-lg lg:text-xl">
               <div className="flex justify-start mx-2 md:hidden">Recently</div>
               <div className="overflow-x-scroll md:overflow-hidden">
                 <div className="flex flex-row md:grid md:grid-cols-4 gap-3 p-4">
-                  {categories.map((item, index) => (
+                  {edges.map(({ node: { frontmatter } }) => (
                     <div
                       className="relative flex items-center justify-center"
-                      key={index}
                     >
                       <div className="static w-full">
                         <button className="group group-hover:shadow-inner group-hover:bg-gray-200 focus:outline-none focus:bg-gray-200 text-gray-400 border-2 rounded-full outline-none md:py-1 px-2 whitespace-nowrap w-full">
                           <button className="absolute flex justify-center -top-3 -right-3 opacity-0 group-focus:opacity-100 bg-white border-2 rounded-full">
                             <CloseSVG className="w-1/3" />
                           </button>
-                          {item}
+                          {frontmatter.category}
                         </button>
                       </div>
                     </div>
@@ -148,9 +141,9 @@ const Page = () => {
                       •
                       <p className="ml-1 text-gray-500 text-md xl:text-lg">{firstPost.date}</p>
                     </div>
-                    <h1 className="font-extrabold text-2xl my-2">
+                    <h2 className="font-extrabold text-2xl my-2">
                       {firstPost.title.substr(0, 45) + "..."}
-                    </h1>
+                    </h2>
                     <p className="text-gray-400 text-xl">{firstPost.desc}</p>
                   </div>
                 </div>
@@ -186,9 +179,9 @@ const Page = () => {
                           {frontmatter.date}
                         </p>
                       </div>
-                      <h1 className="font-extrabold text-2xl my-2">
+                      <h2 className="font-extrabold text-2xl my-2">
                         {frontmatter.title.substr(0, 45) + '...'}
-                      </h1>
+                      </h2>
                       <p className="text-gray-400 text-xl">{frontmatter.desc}</p>
                     </div>
                   </div>
@@ -222,7 +215,7 @@ const query = graphql`
       }
     }
     # Blog posts query
-    allMdx {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
