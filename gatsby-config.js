@@ -86,6 +86,7 @@ module.exports = {
               frontmatter {
                 slug
                 title
+                desc
                 category
                 date
               }
@@ -95,13 +96,14 @@ module.exports = {
         `,
         ref: 'slug',
         index: ['title', 'slug'],
-        store: ['id', 'title', 'category', 'date', 'slug'],
+        store: ['id', 'title', 'desc', 'category', 'date', 'slug'],
 
         normalizer: ({ data }) =>
           data.allMdx.nodes.map((node) => ({
             id: node.id,
             slug: node.frontmatter.slug,
             title: node.frontmatter.title,
+            desc: node.frontmatter.desc,
             category: node.frontmatter.category,
             date: node.frontmatter.date,
           })),
