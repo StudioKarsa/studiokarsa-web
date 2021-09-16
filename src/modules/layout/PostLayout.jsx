@@ -104,7 +104,21 @@ const components = {
   "deckgo-highlight-code": deckgo_highlight_code,
 }
 
-const Footer = ({ mdx, prev, next }) => {
+const Footer = ({ pageContext }) => {
+  const next = pageContext.next
+    ? {
+      url: `${pageContext.next.frontmatter.slug}`,
+      title: pageContext.next.frontmatter.title
+    }
+    : null
+
+  const prev = pageContext.prev
+    ? {
+      url: `${pageContext.prev.frontmatter.slug}`,
+      title: pageContext.prev.frontmatter.title,
+    }
+    : null
+
   return (
     <div className="my-24 px-6 md:px-28">
       <div
@@ -117,8 +131,8 @@ const Footer = ({ mdx, prev, next }) => {
             <div className="col-span-2 lg:grid place-items-center hidden">
               <GatsbyImage
                 className="w-28 h-28 rounded-3xl"
-                alt={mdx.frontmatter.coverAlt}
-                image={getImage(mdx.frontmatter.cover)}
+                alt={pageContext.prev.frontmatter.coverAlt}
+                image={getImage(pageContext.prev.frontmatter.cover)}
               />
             </div>
             <div className="col-span-5 lg:col-span-4 flex flex-col justify-center space-y-2">
@@ -138,8 +152,8 @@ const Footer = ({ mdx, prev, next }) => {
             <div className="lg:grid place-items-center hidden ml-4">
               <GatsbyImage
                 className="w-28 h-28 rounded-3xl"
-                alt={mdx.frontmatter.coverAlt}
-                image={getImage(mdx.frontmatter.cover)}
+                alt={pageContext.next.frontmatter.coverAlt}
+                image={getImage(pageContext.next.frontmatter.cover)}
               />
             </div>
             <div className="flex flex-col justify-center space-y-2">
@@ -158,19 +172,15 @@ const Footer = ({ mdx, prev, next }) => {
 const PostLayout = ({ data: { mdx }, pageContext }) => {
   deckDeckGoHighlightElement()
 
-  const next = pageContext.next
-    ? {
-      url: `${pageContext.next.frontmatter.slug}`,
-      title: pageContext.next.frontmatter.title
-    }
-    : null
+  function copyURLLocation() {
+    const el = document.querySelector(".tooltiptext")
+    el.classList.add("visible")
+    navigator.clipboard.writeText(window.location.href)
 
-  const prev = pageContext.prev
-    ? {
-      url: `${pageContext.prev.frontmatter.slug}`,
-      title: pageContext.prev.frontmatter.title
-    }
-    : null
+    setTimeout(function () {
+      el.classList.remove("visible")
+    }, 1000);
+  }
 
   return (
     <>
@@ -181,16 +191,17 @@ const PostLayout = ({ data: { mdx }, pageContext }) => {
           <span>share</span>
         </div>
         <div className="cursor-pointer p-2" title="facebook">
-          <IconFacebookLogo className="transform scale-90 fill-current stroke-0" />
+          <IconFacebookLogo className="transform scale-90 fill-current hover:text-primary hover:fill-current duration-150 stroke-0" />
         </div>
         <div className="cursor-pointer p-2" title="twitter">
-          <IconTwitterLogo className="transform scale-90 fill-current stroke-0" />
+          <IconTwitterLogo className="transform scale-90 fill-current hover:text-primary hover:fill-current duration-150 stroke-0" />
         </div>
         <div className="cursor-pointer p-2" title="send">
-          <IconSendLogo className="transform scale-90 fill-current stroke-0" />
+          <IconSendLogo className="transform scale-90 fill-current hover:text-primary hover:fill-current duration-150 stroke-0" />
         </div>
-        <div className="cursor-pointer p-2" title="share">
-          <IconShareLogo className="transform scale-90 fill-current stroke-1" />
+        <div className="tooltip cursor-pointer p-2" title="share" onClick={copyURLLocation}>
+          <IconShareLogo className="transform scale-90 fill-current hover:text-primary hover:fill-current duration-150 stroke-1" />
+          <span className="tooltiptext text-xs">Copied!</span>
         </div>
       </div>
 
@@ -226,7 +237,7 @@ const PostLayout = ({ data: { mdx }, pageContext }) => {
         </div>
       </div>
 
-      <Footer mdx={mdx} prev={prev} next={next} />
+      <Footer pageContext={pageContext} />
     </>
   )
 }

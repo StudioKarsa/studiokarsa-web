@@ -12,6 +12,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             frontmatter {
               slug,
               title
+              coverAlt
+              cover {
+                childImageSharp {
+                  gatsbyImageData(
+                    layout: CONSTRAINED
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                  )
+                }
+              }
             }
           }
         }

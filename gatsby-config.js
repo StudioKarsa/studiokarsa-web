@@ -74,8 +74,8 @@ module.exports = {
         name: 'pages',
         engine: 'flexsearch',
         engineOptions: {
-          encode: "icase",
-          tokenize: "forward",
+          encode: "soundex",
+          tokenize: "full",
           async: false,
         },
         query: `
@@ -86,24 +86,38 @@ module.exports = {
               frontmatter {
                 slug
                 title
+                desc
                 category
-                date
+                date(formatString: "MMMM DD, YYYY")
+                coverAlt
+                cover {
+                  childImageSharp {
+                    gatsbyImageData(
+                      layout: CONSTRAINED
+                      placeholder: BLURRED
+                      formats: [AUTO, WEBP, AVIF]
+                    )
+                  }
+                }
               }
             }
           }
         }
         `,
-        ref: 'slug',
-        index: ['title', 'slug'],
-        store: ['id', 'title', 'category', 'date', 'slug'],
+        index: ['title', 'slug', 'category'],
+        store: ['id', 'slug', 'category', 'title', 'desc', 'category', 'date', 'coverAlt', 'cover'],
 
         normalizer: ({ data }) =>
           data.allMdx.nodes.map((node) => ({
             id: node.id,
             slug: node.frontmatter.slug,
+            category: node.frontmatter.category,
             title: node.frontmatter.title,
+            desc: node.frontmatter.desc,
             category: node.frontmatter.category,
             date: node.frontmatter.date,
+            coverAlt: node.frontmatter.coverAlt,
+            cover: node.frontmatter.cover,
           })),
       },
     },
