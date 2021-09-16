@@ -9,17 +9,6 @@ import SearchBar from '../../shared-components/Search'
 import SEO from '../../shared-components/SEO'
 
 const PageHeader = ({ data, searchQuery, setSearchQuery, setFilterQuery }) => {
-  const categories = [
-    'React',
-    'Mdx',
-    'Development',
-    'Event',
-    'Job and Career',
-    'Mobile',
-    'Productivity',
-    'Website',
-  ]
-
   function addFilterSearch(event, item) {
     event.target.classList.toggle('bg-gray-200')
     event.target.classList.toggle('outline-none')
