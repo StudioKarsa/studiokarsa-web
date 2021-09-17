@@ -14,6 +14,9 @@ module.exports = {
         secondary: '#FFBC42',
         white: '#f6f9fc',
       },
+      screens: {
+        'xs': '375px',
+      },
     },
     fill: theme => ({
       current: 'currentColor',
