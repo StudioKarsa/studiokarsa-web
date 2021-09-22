@@ -3,8 +3,6 @@ import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { useFlexSearch } from 'react-use-flexsearch'
 
-import CatListSVG from '../../assets/icons/category-list.svg'
-import ArDownSVG from '../../assets/icons/arrow-down.svg'
 import isBrowser from '../../utils/constants'
 import SearchBar from '../../shared-components/Search'
 import SEO from '../../shared-components/SEO'
@@ -38,11 +36,6 @@ const PageHeader = ({ data, searchQuery, setSearchQuery, setFilterQuery }) => {
       <div className="flex flex-col items-center">
         <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <div className="flex flex-row justify-center items-center w-full text-lg lg:text-xl">
-          <div className="flex flex-row justify-start items-center mx-2 md:hidden">
-            <CatListSVG className="hidden xs:flex justify-center mx-2"/>
-              <p className="flex justify-center">Recently</p>
-            <ArDownSVG className="hidden xs:flex justify-center mx-2 w-5 h-5"/>
-          </div>
           <div className="overflow-x-scroll md:overflow-hidden">
             <div className="flex flex-row md:grid md:grid-cols-4 gap-3 p-4">
               {data.map(({ node: { id, frontmatter } }) => (
@@ -51,7 +44,7 @@ const PageHeader = ({ data, searchQuery, setSearchQuery, setFilterQuery }) => {
                     className="text-gray-400 border-2 rounded-full md:py-1 px-4 whitespace-nowrap cursor-pointer w-full"
                     onClick={e => addFilterSearch(e, frontmatter.category)}
                   >
-                    {frontmatter.category}
+                    {frontmatter.category.charAt(0).toUpperCase() + frontmatter.category.slice(1)}
                   </div>
                 </div>
               ))}
