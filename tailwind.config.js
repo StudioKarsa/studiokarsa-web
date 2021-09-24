@@ -17,6 +17,9 @@ module.exports = {
       screens: {
         'xs': '375px',
       },
+      borderColor: {
+        triangles: 'transparent #111827 transparent transparent'
+      }
     },
     fill: theme => ({
       current: 'currentColor',
