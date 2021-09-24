@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { MDXProvider } from '@mdx-js/react'
@@ -13,11 +13,17 @@ import IconTwitterLogo from '../../assets/icons/twitter-logo.svg'
 import IconSendLogo from '../../assets/icons/send-logo.svg'
 import IconShareLogo from '../../assets/icons/share-logo.svg'
 
-const a = props => <a className="text-lg 2xl:text-2xl py-4 text-blue-700" {...props} />
+const a = props => (
+  <a className="text-lg 2xl:text-2xl py-4 text-blue-700" {...props} />
+)
 const p = props => <p className="text-lg 2xl:text-2xl my-4" {...props} />
 const ul = props => <ul className="mx-4 md:mx-12 list-disc" {...props} />
-const th = props => <th className="border-2 text-left font-bold p-4" {...props} />
-const td = props => <td className="border-2 text-left font-light p-4" {...props} />
+const th = props => (
+  <th className="border-2 text-left font-bold p-4" {...props} />
+)
+const td = props => (
+  <td className="border-2 text-left font-light p-4" {...props} />
+)
 const ol = props => <ol className="mx-4 md:mx-12 list-decimal" {...props} />
 const hr = props => <hr className="py-4" {...props} />
 const h1 = props => (
@@ -57,7 +63,10 @@ const h6 = props => (
   />
 )
 const inlineCode = props => (
-  <code className="bg-gray-200 rounded text-lg 2xl:text-xl px-4 py-1" {...props} />
+  <code
+    className="bg-gray-200 rounded text-lg 2xl:text-xl px-4 py-1"
+    {...props}
+  />
 )
 const tbody = props => <tbody className="border" {...props} />
 const table = props => (
@@ -69,10 +78,7 @@ const table = props => (
   </div>
 )
 const blockquote = props => (
-  <blockquote
-    className="border-l-4 border-gray-500 md:mx-12 px-4"
-    {...props}
-  />
+  <blockquote className="border-l-4 border-gray-500 md:mx-12 px-4" {...props} />
 )
 const deckgo_highlight_code = props => (
   <div className="overflow-x-hidden">
@@ -101,32 +107,37 @@ const components = {
   table,
   tbody,
   blockquote,
-  "deckgo-highlight-code": deckgo_highlight_code,
+  'deckgo-highlight-code': deckgo_highlight_code,
 }
 
 const Footer = ({ pageContext }) => {
   const next = pageContext.next
     ? {
-      url: `${pageContext.next.frontmatter.slug}`,
-      title: pageContext.next.frontmatter.title
-    }
+        url: `${pageContext.next.frontmatter.slug}`,
+        title: pageContext.next.frontmatter.title,
+      }
     : null
 
   const prev = pageContext.prev
     ? {
-      url: `${pageContext.prev.frontmatter.slug}`,
-      title: pageContext.prev.frontmatter.title,
-    }
+        url: `${pageContext.prev.frontmatter.slug}`,
+        title: pageContext.prev.frontmatter.title,
+      }
     : null
 
   return (
     <div className="my-24 px-6 md:px-28">
       <div
-        className={`grid grid-cols-2 gap-8 rounded-3xl shadow-none ${(prev && next) ? "md:shadow-lg" : ""}`}
+        className={`grid grid-cols-2 gap-8 rounded-3xl shadow-none ${
+          prev && next ? 'md:shadow-lg' : ''
+        }`}
       >
-        {prev
-          ? <Link to={prev.url}
-            className={`col-span-2 md:col-span-1 flex space-x-4 rounded-3xl cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 ${(prev && next) ? "shadow-lg md:shadow-none" : "shadow-lg"}`}
+        {prev ? (
+          <Link
+            to={prev.url}
+            className={`col-span-2 md:col-span-1 flex space-x-4 rounded-3xl cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 ${
+              prev && next ? 'shadow-lg md:shadow-none' : 'shadow-lg'
+            }`}
           >
             <div className="col-span-2 lg:grid place-items-center hidden">
               <GatsbyImage
@@ -136,18 +147,23 @@ const Footer = ({ pageContext }) => {
               />
             </div>
             <div className="col-span-5 lg:col-span-4 flex flex-col justify-center space-y-2">
-              <div className="font-medium text-sm text-gray-500 text-left">Previous Post</div>
+              <div className="font-medium text-sm text-gray-500 text-left">
+                Previous Post
+              </div>
               <div className="font-semibold text-left text-lg text-gray-800 overflow-hidden overflow-ellipsis line-clamp-2">
                 {prev.title}
               </div>
             </div>
           </Link>
-          : <div></div>
-
-        }
+        ) : (
+          <div></div>
+        )}
         {next && (
-          <Link to={next.url}
-            className={`col-span-2 md:col-span-1 flex flex-row-reverse rounded-3xl cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 ${(prev && next) ? "shadow-lg md:shadow-none" : "shadow-lg"}`}
+          <Link
+            to={next.url}
+            className={`col-span-2 md:col-span-1 flex flex-row-reverse rounded-3xl cursor-pointer hover:bg-gray-200 transition ease-in-out duration-200 p-4 ${
+              prev && next ? 'shadow-lg md:shadow-none' : 'shadow-lg'
+            }`}
           >
             <div className="lg:grid place-items-center hidden ml-4">
               <GatsbyImage
@@ -157,7 +173,9 @@ const Footer = ({ pageContext }) => {
               />
             </div>
             <div className="flex flex-col justify-center space-y-2">
-              <div className="font-medium text-sm text-gray-500 text-right">Next Post</div>
+              <div className="font-medium text-sm text-gray-500 text-right">
+                Next Post
+              </div>
               <div className="font-semibold text-right text-lg text-gray-800 overflow-hidden overflow-ellipsis line-clamp-2">
                 {next.title}
               </div>
@@ -171,15 +189,15 @@ const Footer = ({ pageContext }) => {
 
 const PostLayout = ({ data: { mdx }, pageContext }) => {
   deckDeckGoHighlightElement()
+  const tooltip = useRef(null)
 
   function copyURLLocation() {
-    const el = document.querySelector(".tooltiptext")
-    el.classList.add("visible")
+    tooltip.current.classList.remove('invisible')
     navigator.clipboard.writeText(window.location.href)
 
     setTimeout(function () {
-      el.classList.remove("visible")
-    }, 1000);
+      tooltip.current.classList.add('invisible')
+    }, 1000)
   }
 
   return (
@@ -199,9 +217,15 @@ const PostLayout = ({ data: { mdx }, pageContext }) => {
         <div className="cursor-pointer p-2" title="send">
           <IconSendLogo className="transform scale-90 fill-current hover:text-primary hover:fill-current duration-150 stroke-0" />
         </div>
-        <div className="tooltip cursor-pointer p-2" title="share" onClick={copyURLLocation}>
+        <div
+          className="relative inline-block cursor-pointer p-2"
+          title="share"
+          onClick={copyURLLocation}
+        >
           <IconShareLogo className="transform scale-90 fill-current hover:text-primary hover:fill-current duration-150 stroke-1" />
-          <span className="tooltiptext text-xs">Copied!</span>
+          <span className="tooltiptext invisible after:absolute after:mt-[-5px] after:top-1/2 after:right-full after:border-solid after:border-[4px] after:border-triangles absolute z-[999] top-[8px] left-[110%] bg-[#111827] w-auto text-white text-center rounded-md text-xs px-2 py-1" ref={tooltip}>
+            Copied!
+          </span>
         </div>
       </div>
 
