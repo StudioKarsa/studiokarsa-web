@@ -6,6 +6,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => (
     action="/"
     method="GET"
     autoComplete="off"
+    onSubmit={e => e.preventDefault()}
     className="flex flex-row bg-gray-200
             justify-center items-center
             px-4 my-4 rounded-full
