@@ -52,34 +52,3 @@ deckgo-highlight-code::-webkit-scrollbar-thumb {
 deckgo-highlight-code::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltiptext {
-  visibility: hidden;
-  width: auto;
-  background-color: rgba(17, 24, 39, 1);
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 10px;
-  position: absolute;
-  top: 5px;
-  left: 110%;
-  z-index: 99 !important;
-}
-
-.tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent rgba(17, 24, 39, 1) transparent transparent;
-}
