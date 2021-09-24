@@ -180,18 +180,19 @@ const Page = () => {
   const seoImageSRC = getSrc(file)
 
   const [searchQuery, setSearchQuery] = useState('')
-  const [filterQuery, setFilterQuery] = useState('')
+  const [filterQuery, setFilterQuery] = useState(null)
 
   useEffect(() => {
-    const queries = new URLSearchParams(window.location.search).get('s') || ''
-    setSearchQuery(queries)
-    setFilterQuery(queries)
+    const queries = new URLSearchParams(window.location.search).get('s')
+    setSearchQuery(queries || '')
+    setFilterQuery(queries || '')
   }, [])
 
   const queryType = searchQuery || filterQuery
-  const refrences = typeof searchQuery === null ? 'category' : 'title'
+  const refrences = typeof filterQuery === null ? 'title' : 'category'
   const results = useFlexSearch(queryType, index, store, refrences)
 
+  console.log(queryType, typeof filterQuery === null, refrences)
   const suggestedPost = edges[0].node
   const postsContents = results.length < 1 ? edges : results
   const isSearched = results.length < 1 ? false : true
