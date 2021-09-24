@@ -74,7 +74,7 @@ module.exports = {
         name: 'pages',
         engine: 'flexsearch',
         engineOptions: {
-          encode: "soundex",
+          encode: "advanced",
           tokenize: "full",
           async: false,
         },
