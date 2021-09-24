@@ -102,7 +102,7 @@ const SuggestedPost = ({ post }) => (
 const Post = ({ id, slug, cover, coverAlt, category, date, title, desc }) => (
   <Link to={slug} key={id} className="mx-2">
     <div className="flex flex-row justify-center h-full">
-      <div className="flex flex-col hover:shadow-2xl rounded-xl my-10 p-4">
+      <div className="flex flex-col hover:shadow-2xl rounded-xl my-3 p-4">
         <div className="grid place-items-center overflow-hidden">
           <GatsbyImage
             image={getImage(cover)}
@@ -133,7 +133,7 @@ const Post = ({ id, slug, cover, coverAlt, category, date, title, desc }) => (
 const ListsPost = ({ posts, isSearched }) => {
   if (!isSearched) {
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-3 col-span-3">
+      <div className="grid grid-cols-1 lg:grid-cols-3 my-5 col-span-3">
         {posts.map(({ node: { id, frontmatter } }) => (
           <Post
             key={id}
@@ -192,7 +192,6 @@ const Page = () => {
   const refrences = typeof filterQuery === null ? 'title' : 'category'
   const results = useFlexSearch(queryType, index, store, refrences)
 
-  console.log(queryType, typeof filterQuery === null, refrences)
   const suggestedPost = edges[0].node
   const postsContents = results.length < 1 ? edges : results
   const isSearched = results.length < 1 ? false : true
