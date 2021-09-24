@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { GatsbyImage, getImage, getSrc } from 'gatsby-plugin-image'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { useFlexSearch } from 'react-use-flexsearch'
@@ -9,7 +9,16 @@ import isBrowser from '../../utils/constants'
 import SearchBar from '../../shared-components/Search'
 import SEO from '../../shared-components/SEO'
 
-const PageHeader = ({ data, searchQuery, setSearchQuery, setFilterQuery }) => {
+const PageHeader = ({
+  categories,
+  searchQuery,
+  setSearchQuery,
+  setFilterQuery,
+}) => {
+  const filteredCategories = [
+    ...new Set(categories.map(data => data.node.frontmatter.category)),
+  ]
+
   function addFilterSearch(event, item) {
     event.target.classList.toggle('bg-gray-200')
     event.target.classList.toggle('outline-none')
@@ -45,13 +54,16 @@ const PageHeader = ({ data, searchQuery, setSearchQuery, setFilterQuery }) => {
           </div>
           <div className="overflow-x-scroll md:overflow-hidden">
             <div className="flex flex-row md:grid md:grid-cols-4 gap-3 p-4">
-              {data.map(({ node: { id, frontmatter } }) => (
-                <div className="relative flex items-center justify-center" key={id}>
+              {filteredCategories.map((item, index) => (
+                <div
+                  className="relative flex items-center justify-center"
+                  key={index}
+                >
                   <div
-                    className="text-gray-400 border-2 rounded-full md:py-1 px-4 whitespace-nowrap cursor-pointer w-full"
-                    onClick={e => addFilterSearch(e, frontmatter.category)}
+                    className="capitalize text-gray-400 border-2 rounded-full md:py-1 px-4 whitespace-nowrap cursor-pointer w-full"
+                    onClick={e => addFilterSearch(e, item)}
                   >
-                    {frontmatter.category}
+                    {item}
                   </div>
                 </div>
               ))}
@@ -166,9 +178,6 @@ const ListsPost = ({ posts, isSearched }) => {
 }
 
 const Page = () => {
-  let { search } = ''
-  if (isBrowser) search = window.location.search
-
   const {
     file,
     allMdx: { edges },
@@ -177,9 +186,14 @@ const Page = () => {
   const seoImage = getImage(file)
   const seoImageSRC = getSrc(file)
 
-  const queries = new URLSearchParams(search).get('s')
-  const [searchQuery, setSearchQuery] = useState(queries || '')
-  const [filterQuery, setFilterQuery] = useState(queries || '')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [filterQuery, setFilterQuery] = useState('')
+
+  useEffect(() => {
+    const queries = new URLSearchParams(window.location.search).get('s') || ''
+    setSearchQuery(queries)
+    setFilterQuery(queries)
+  }, [])
 
   const queryType = searchQuery || filterQuery
   const refrences = typeof searchQuery === null ? 'category' : 'title'
@@ -213,7 +227,7 @@ const Page = () => {
       />
 
       <PageHeader
-        data={edges}
+        categories={edges}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         setFilterQuery={setFilterQuery}
