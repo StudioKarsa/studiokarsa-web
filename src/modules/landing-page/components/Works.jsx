@@ -17,14 +17,6 @@ function renderProjectImage(project) {
         objectFit="contain"
       />
     ),
-    sikepo: (
-      <StaticImage
-        src="../../../assets/images/works-2-iphones-mockup.png"
-        alt="Second Image"
-        className=""
-        objectFit="contain"
-      />
-    ),
     magenta: (
       <StaticImage
         src="../../../assets/images/works-3-iphones-mockup.png"
@@ -90,16 +82,10 @@ const Works = () => {
       delay: 0.4,
     },
     {
-      key: 'sikepo',
-      title: 'Sikepo',
-      description: t('landingPage.works.projects.sikepo.description'),
-      delay: 0.6,
-    },
-    {
       key: 'magenta',
       title: 'Magenta',
       description: t('landingPage.works.projects.magenta.description'),
-      delay: 0.8,
+      delay: 0.6,
     },
   ]
 
